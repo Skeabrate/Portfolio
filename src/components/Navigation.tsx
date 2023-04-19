@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeButton from './ThemeButton';
 
 const Navigation = () => {
   return (
@@ -20,7 +21,9 @@ const Navigation = () => {
 
       <ul className="flex gap-6">
         <li>Lang</li>
-        <li>Theme</li>
+        <li>
+          <ThemeButton />
+        </li>
       </ul>
     </nav>
   );
