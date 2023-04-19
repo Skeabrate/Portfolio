@@ -1,11 +1,14 @@
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
   return (
-    <main>
-      <p className={inter.className}>Portfolio</p>
+    <main className="mx-auto max-w-5xl px-4">
+      <div className="h-[200vh] py-60">
+        <p>Portfolio</p>
+        <p>Portfolio</p>
+        <p>Portfolio</p>
+        <p>Portfolio</p>
+        <p>Portfolio</p>
+        <p>Portfolio</p>
+      </div>
     </main>
   );
 }

@@ -40,7 +40,7 @@ const Footer = () => {
       </ul>
 
       <p className="text-sm tracking-wider">
-        &copy; {new Date().getFullYear()} Sebastian Świeczkowski. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Sebastian Świeczkowski <br /> All Rights Reserved
       </p>
     </footer>
   );
