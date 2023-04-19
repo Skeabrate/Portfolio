@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${font.className} bg-zinc-100 text-zinc-900 transition-colors duration-300 dark:bg-zinc-900 dark:text-zinc-50`}
+        className={`${font.className} relative text-black transition-colors duration-300 after:fixed after:inset-0 after:-z-10 after:h-full after:w-full after:bg-gradient-to-t after:from-slate-300 after:to-slate-50 dark:text-white dark:after:from-slate-950 dark:after:to-slate-800`}
       >
         <ScrollProvider>
           <Navigation />
