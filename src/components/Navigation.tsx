@@ -1,57 +1,77 @@
 'use client';
 
-import { useContext, useEffect, useRef } from 'react';
+import { useContext } from 'react';
+import cx from 'classnames';
+import { ROUTES } from 'utils/routes';
 import { ScrollContext } from 'context/ScrollContext';
+import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import ThemeButton from './ThemeButton';
 
 const Navigation = () => {
+  const { activeSection } = useContext(ActiveSectionContext);
   const { scrollY } = useContext(ScrollContext);
-
-  const navRef = useRef<HTMLDivElement>(null);
-  const lastScrollTop = useRef(0);
-
-  useEffect(() => {
-    if (!navRef.current) return;
-
-    // hide nav on scroll down and show nav on scroll up
-    const st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop.current) {
-      navRef.current.style.transform = 'translateY(-100%)';
-    } else {
-      navRef.current.style.transform = 'translateY(0)';
-    }
-    lastScrollTop.current = st <= 0 ? 0 : st;
-
-    // increase nav height if reaches top of the screen
-    if (scrollY > 30) {
-      navRef.current.style.height = '64px';
-      navRef.current.style.boxShadow = '0 10px 20px -10px rgba(19, 26, 37, 0.7)';
-    } else {
-      navRef.current.style.height = '96px';
-      navRef.current.style.background = 'transparent';
-      navRef.current.style.boxShadow = '';
-    }
-  }, [scrollY]);
 
   return (
     <nav
-      ref={navRef}
-      className="nav-transition fixed left-0 top-0 flex w-full items-center justify-between px-4 backdrop-blur-sm lg:px-12"
+      className={cx(
+        'nav-transition fixed left-0 top-0 flex w-full items-center justify-between px-4 backdrop-blur-sm lg:px-12',
+        scrollY > 30 ? 'h-16 shadow-md' : 'h-24 bg-transparent'
+      )}
     >
       <a href="#">Skeabrate</a>
 
       <ul className="flex items-center gap-6">
         <li>
-          <a href="#about">About</a>
+          <a
+            className={cx(
+              'bg-gradient-to-r from-black to-black bg-no-repeat transition-[background-size] duration-300 dark:from-white dark:to-white',
+              ROUTES.about === activeSection
+                ? 'bg-[length:100%_1px] bg-left-bottom'
+                : 'bg-[length:0px_1px] bg-right-bottom'
+            )}
+            href={'#' + ROUTES.about}
+          >
+            {ROUTES.about}
+          </a>
         </li>
         <li>
-          <a href="#skills">Skills</a>
+          <a
+            className={cx(
+              'bg-gradient-to-r from-black to-black bg-no-repeat transition-[background-size] duration-300 dark:from-white dark:to-white',
+              ROUTES.skills === activeSection
+                ? 'bg-[length:100%_1px] bg-left-bottom'
+                : 'bg-[length:0px_1px] bg-right-bottom'
+            )}
+            href={'#' + ROUTES.skills}
+          >
+            {ROUTES.skills}
+          </a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          <a
+            className={cx(
+              'bg-gradient-to-r from-black to-black bg-no-repeat transition-[background-size] duration-300 dark:from-white dark:to-white',
+              ROUTES.projects === activeSection
+                ? 'bg-[length:100%_1px] bg-left-bottom'
+                : 'bg-[length:0px_1px] bg-right-bottom'
+            )}
+            href={'#' + ROUTES.projects}
+          >
+            {ROUTES.projects}
+          </a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a
+            className={cx(
+              'bg-gradient-to-r from-black to-black bg-no-repeat transition-[background-size] duration-300 dark:from-white dark:to-white',
+              ROUTES.contact === activeSection
+                ? 'bg-[length:100%_1px] bg-left-bottom'
+                : 'bg-[length:0px_1px] bg-right-bottom'
+            )}
+            href={'#' + ROUTES.contact}
+          >
+            {ROUTES.contact}
+          </a>
         </li>
       </ul>
 

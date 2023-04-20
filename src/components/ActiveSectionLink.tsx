@@ -1,9 +1,15 @@
-import cx from 'classnames';
+'use client';
+
+import { useContext } from 'react';
 import { PT_Serif } from 'next/font/google';
+import cx from 'classnames';
+import { ActiveSectionContext } from 'context/ActiveSectionContext';
 
 const ptSerif = PT_Serif({ subsets: ['cyrillic'], weight: '700' });
 
-const ActiveSectionLink = ({ activeSection }: { activeSection: string }) => {
+const ActiveSectionLink = () => {
+  const { activeSection } = useContext(ActiveSectionContext);
+
   return (
     <div
       className={cx(
@@ -11,7 +17,7 @@ const ActiveSectionLink = ({ activeSection }: { activeSection: string }) => {
         ptSerif.className
       )}
     >
-      {activeSection}
+      {activeSection}.
     </div>
   );
 };

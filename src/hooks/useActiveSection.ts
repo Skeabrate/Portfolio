@@ -1,8 +1,9 @@
-import { RefObject, useContext, useEffect, useState } from 'react';
+import { RefObject, useContext, useEffect } from 'react';
 import { ScrollContext } from 'context/ScrollContext';
+import { ActiveSectionContext } from 'context/ActiveSectionContext';
 
 export const useActiveSection = (sections: { id: string; ref: RefObject<HTMLDivElement> }[]) => {
-  const [activeSection, setActiveSection] = useState(sections[0].id);
+  const { activeSection, setActiveSection } = useContext(ActiveSectionContext);
   const { scrollY } = useContext(ScrollContext);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ export const useActiveSection = (sections: { id: string; ref: RefObject<HTMLDivE
       Math.floor(ref.current.getBoundingClientRect().bottom - 20) < window.innerHeight;
 
     sections.forEach((section) => checkIfItsActive(section.ref) && setActiveSection(section.id));
-  }, [scrollY, sections]);
+  }, [scrollY, sections, setActiveSection]);
 
   return { activeSection };
 };

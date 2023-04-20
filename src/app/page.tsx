@@ -1,8 +1,8 @@
 'use client';
 
 import { useMemo, useRef } from 'react';
-import ActiveSectionLink from 'components/ActiveSectionLink';
 import { useActiveSection } from 'hooks/useActiveSection';
+import { ROUTES } from 'utils/routes';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -12,33 +12,31 @@ export default function Home() {
 
   const sections = useMemo(
     () => [
-      { id: 'About me.', ref: aboutRef },
-      { id: 'Skills.', ref: skillsRef },
-      { id: 'Projects.', ref: projectsRef },
-      { id: 'Contact.', ref: contactRef },
+      { id: ROUTES.about, ref: aboutRef },
+      { id: ROUTES.skills, ref: skillsRef },
+      { id: ROUTES.projects, ref: projectsRef },
+      { id: ROUTES.contact, ref: contactRef },
     ],
     []
   );
 
-  const { activeSection } = useActiveSection(sections);
+  useActiveSection(sections);
 
   return (
     <main className="mx-auto max-w-6xl px-4 lg:px-24 " style={{ scrollPaddingTop: '200px' }}>
-      <ActiveSectionLink activeSection={activeSection} />
-
-      <section ref={aboutRef} id="about" className="h-[100vh] pt-24">
+      <section ref={aboutRef} id={ROUTES.about} className="h-[100vh] pt-24">
         <h2>About me</h2>
       </section>
 
-      <section ref={skillsRef} id="skills" className="h-[100vh] pt-24">
+      <section ref={skillsRef} id={ROUTES.skills} className="h-[100vh] pt-24">
         <h2>Skills</h2>
       </section>
 
-      <section ref={projectsRef} id="projects" className="h-[100vh] pt-24">
+      <section ref={projectsRef} id={ROUTES.projects} className="h-[100vh] pt-24">
         <h2>Projects</h2>
       </section>
 
-      <section ref={contactRef} id="contact" className="h-[100vh] pt-24">
+      <section ref={contactRef} id={ROUTES.contact} className="h-[100vh] pt-24">
         <h2>Contact</h2>
       </section>
     </main>
