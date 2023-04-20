@@ -8,12 +8,12 @@ const Footer = () => {
 
       <a
         href="mailto:sebastianswiecz458@gmail.com"
-        className="vertical-rl fixed bottom-0 right-0 hidden h-[340px] w-24 items-center text-xs tracking-widest after:absolute after:bottom-0 after:left-1/2 after:hidden after:h-20 after:w-[1px] after:-translate-x-1/2 after:bg-slate-600 dark:after:bg-slate-400 lg:flex lg:after:block"
+        className="vertical-rl fixed bottom-0 right-0 hidden h-[340px] w-24 items-center text-xs tracking-widest after:absolute after:bottom-0 after:left-1/2 after:hidden after:h-20 after:w-[1px] after:-translate-x-1/2 after:bg-slate-800 dark:after:bg-slate-200 lg:flex lg:after:block"
       >
         sebastianswiecz458@gmail.com
       </a>
 
-      <ul className="flex gap-4 after:absolute after:bottom-0 after:left-1/2 after:hidden after:h-20 after:w-[1px] after:-translate-x-1/2 after:bg-slate-600 dark:after:bg-slate-400 lg:fixed lg:bottom-0 lg:left-0 lg:h-[340px] lg:w-24 lg:flex-col lg:items-center lg:gap-7 lg:pt-5 lg:after:block">
+      <ul className="flex gap-4 after:absolute after:bottom-0 after:left-1/2 after:hidden after:h-20 after:w-[1px] after:-translate-x-1/2 after:bg-slate-800 dark:after:bg-slate-200 lg:fixed lg:bottom-0 lg:left-0 lg:h-[340px] lg:w-24 lg:flex-col lg:items-center lg:gap-7 lg:pt-5 lg:after:block">
         <li>
           <a aria-label="github" href="https://github.com/Skeabrate" target="_blank" rel="noopener noreferrer">
             <GithubSVG />
