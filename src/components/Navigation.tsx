@@ -1,7 +1,6 @@
 'use client';
 
 import { useContext } from 'react';
-import Link from 'next/link';
 import cx from 'classnames';
 import { ScrollContext } from 'context/ScrollContext';
 import ThemeButton from './ThemeButton';
@@ -17,17 +16,20 @@ const Navigation = () => {
         isOnTop ? 'h-24 bg-transparent' : 'h-16 bg-slate-100/80 shadow backdrop-blur-sm dark:bg-slate-800/80'
       )}
     >
-      <Link href="#">Skeabrate</Link>
+      <a href="#">Skeabrate</a>
 
       <ul className="flex gap-6">
         <li>
-          <Link href="#about">About</Link>
+          <a href="#about">About</a>
         </li>
         <li>
-          <Link href="#skills">Skills</Link>
+          <a href="#skills">Skills</a>
         </li>
         <li>
-          <Link href="#projects">Projects</Link>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
         </li>
       </ul>
 

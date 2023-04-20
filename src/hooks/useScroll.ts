@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useScroll = () => {
+  const [scrollY, setScrollY] = useState(0);
   const [isOnTop, setIsOnTop] = useState(true);
   const [hideNav, setHideNav] = useState(false);
 
@@ -8,6 +9,8 @@ export const useScroll = () => {
     let lastScrollTop = 0;
 
     const handleScroll = () => {
+      setScrollY(Math.floor(window.scrollY));
+
       const st = window.pageYOffset || document.documentElement.scrollTop;
 
       if (st < 30) setIsOnTop(true);
@@ -25,5 +28,5 @@ export const useScroll = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { isOnTop, hideNav };
+  return { scrollY, isOnTop, hideNav };
 };
