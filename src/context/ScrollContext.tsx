@@ -4,16 +4,15 @@ import React from 'react';
 import { useScroll } from 'hooks/useScroll';
 
 type TScrollContext = {
-  isOnTop: boolean;
-  hideNav: boolean;
+  scrollY: number;
 };
 
 export const ScrollContext = React.createContext({} as TScrollContext);
 
 function ScrollProvider({ children }: { children: React.ReactNode }) {
-  const { isOnTop, hideNav } = useScroll();
+  const { scrollY } = useScroll();
 
-  return <ScrollContext.Provider value={{ isOnTop, hideNav }}>{children}</ScrollContext.Provider>;
+  return <ScrollContext.Provider value={{ scrollY }}>{children}</ScrollContext.Provider>;
 }
 
 export default ScrollProvider;
