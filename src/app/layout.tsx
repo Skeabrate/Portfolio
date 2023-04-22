@@ -7,7 +7,7 @@ import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
 import ActiveSectionBg from 'components/ActiveSectionBg';
 
-const firaCode = Fira_Code({ subsets: ['cyrillic'], weight: '400' });
+const firaCode = Fira_Code({ subsets: ['cyrillic'], weight: '400', display: 'swap' });
 
 export const metadata = {
   title: 'Skeabrate - Sebastian Świeczkowski',
