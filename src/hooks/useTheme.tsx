@@ -21,12 +21,8 @@ export const useTheme = () => {
     setCurrentTheme((currTheme) => (currTheme === THEMES.dark.id ? THEMES.light.id : THEMES.dark.id));
 
   useEffect(() => {
-    const userDefaultThemeSetting =
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? THEMES.dark.id : THEMES.light.id;
-    const userLocalStorageThemeSetting = localStorage.getItem('theme');
-    const initialTheme = userLocalStorageThemeSetting || userDefaultThemeSetting;
-
-    setCurrentTheme(initialTheme);
+    const userLocalStorageThemeSetting = localStorage.getItem('theme') || THEMES.dark.id;
+    setCurrentTheme(userLocalStorageThemeSetting);
   }, []);
 
   useEffect(() => {

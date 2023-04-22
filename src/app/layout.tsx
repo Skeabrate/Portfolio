@@ -16,11 +16,11 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cx(
           firaCode.className,
-          'relative text-slate-700 transition-colors duration-300 after:fixed after:inset-0 after:-z-20 after:h-full after:w-full after:bg-gradient-to-t after:from-slate-300 after:to-slate-50 dark:text-slate-200/90 dark:after:from-slate-950 dark:after:to-slate-800'
+          'relative text-slate-700 transition-colors after:fixed after:inset-0 after:-z-20 after:h-full after:w-full after:bg-gradient-to-t after:from-slate-300 after:to-slate-50 dark:text-slate-200/90 dark:after:from-slate-950 dark:after:to-slate-800'
         )}
       >
         <ActiveSectionProvider>
