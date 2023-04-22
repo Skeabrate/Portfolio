@@ -56,8 +56,19 @@ const DesktopNav = () => {
 
   return (
     <ul className="hidden items-center gap-6 md:flex">
-      {navItems.map((link) => (
-        <li key={link}>
+      {navItems.map((link, index) => (
+        <motion.li
+          initial={{
+            opacity: 0,
+            transform: 'translateY(-10px)',
+          }}
+          animate={{
+            opacity: 1,
+            transform: 'translateY(0)',
+          }}
+          transition={{ duration: 0.3, delay: 0.1 * index + 0.4 }}
+          key={link}
+        >
           <a
             className={cx(
               'bg-gradient-to-r from-black to-black bg-no-repeat p-[1px] transition-[background-size] duration-300 dark:from-slate-300 dark:to-slate-300',
@@ -67,7 +78,7 @@ const DesktopNav = () => {
           >
             {link}
           </a>
-        </li>
+        </motion.li>
       ))}
     </ul>
   );
@@ -92,13 +103,24 @@ const Navigation = () => {
         scrollY > 30 ? 'h-16 shadow-md' : 'h-24 bg-transparent'
       )}
     >
-      <a href="#" className="w-44">
+      <motion.a
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        href="#"
+        className="w-44"
+      >
         <LogoSVG />
-      </a>
+      </motion.a>
 
       <DesktopNav />
 
-      <ul className="flex h-10 w-44 items-center justify-end gap-3 lg:gap-6">
+      <motion.ul
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="flex h-10 w-44 items-center justify-end gap-3 lg:gap-6"
+      >
         <li className="h-full">
           <motion.button
             whileTap={whileTap}
@@ -122,7 +144,7 @@ const Navigation = () => {
             <span className="pointer-events-none h-[2px] w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
           </motion.button>
         </li>
-      </ul>
+      </motion.ul>
 
       <MobileNav isNavOpen={isNavOpen} />
     </nav>

@@ -4,6 +4,7 @@ import { useMemo, useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { useActiveSection } from 'hooks/useActiveSection';
 import { ROUTES } from 'utils/routes';
+import Projects from 'components/Projects';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -33,6 +34,9 @@ export default function Home() {
 
       <section ref={projectsRef} id={ROUTES.projects} className="h-[100vh] pt-24">
         <h2>Projects</h2>
+
+        {/* @ts-expect-error Async Server Component */}
+        <Projects />
       </section>
 
       <section ref={contactRef} id={ROUTES.contact} className="h-[100vh] pt-24">

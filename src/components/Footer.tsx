@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG, LogoSVG } from 'assets/SVGs';
 
+// initial={{ opacity: 0 }}
+// animate={{ opacity: 1 }}
+// transition={{ duration: 0.3 }}
+
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-4 px-4 pb-8 pt-16 text-center">

@@ -1,0 +1,22 @@
+query Projects {
+  allProjects {
+    id
+    title
+    description {
+      value
+    }
+    githubUrl
+    projectUrl
+    screenshots {
+      id
+      url
+    }
+    technologies {
+      id
+      title
+      icon {
+        url
+      }
+    }
+  }
+}

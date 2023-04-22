@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { ROUTES } from 'utils/routes';
 
 type TActiveSectionContext = {
   activeSection: string;
@@ -10,7 +11,7 @@ type TActiveSectionContext = {
 export const ActiveSectionContext = React.createContext({} as TActiveSectionContext);
 
 function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState(ROUTES.about);
 
   return (
     <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
