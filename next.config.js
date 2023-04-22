@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-    images: {
-      remotePatterns: [
-        {
-          hostname: 'www.datocms-assets.com',
-        },
-      ],
-    },
+  reactStrictMode: true,
+  images: {
+    domains: ['www.datocms-assets.com'],
   },
 };
 

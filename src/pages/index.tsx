@@ -1,12 +1,19 @@
-'use client';
-
 import { useMemo, useRef } from 'react';
+import { GetStaticProps, NextPage } from 'next';
+import { Fira_Code } from 'next/font/google';
 import { TypeAnimation } from 'react-type-animation';
+import cx from 'classnames';
 import { useActiveSection } from 'hooks/useActiveSection';
+import { request } from 'lib/request';
 import { ROUTES } from 'utils/routes';
+import { ProjectsDocument, ProjectsQuery } from '../../graphql/generated';
 import Projects from 'components/Projects';
 
-export default function Home() {
+const firaCode = Fira_Code({ subsets: ['cyrillic'], weight: '400', display: 'swap' });
+
+type Props = { projects: ProjectsQuery };
+
+const Home: NextPage<Props> = ({ projects }) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -23,7 +30,7 @@ export default function Home() {
   useActiveSection(sections);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-10 lg:px-24 " style={{ scrollPaddingTop: '200px' }}>
+    <main className={cx('mx-auto max-w-6xl px-4 sm:px-10 lg:px-24', firaCode.className)}>
       <section ref={aboutRef} id={ROUTES.about} className="flex min-h-screen flex-col justify-center">
         <p className="mb-2 font-bold text-teal-500 transition-colors dark:text-teal-400 md:mb-4">
           <TypeAnimation sequence={['Hello, my name is']} speed={10} repeat={1} />
@@ -35,8 +42,7 @@ export default function Home() {
       <section ref={projectsRef} id={ROUTES.projects} className="h-[100vh] pt-24">
         <h2>Projects</h2>
 
-        {/* @ts-expect-error Async Server Component */}
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section ref={contactRef} id={ROUTES.contact} className="h-[100vh] pt-24">
@@ -44,4 +50,14 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const projects = await request(ProjectsDocument);
+
+  return {
+    props: { projects },
+  };
+};
+
+export default Home;

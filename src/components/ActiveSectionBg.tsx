@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext } from 'react';
 import { PT_Serif } from 'next/font/google';
 import cx from 'classnames';

@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext, useEffect, useState } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
