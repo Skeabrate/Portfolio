@@ -1,7 +1,8 @@
-import { useMemo, useRef } from 'react';
+import { RefObject, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { Fira_Code } from 'next/font/google';
 import cx from 'classnames';
+import { TRoute } from 'context/ActiveSectionContext';
 import { useActiveSection } from 'hooks/useActiveSection';
 import { request } from 'lib/request';
 import { ROUTES } from 'utils/routes';
@@ -13,13 +14,14 @@ import Contact from 'components/Contact';
 const firaCode = Fira_Code({ subsets: ['cyrillic'], weight: '400', display: 'swap' });
 
 type Props = { projects: ProjectsQuery };
+export type TSection = { id: TRoute; ref: RefObject<HTMLDivElement> };
 
 const Home: NextPage<Props> = ({ projects }) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  const sections = useMemo(
+  const sections: TSection[] = useMemo(
     () => [
       { id: ROUTES.about, ref: aboutRef },
       { id: ROUTES.projects, ref: projectsRef },

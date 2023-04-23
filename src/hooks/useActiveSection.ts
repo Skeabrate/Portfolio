@@ -1,8 +1,9 @@
 import { RefObject, useContext, useEffect } from 'react';
+import { TSection } from 'pages';
 import { ScrollContext } from 'context/ScrollContext';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 
-export const useActiveSection = (sections: { id: string; ref: RefObject<HTMLDivElement> }[]) => {
+export const useActiveSection = (sections: TSection[]) => {
   const { activeSection, setActiveSection } = useContext(ActiveSectionContext);
   const { scrollY } = useContext(ScrollContext);
 
