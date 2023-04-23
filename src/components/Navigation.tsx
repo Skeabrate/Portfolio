@@ -64,7 +64,7 @@ const DesktopNav = () => {
             opacity: 1,
             transform: 'translateY(0)',
           }}
-          transition={{ duration: 0.3, delay: 0.1 * index + 0.4 }}
+          transition={{ duration: 0.3, delay: 0.1 * index + 0.7 }}
           key={link}
         >
           <a
@@ -104,7 +104,7 @@ const Navigation = () => {
       <motion.a
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         href="#"
         className="w-44"
       >
@@ -116,7 +116,7 @@ const Navigation = () => {
       <motion.ul
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         className="flex h-10 w-44 items-center justify-end gap-3 lg:gap-6"
       >
         <li className="h-full">

@@ -5,6 +5,8 @@ import { ProjectsQuery } from '../../graphql/generated';
 const Projects = ({ projects }: { projects: ProjectsQuery }) => {
   return (
     <>
+      <h2>Projects</h2>
+
       {projects.allProjects.map(({ id, title, githubUrl, projectUrl, screenshots, description, technologies }) => (
         <article key={id}>
           <h3>{title}</h3>
