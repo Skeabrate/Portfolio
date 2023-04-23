@@ -7,10 +7,10 @@ const About = () => {
   return (
     <>
       <header>
-        <p className="mb-2 font-bold text-teal-500 dark:font-normal dark:text-teal-400 lg:mb-4">
+        <p className="mb-1 font-bold text-teal-500 dark:font-normal dark:text-teal-400 sm:mb-2 lg:mb-4">
           <TypeAnimation sequence={[1200, 'Hello, my name is']} speed={10} repeat={1} />
         </p>
-        <h1 className="relative mb-3 overflow-hidden pt-2 text-6xl font-bold lg:text-7xl">
+        <h1 className="relative mb-1 overflow-hidden pt-2 text-4xl font-bold sm:mb-2 sm:text-6xl lg:text-7xl">
           <motion.span
             initial={{ opacity: 0, transform: 'translateY(10px)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}
@@ -20,7 +20,7 @@ const About = () => {
             Sebastian Świeczkowski.
           </motion.span>
         </h1>
-        <h2 className="relative mb-5 text-3xl font-bold text-slate-400 lg:mb-7 lg:text-4xl">
+        <h2 className="relative mb-5 text-xl font-bold text-slate-400 sm:text-3xl lg:mb-7 lg:text-4xl">
           <motion.span
             initial={{ opacity: 0, transform: 'translateY(10px)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}
