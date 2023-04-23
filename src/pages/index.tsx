@@ -32,7 +32,11 @@ const Home: NextPage<Props> = ({ projects }) => {
 
   return (
     <main className={cx('mx-auto max-w-6xl', firaCode.className)}>
-      <section ref={aboutRef} id={ROUTES.about} className="flex min-h-screen flex-col justify-center">
+      <section
+        ref={aboutRef}
+        id={ROUTES.about}
+        className="flex h-screen min-h-[600px] flex-col justify-center sm:min-h-[800px]"
+      >
         <About />
       </section>
 
