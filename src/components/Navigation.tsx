@@ -137,9 +137,9 @@ const Navigation = () => {
             aria-label="open menu"
             className="relative z-10 flex aspect-square h-full flex-col justify-between rounded px-2 py-3 focus:bg-slate-200 focus:outline focus:outline-4 focus:outline-slate-300 dark:from-white dark:to-white hover:dark:bg-slate-900/40 focus:dark:bg-slate-900/40 focus:dark:outline-slate-900"
           >
-            <span className="pointer-events-none h-[2px] w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
-            <span className="pointer-events-none h-[2px] w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
-            <span className="pointer-events-none h-[2px] w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
+            <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
+            <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
+            <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-900 dark:bg-slate-300"></span>
           </motion.button>
         </li>
       </motion.ul>

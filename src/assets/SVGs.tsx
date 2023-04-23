@@ -3,7 +3,7 @@ export const LogoSVG = () => (
     width="200"
     height="30"
     viewBox="30 10 369.91304347826093 64.77591973244148"
-    className="fill-slate-700 transition-colors dark:fill-slate-200"
+    className="fill-slate-700 dark:fill-slate-200"
   >
     <g transform="matrix(1.1705685618729098,0,0,1.1705685618729098,0,32)">
       <path
@@ -17,9 +17,21 @@ export const LogoSVG = () => (
   </svg>
 );
 
+export const ArrowSVG = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="mb-0.5 fill-teal-400 dark:fill-teal-500"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+  >
+    <path d="M12 21l-12-18h24z" />
+  </svg>
+);
+
 export const FacebookSVG = () => (
   <svg
-    className="fill-slate-800 transition-all hover:scale-110 dark:fill-slate-200"
+    className="fill-slate-800 transition-transform hover:scale-110 dark:fill-slate-200"
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
@@ -31,7 +43,7 @@ export const FacebookSVG = () => (
 
 export const InstagramSVG = () => (
   <svg
-    className="fill-slate-800 transition-all hover:scale-110 dark:fill-slate-200"
+    className="fill-slate-800 transition-transform hover:scale-110 dark:fill-slate-200"
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
@@ -43,7 +55,7 @@ export const InstagramSVG = () => (
 
 export const GmailSVG = () => (
   <svg
-    className="fill-slate-800 transition-all hover:scale-110 dark:fill-slate-200"
+    className="fill-slate-800 transition-transform hover:scale-110 dark:fill-slate-200"
     width="20"
     height="20"
     xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +69,7 @@ export const GmailSVG = () => (
 
 export const GithubSVG = () => (
   <svg
-    className="fill-slate-800 transition-all hover:scale-110 dark:fill-slate-200"
+    className="fill-slate-800 transition-transform hover:scale-110 dark:fill-slate-200"
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
@@ -69,7 +81,7 @@ export const GithubSVG = () => (
 
 export const TwitterSVG = () => (
   <svg
-    className="fill-slate-800 transition-all hover:scale-110 dark:fill-slate-200"
+    className="fill-slate-800 transition-transform hover:scale-110 dark:fill-slate-200"
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"

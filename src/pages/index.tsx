@@ -31,7 +31,7 @@ const Home: NextPage<Props> = ({ projects }) => {
   useActiveSection(sections);
 
   return (
-    <main className={cx('mx-auto max-w-6xl px-4 sm:px-10 lg:px-24', firaCode.className)}>
+    <main className={cx('mx-auto max-w-6xl', firaCode.className)}>
       <section ref={aboutRef} id={ROUTES.about} className="flex min-h-screen flex-col justify-center">
         <About />
       </section>
