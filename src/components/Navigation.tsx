@@ -33,7 +33,7 @@ const MobileNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
       }}
       transition={{ duration: 0.1 }}
       animate={isNavOpen ? showNav : hideNav}
-      className="absolute right-0 top-full m-4 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 p-1 shadow dark:bg-slate-800"
+      className="absolute right-0 top-full z-50 m-4 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 p-1 shadow dark:bg-slate-800"
     >
       {navItems.map((link) => (
         <li className="flex w-full" key={link}>
@@ -97,7 +97,7 @@ const Navigation = () => {
   return (
     <nav
       className={cx(
-        'nav-transition fixed left-0 top-0 flex w-full items-center justify-between gap-6 px-4 backdrop-blur-sm sm:px-10 lg:px-12',
+        'nav-transition fixed left-0 top-0 z-40 flex w-full items-center justify-between gap-6 px-4 backdrop-blur-sm sm:px-10 lg:px-12',
         scrollY > 30 ? 'h-16 shadow-md' : 'h-24 bg-transparent'
       )}
     >

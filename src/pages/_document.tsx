@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en" className="dark">
       <Head>
-        <title>Skeabrate - Sebastian Świeczkowski</title>
+        <title>Skeabrate</title>
         <meta name="description" content="Skeabrate, Sebastian Świeczkowski portoflio" />
       </Head>
 
