@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
+import { ScrollContext } from 'context/ScrollContext';
 import { LogoSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
 import { whileTap } from 'utils/transitions';
-import { ScrollContext } from 'context/ScrollContext';
-import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import ThemeButton from './ThemeButton';
 
-const navItems = Object.entries(ROUTES).map(([, value]) => value);
+// nav without home link
+const navItems = Object.entries(ROUTES)
+  .map(([, value]) => value)
+  .slice(1);
 
 const MobileNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
   const showNav = {
@@ -35,14 +39,14 @@ const MobileNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
       animate={isNavOpen ? showNav : hideNav}
       className="absolute right-0 top-full z-50 m-4 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 p-1 shadow dark:bg-slate-800"
     >
-      {navItems.map((link) => (
-        <li className="flex w-full" key={link}>
-          <a
+      {navItems.map(({ href, label }) => (
+        <li className="flex w-full" key={label}>
+          <Link
             className="w-full rounded px-4 py-2 hover:bg-slate-200 focus:bg-slate-200 focus:outline focus:outline-4 focus:outline-slate-300 hover:dark:bg-slate-900/40 focus:dark:bg-slate-900/40 focus:dark:outline-slate-900"
-            href={'#' + link}
+            href={href}
           >
-            {link}
-          </a>
+            {label}
+          </Link>
         </li>
       ))}
     </motion.ul>
@@ -50,11 +54,11 @@ const MobileNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
 };
 
 const DesktopNav = () => {
-  const { activeSection } = useContext(ActiveSectionContext);
+  const router = useRouter();
 
   return (
     <ul className="hidden items-center gap-6 md:flex">
-      {navItems.map((link, index) => (
+      {navItems.map(({ href, label }, index) => (
         <motion.li
           initial={{
             opacity: 0,
@@ -65,17 +69,17 @@ const DesktopNav = () => {
             transform: 'translateY(0)',
           }}
           transition={{ duration: 0.3, delay: 0.1 * index + 0.7 }}
-          key={link}
+          key={label}
         >
-          <a
+          <Link
             className={cx(
               'bg-gradient-to-r from-black to-black bg-no-repeat p-[1px] transition-[background-size] duration-300 dark:from-slate-300 dark:to-slate-300',
-              link === activeSection ? 'bg-[length:100%_1px] bg-left-bottom' : 'bg-[length:0px_1px] bg-right-bottom'
+              href === router.pathname ? 'bg-[length:100%_1px] bg-left-bottom' : 'bg-[length:0px_1px] bg-right-bottom'
             )}
-            href={'#' + link}
+            href={href}
           >
-            {link}
-          </a>
+            {label}
+          </Link>
         </motion.li>
       ))}
     </ul>
@@ -101,15 +105,16 @@ const Navigation = () => {
         scrollY > 30 ? 'h-16 shadow-md' : 'h-24 bg-transparent'
       )}
     >
-      <motion.a
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        href="#"
         className="w-44"
       >
-        <LogoSVG />
-      </motion.a>
+        <Link href={ROUTES.home.href}>
+          <LogoSVG />
+        </Link>
+      </motion.div>
 
       <DesktopNav />
 

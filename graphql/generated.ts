@@ -1776,6 +1776,7 @@ export type ProjectModelFilter = {
   githubUrl?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
   position?: InputMaybe<PositionFilter>;
+  projectType?: InputMaybe<StringFilter>;
   projectUrl?: InputMaybe<StringFilter>;
   screenshots?: InputMaybe<GalleryFilter>;
   technologies?: InputMaybe<LinksFilter>;
@@ -1805,6 +1806,8 @@ export enum ProjectModelOrderBy {
   IdDesc = 'id_DESC',
   PositionAsc = 'position_ASC',
   PositionDesc = 'position_DESC',
+  ProjectTypeAsc = 'projectType_ASC',
+  ProjectTypeDesc = 'projectType_DESC',
   ProjectUrlAsc = 'projectUrl_ASC',
   ProjectUrlDesc = 'projectUrl_DESC',
   TitleAsc = 'title_ASC',
@@ -1829,6 +1832,7 @@ export type ProjectRecord = RecordInterface & {
   githubUrl?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
   position?: Maybe<Scalars['IntType']>;
+  projectType: Scalars['String'];
   projectUrl?: Maybe<Scalars['String']>;
   screenshots: Array<FileField>;
   technologies: Array<SkillRecord>;
@@ -2666,7 +2670,7 @@ export type FocalPoint = {
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectRecord', id: string, title: string, githubUrl?: string | null, projectUrl?: string | null, description?: { __typename?: 'ProjectModelDescriptionField', value: unknown } | null, screenshots: Array<{ __typename?: 'FileField', id: string, url: string }>, technologies: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> }> };
+export type ProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectRecord', id: string, title: string, githubUrl?: string | null, projectUrl?: string | null, projectType: string, description?: { __typename?: 'ProjectModelDescriptionField', value: unknown } | null, screenshots: Array<{ __typename?: 'FileField', id: string, url: string }>, technologies: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> }> };
 
 
-export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"githubUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectUrl"}},{"kind":"Field","name":{"kind":"Name","value":"screenshots"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
+export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"githubUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectType"}},{"kind":"Field","name":{"kind":"Name","value":"screenshots"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
