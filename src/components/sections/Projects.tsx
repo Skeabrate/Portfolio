@@ -1,11 +1,17 @@
 import Image from 'next/image';
 import { StructuredText } from 'react-datocms';
-import { ProjectsQuery } from '../../graphql/generated';
+import { ProjectsQuery } from '../../../graphql/generated';
+import { ROUTES } from 'utils/routes';
+import { useAnimationWhenInView } from 'hooks/useAnimationWhenInView';
+import Header from 'components/Header';
+import ScrollButton from 'components/ScrollButton';
 
 const Projects = ({ projects }: { projects: ProjectsQuery }) => {
+  const { isInView } = useAnimationWhenInView(ROUTES.projects);
+
   return (
     <>
-      <h2>Projects</h2>
+      <Header isInView={isInView} label="Projects." />
 
       {projects.allProjects.map(({ id, title, githubUrl, projectUrl, screenshots, description, technologies }) => (
         <article key={id}>
@@ -28,6 +34,8 @@ const Projects = ({ projects }: { projects: ProjectsQuery }) => {
           ))}
         </article>
       ))}
+
+      <ScrollButton label="Contact me!" href={ROUTES.contact} />
     </>
   );
 };

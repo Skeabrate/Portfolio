@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG, LogoSVG } from 'assets/SVGs';
 import { motion } from 'framer-motion';
+import { ROUTES } from 'utils/routes';
+import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG, LogoSVG } from 'assets/SVGs';
 
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-4 px-4 pb-8 pt-16 text-center">
-      <Link href="#">
+      <a href={'#' + ROUTES.skeabrate}>
         <LogoSVG />
-      </Link>
+      </a>
 
       <motion.a
         initial={{ opacity: 0 }}
@@ -57,7 +57,7 @@ const Footer = () => {
         </li>
       </motion.ul>
 
-      <p className="text-sm tracking-wider">
+      <p className="text-xs tracking-wider text-slate-500">
         &copy; {new Date().getFullYear()} Sebastian Świeczkowski <br /> All Rights Reserved
       </p>
     </footer>

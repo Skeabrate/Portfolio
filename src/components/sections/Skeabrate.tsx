@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { ArrowSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
+import ScrollButton from 'components/ScrollButton';
 
-const About = () => {
+const Skeabrate = () => {
   return (
     <>
       <header>
@@ -42,18 +42,9 @@ const About = () => {
         cupiditate soluta possimus. Totam aut maxime hic quidem animi architecto minus explicabo cupiditate facilis qui.
       </motion.p>
 
-      <motion.a
-        initial={{ opacity: 0, transform: 'translateY(10px)' }}
-        animate={{ opacity: 1, transform: 'translateY(0)' }}
-        transition={{ duration: 0.4, delay: 3.3 }}
-        className="relative flex w-fit items-end gap-3 py-1 font-bold text-teal-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-2/3 after:bg-teal-500 after:transition-all after:duration-300 hover:after:w-full dark:font-normal dark:text-teal-400 dark:after:text-teal-400"
-        href={'#' + ROUTES.projects}
-      >
-        <ArrowSVG />
-        Check out my projects
-      </motion.a>
+      <ScrollButton label="More about me" href={ROUTES.about} />
     </>
   );
 };
 
-export default About;
+export default Skeabrate;

@@ -8,7 +8,9 @@ import { ScrollContext } from 'context/ScrollContext';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import ThemeButton from './ThemeButton';
 
-const navItems = Object.entries(ROUTES).map(([, value]) => value);
+const navItems = Object.entries(ROUTES)
+  .map(([, value]) => value)
+  .slice(1);
 
 const MobileNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
   const showNav = {
@@ -105,7 +107,7 @@ const Navigation = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        href="#"
+        href={'#' + ROUTES.skeabrate}
         className="w-44"
       >
         <LogoSVG />

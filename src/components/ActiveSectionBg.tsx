@@ -10,7 +10,14 @@ const ActiveSectionBg = () => {
   const { activeSection } = useContext(ActiveSectionContext);
 
   return (
-    <div
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{ duration: 0.4, delay: 3.4 }}
       className={cx(
         'fixed bottom-4 left-1/2 -z-10 w-[200%] -translate-x-1/2 text-center text-[20vw] text-slate-400/10 dark:text-slate-900/50',
         ptSerif.className
@@ -20,7 +27,7 @@ const ActiveSectionBg = () => {
         key={activeSection}
         initial={{
           opacity: 0,
-          transform: 'translateY(10px)',
+          transform: 'translateY(20px)',
         }}
         animate={{
           opacity: 1,
@@ -31,7 +38,7 @@ const ActiveSectionBg = () => {
       >
         {activeSection}.
       </motion.span>
-    </div>
+    </motion.div>
   );
 };
 

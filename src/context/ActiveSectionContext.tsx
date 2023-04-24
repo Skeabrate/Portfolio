@@ -12,7 +12,7 @@ type TActiveSectionContext = {
 export const ActiveSectionContext = React.createContext({} as TActiveSectionContext);
 
 function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
-  const [activeSection, setActiveSection] = useState<TRoute>(ROUTES.about);
+  const [activeSection, setActiveSection] = useState<TRoute>(ROUTES.skeabrate);
 
   return (
     <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
