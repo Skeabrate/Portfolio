@@ -1,6 +1,5 @@
 import { RefObject, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import { Fira_Code } from 'next/font/google';
 import cx from 'classnames';
 import { TRoute } from 'context/ActiveSectionContext';
 import { useActiveSection } from 'hooks/useActiveSection';
@@ -11,8 +10,6 @@ import Skeabrate from 'components/sections/Skeabrate';
 import About from 'components/sections/About';
 import Projects from 'components/sections/Projects';
 import Contact from 'components/sections/Contact';
-
-const firaCode = Fira_Code({ subsets: ['cyrillic'], weight: '400', display: 'swap' });
 
 type Props = { projects: ProjectsQuery };
 export type TSection = { id: TRoute; ref: RefObject<HTMLDivElement> };
@@ -36,7 +33,7 @@ const Home: NextPage<Props> = ({ projects }) => {
   useActiveSection(sections);
 
   return (
-    <main className={cx('mx-auto max-w-6xl', firaCode.className)}>
+    <main className={cx('mx-auto max-w-6xl')}>
       <section ref={skeabrateRef} id={ROUTES.skeabrate} className="flex min-h-screen flex-col justify-center py-40">
         <Skeabrate />
       </section>
