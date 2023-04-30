@@ -1,19 +1,36 @@
+import { useEffect, useState } from 'react';
 import { PT_Serif } from 'next/font/google';
 import { motion } from 'framer-motion';
-import cx from 'classnames';
 
 const ptSerif = PT_Serif({ subsets: ['cyrillic'], weight: '400', display: 'swap' });
+const greetings = ['Hello', 'Guten tag', 'やあ', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
 
-const TransitionCurtain = () => {
+const Curtain = () => {
+  const [currentGrettings, setCurrentGretting] = useState(0);
+  const [startGreetingAnimation, setStartGreetingAnimation] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStartGreetingAnimation(true);
+    }, 800);
+  }, []);
+
+  useEffect(() => {
+    const updateGretting = setInterval(() => {
+      if (!startGreetingAnimation || currentGrettings === greetings.length - 1) {
+        clearInterval(updateGretting);
+        return;
+      }
+      setCurrentGretting((state) => state + 1);
+    }, 150);
+
+    return () => {
+      clearInterval(updateGretting);
+    };
+  }, [startGreetingAnimation, currentGrettings]);
+
   return (
     <>
-      <motion.div
-        className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-gradient-to-b from-slate-950 to-slate-800"
-        initial={{ transform: 'translateY(100%)' }}
-        exit={{ transform: 'translateY(0)' }}
-        transition={{ duration: 0.6, ease: [0.3, 0, 0, 1] }}
-      ></motion.div>
-
       <motion.div
         className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-gradient-to-b from-slate-950 to-slate-800"
         initial={{
@@ -22,7 +39,7 @@ const TransitionCurtain = () => {
         animate={{
           transform: 'translateY(-100%)',
         }}
-        transition={{ duration: 0.6, ease: [0.3, 0, 0, 0.8], delay: 0.5 }}
+        transition={{ duration: 0.5, ease: [0.3, 0, 0, 1], delay: 2.3 }}
       >
         <motion.div
           initial={{
@@ -31,25 +48,38 @@ const TransitionCurtain = () => {
           animate={{
             transform: 'scaleY(0)',
           }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="absolute -bottom-[28vh] -left-[5%] h-[30vh] w-[110%] origin-top rounded-b-[100%] bg-slate-800 "
+          transition={{ duration: 0.4, delay: 2.5 }}
+          className="absolute -bottom-[28vh] -left-[25%] h-[30vh] w-[150%] origin-top rounded-b-[50%] bg-slate-800 "
         ></motion.div>
 
         <motion.p
+          initial={{
+            opacity: 0,
+          }}
           animate={{
-            opacity: [0, 1, 0],
+            opacity: 1,
           }}
-          transition={{
-            duration: 0.6,
-            ease: [0.18, 0.44, 0.79, 0.46],
-          }}
-          className={cx(ptSerif.className, 'text-6xl text-slate-300')}
+          transition={{ duration: 0.3, delay: 0.4 }}
+          className={ptSerif.className}
         >
-          Hello
+          <motion.span
+            className="relative block text-6xl text-slate-300 after:absolute after:-left-8 after:top-1/2 after:h-3 after:w-3 after:-translate-y-1/2 after:rounded-full after:bg-slate-300"
+            initial={{
+              opacity: 1,
+              transform: 'translateY(0)',
+            }}
+            animate={{
+              opacity: currentGrettings === greetings.length - 1 ? 0 : 1,
+              transform: currentGrettings === greetings.length - 1 ? 'translateY(-20px)' : 'translateY(0)',
+            }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            {greetings[currentGrettings]}
+          </motion.span>
         </motion.p>
       </motion.div>
     </>
   );
 };
 
-export default TransitionCurtain;
+export default Curtain;

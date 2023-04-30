@@ -1,12 +1,9 @@
 query Skills {
-  allSkillsGroups {
+  allSkills {
     id
-    skills {
-      id
-      title
-      icon {
-        url
-      }
+    title
+    icon {
+      url
     }
   }
 }
