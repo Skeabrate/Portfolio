@@ -138,7 +138,13 @@ const Navigation = () => {
       }}
       className="fixed left-0 top-0 z-40 flex w-full items-center justify-between p-6"
     >
-      <a href={'#' + ROUTES.skeabrate} className="flex h-10 items-center">
+      <a
+        href={'#' + ROUTES.skeabrate}
+        className={cx(
+          'flex h-10 origin-left items-center transition-transform duration-300',
+          scrollY > 10 ? 'scale-75' : 'scale-100'
+        )}
+      >
         <LogoSVG />
       </a>
 
