@@ -10,9 +10,19 @@ const Curtain = () => {
   const [startGreetingAnimation, setStartGreetingAnimation] = useState(false);
 
   useEffect(() => {
+    document.body.style.position = 'fixed';
+    document.body.style.overflow = 'hidden';
+    document.body.style.top = '0';
+    document.body.style.left = '0';
+
     setTimeout(() => {
       setStartGreetingAnimation(true);
     }, 800);
+
+    setTimeout(() => {
+      document.body.style.position = 'relative';
+      document.body.style.overflow = 'unset';
+    }, 2800);
   }, []);
 
   useEffect(() => {
@@ -32,7 +42,7 @@ const Curtain = () => {
   return (
     <>
       <motion.div
-        className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-gradient-to-b from-slate-950 to-slate-800"
+        className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900"
         initial={{
           transform: 'translateY(0)',
         }}
@@ -49,7 +59,7 @@ const Curtain = () => {
             transform: 'scaleY(0)',
           }}
           transition={{ duration: 0.4, delay: 2.5 }}
-          className="absolute -bottom-[28vh] -left-[25%] h-[30vh] w-[150%] origin-top rounded-b-[50%] bg-slate-800 "
+          className="absolute -bottom-[28vh] -left-[25%] h-[30vh] w-[150%] origin-top rounded-b-[50%] bg-slate-900 "
         ></motion.div>
 
         <motion.p
