@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion';
+import cx from 'classnames';
+import { ptSerif } from 'utils/serifFont';
 
 const Header = ({ label, isInView }: { label: string; isInView: boolean }) => {
   return (
     <header>
-      <h2 className="relative mb-1 overflow-hidden pb-1 pt-2 text-4xl font-bold sm:mb-2 sm:text-6xl lg:text-7xl">
+      <h2
+        className={cx(
+          ptSerif,
+          'relative mb-6 overflow-hidden border-b-2 border-b-slate-300/50 pb-2 pt-2 text-header font-bold leading-none md:mb-12 md:pb-4 lg:mb-16'
+        )}
+      >
         <motion.span
           animate={{ opacity: isInView ? 1 : 0, transform: isInView ? 'translateY(0)' : 'translateY(20px)' }}
           transition={{ duration: 0.4 }}

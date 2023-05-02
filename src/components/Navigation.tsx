@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { PT_Serif } from 'next/font/google';
 import { motion } from 'framer-motion';
 import cx from 'classnames';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
 import { NAV_ITEMS, ROUTES } from 'utils/routes';
+import { ptSerif } from 'utils/serifFont';
 import { LogoSVG } from 'assets/SVGs';
-
-const ptSerif = PT_Serif({ subsets: ['cyrillic'], weight: '700', display: 'swap' });
+import TransitionLabel from './TransitionLabel';
 
 const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);
@@ -31,20 +30,8 @@ const ListNav = () => {
           key={link}
           className="flex"
         >
-          <a className="group w-full rounded px-3 py-2" href={'#' + link}>
-            <span className="relative block w-full overflow-hidden pr-2 leading-4">
-              <span className="relative block transition-transform duration-300 group-hover:-translate-y-[165%] group-hover:-rotate-12">
-                {link}
-              </span>
-              <span
-                className={cx(
-                  ptSerif.className,
-                  'absolute bottom-0 block translate-y-[120%] rotate-12 text-teal-500 transition-transform duration-300 group-hover:translate-y-0 group-hover:rotate-0'
-                )}
-              >
-                {link}
-              </span>
-            </span>
+          <a className="group rounded px-3 py-2" href={'#' + link}>
+            <TransitionLabel label={link} padding />
           </a>
         </motion.li>
       ))}
@@ -85,25 +72,13 @@ const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
             className={cx(
               'relative w-full px-3 py-2',
               link === activeSection
-                ? ptSerif.className +
+                ? ptSerif +
                     ' text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-[6px] after:w-[6px] after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
             href={'#' + link}
           >
-            <span className="relative block w-full overflow-hidden leading-4">
-              <span className="relative block transition-transform duration-300 group-hover:-translate-y-[170%] group-hover:-rotate-12">
-                {link}
-              </span>
-              <span
-                className={cx(
-                  ptSerif.className,
-                  'absolute bottom-0 block translate-y-[120%] rotate-12 text-teal-500 transition-transform duration-300 group-hover:translate-y-0 group-hover:rotate-0'
-                )}
-              >
-                {link}
-              </span>
-            </span>
+            <TransitionLabel label={link} />
           </a>
         </li>
       ))}
@@ -126,15 +101,15 @@ const Navigation = () => {
     <motion.nav
       initial={{
         opacity: 0,
-        transform: 'translateY(20px)',
+        transform: 'translateY(-40px)',
       }}
       animate={{
         opacity: 1,
         transform: 'translateY(0)',
       }}
       transition={{
-        duration: 0.3,
-        delay: 2.7,
+        duration: 0.4,
+        delay: 0.9,
       }}
       className="fixed left-0 top-0 z-40 flex w-full items-center justify-between p-6"
     >

@@ -8,12 +8,20 @@ export const useActiveSection = (sections: TSection[]) => {
   const { scrollY } = useContext(ScrollContext);
 
   useEffect(() => {
-    const checkIfItsActive = (ref: RefObject<HTMLDivElement>) =>
+    const checkIfPreviousSectionIsActive = (ref: RefObject<HTMLDivElement>) =>
       ref.current &&
       Math.floor(ref.current.getBoundingClientRect().bottom) > 0 &&
       Math.floor(ref.current.getBoundingClientRect().bottom - 400) < window.innerHeight;
 
-    sections.forEach((section) => checkIfItsActive(section.ref) && setActiveSection(section.id));
+    const checkIfNextSectionIsActive = (ref: RefObject<HTMLDivElement>) =>
+      ref.current &&
+      Math.floor(ref.current.getBoundingClientRect().top + 200) < window.innerHeight &&
+      Math.floor(ref.current.getBoundingClientRect().top) > 0;
+
+    sections.forEach((section) => {
+      checkIfPreviousSectionIsActive(section.ref) && setActiveSection(section.id);
+      checkIfNextSectionIsActive(section.ref) && setActiveSection(section.id);
+    });
   }, [scrollY, sections, setActiveSection]);
 
   return { activeSection };
