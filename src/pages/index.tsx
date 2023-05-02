@@ -1,6 +1,5 @@
 import { RefObject, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import cx from 'classnames';
 import { TRoute } from 'context/ActiveSectionContext';
 import { useActiveSection } from 'hooks/useActiveSection';
 import { request } from 'lib/request';

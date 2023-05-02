@@ -52,7 +52,7 @@ const Skeabrate = () => {
         initial={{ opacity: 0, transform: 'translateY(-10px)' }}
         animate={{ opacity: 1, transform: 'translateY(0)' }}
         transition={{ duration: 0.4, delay: 1.3 }}
-        className="mb-5 max-w-2xl leading-tight text-slate-500 lg:mb-7"
+        className="mb-5 max-w-2xl text-slate-500 lg:mb-7"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt assumenda odio earum nisi. Nemo nihil
         cupiditate soluta possimus. Totam aut maxime hic quidem animi architecto minus explicabo cupiditate facilis qui.

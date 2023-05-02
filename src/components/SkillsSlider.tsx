@@ -47,7 +47,7 @@ function ParallaxSlider({ children, baseVelocity = 100 }: ParallaxProps) {
   });
 
   return (
-    <div className="mb-5 overflow-hidden border-b-2 border-t-2 border-slate-300 lg:mb-7">
+    <div className="mb-5 overflow-hidden border-b-2 border-t-2 border-slate-300/50 lg:mb-7">
       <motion.div className="flex flex-nowrap" style={{ x }}>
         <ul className="flex">{children}</ul>
         <ul className="flex">{children}</ul>
