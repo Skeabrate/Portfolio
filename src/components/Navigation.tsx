@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import cx from 'classnames';
+import { motion } from 'framer-motion';
+import { ResumeQuery } from '../../graphql/generated';
+import { LogoSVG } from 'assets/SVGs';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
-import { NAV_ITEMS, ROUTES } from 'utils/routes';
+import { NAV_ITEMS } from 'utils/routes';
 import { ptSerif } from 'utils/serifFont';
-import { LogoSVG } from 'assets/SVGs';
 import TransitionLabel from './TransitionLabel';
 
 const ListNav = () => {
@@ -86,7 +87,7 @@ const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
   );
 };
 
-const Navigation = () => {
+const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { scrollY } = useContext(ScrollContext);
 
@@ -114,7 +115,7 @@ const Navigation = () => {
       className="fixed left-0 top-0 z-40 flex w-full items-center justify-between p-6"
     >
       <a
-        href={'#' + ROUTES.skeabrate}
+        href="/"
         className={cx(
           'flex h-10 origin-left items-center transition-transform duration-300',
           scrollY > 10 ? 'scale-75' : 'scale-100'
@@ -138,6 +139,10 @@ const Navigation = () => {
 
       <ListNav />
       <DropdownNav isNavOpen={isNavOpen} />
+
+      <a href={resume?.resumeSrc.url} target="_blank" rel="noopener noreferrer">
+        Resume
+      </a>
     </motion.nav>
   );
 };

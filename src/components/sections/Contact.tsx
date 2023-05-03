@@ -6,8 +6,9 @@ import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import GreetingAnimation from 'components/GreetingAnimation';
 import TransitionLabel from 'components/TransitionLabel';
 import { GmailSVG } from 'assets/SVGs';
+import { ContactQuery, ResumeQuery } from '../../../graphql/generated';
 
-const Contact = () => {
+const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume: ResumeQuery['resume'] }) => {
   const isInNewSection = useAnimationInNewSection(ROUTES.contact);
 
   return (
@@ -30,10 +31,9 @@ const Contact = () => {
           duration: 0.4,
           delay: 0.2,
         }}
-        className="mb-4 max-w-2xl text-slate-500 lg:mb-6"
+        className="mb-5 max-w-2xl text-slate-500"
       >
-        I am currently looking for a job on a frontend developer position. Preferably in React ecosystem but I am open
-        on every propositions and ready to work and learn new technologies. Fell free to contact me.
+        {contact?.text}
       </motion.p>
 
       <motion.a
@@ -45,14 +45,14 @@ const Contact = () => {
           duration: 0.4,
           delay: 0.3,
         }}
-        className="group mb-4 flex items-center gap-3 text-slate-500 lg:mb-6"
+        className="group mb-9 flex items-center gap-3 text-slate-500"
         href="mailto:sebastianswiecz458@gmail.com"
       >
         <GmailSVG />
         <TransitionLabel label="sebastianswiecz458@gmail.com" />
       </motion.a>
 
-      <motion.button
+      <motion.a
         animate={{
           opacity: isInNewSection ? 1 : 0,
           transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
@@ -61,13 +61,16 @@ const Contact = () => {
           duration: 0.4,
           delay: 0.4,
         }}
+        href={resume?.resumeSrc.url}
+        target="_blank"
+        rel="noopener noreferrer"
         className={cx(
           ptSerif,
           'group relative rounded-bl-lg rounded-tr-lg bg-teal-500 px-6 py-3 font-semibold text-slate-50 after:absolute after:-bottom-1 after:-left-1 after:h-3/5 after:w-2/3 after:rounded-bl-xl after:border-b-2 after:border-l-2 after:border-teal-500 after:transition-all hover:after:h-full hover:after:w-full'
         )}
       >
         Resume
-      </motion.button>
+      </motion.a>
     </>
   );
 };
