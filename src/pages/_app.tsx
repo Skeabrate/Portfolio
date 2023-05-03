@@ -12,7 +12,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <ActiveSectionProvider>
       <ScrollProvider>
         <Curtain />
-        <Navigation />
         <Component {...pageProps} />
         <ActiveSectionBg />
         <Footer />

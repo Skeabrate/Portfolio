@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { motion } from 'framer-motion';
 import cx from 'classnames';
+import { motion } from 'framer-motion';
 import { ptSerif } from 'utils/serifFont';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 

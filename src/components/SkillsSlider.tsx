@@ -1,5 +1,6 @@
 import { useMemo, useRef } from 'react';
 import Image from 'next/image';
+import cx from 'classnames';
 import {
   motion,
   useScroll,
@@ -10,7 +11,6 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
-import cx from 'classnames';
 import { SkillsQuery } from '../../graphql/generated';
 import { ptSerif } from 'utils/serifFont';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';

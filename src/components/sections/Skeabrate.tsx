@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import cx from 'classnames';
 import { ROUTES } from 'utils/routes';
 import { ptSerif } from 'utils/serifFont';
 import ScrollButton from 'components/ScrollButton';
@@ -18,10 +19,10 @@ const Skeabrate = () => {
           </motion.p>
 
           <h1
-            className={
-              ptSerif +
-              ' relative mb-4 border-b-2 border-b-slate-300/50 pb-2 text-header font-bold leading-none md:mb-6 md:pb-4'
-            }
+            className={cx(
+              ptSerif,
+              'relative mb-4 border-b-2 border-b-slate-300/50 pb-2 text-header font-bold leading-none md:mb-6 md:pb-4'
+            )}
           >
             <motion.span
               initial={{ opacity: 0, transform: 'translateY(-10px)' }}

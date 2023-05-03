@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import cx from 'classnames';
+import { motion } from 'framer-motion';
 import { ptSerif } from 'utils/serifFont';
 
 const Header = ({ label, isInView }: { label: string; isInView: boolean }) => {
