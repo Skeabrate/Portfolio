@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { SkillsQuery } from '../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { ptSerif } from 'utils/serifFont';
-import { useAnimationWhenInView } from 'hooks/useAnimationWhenInView';
+import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
 import SkillsSlider from 'components/SkillsSlider';
@@ -12,14 +13,23 @@ const DecorationText = ({ children }: { children: React.ReactNode }) => (
 );
 
 const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
-  const { isInView } = useAnimationWhenInView(ROUTES.about);
+  const isInNewSection = useAnimationInNewSection(ROUTES.about);
 
   return (
     <>
-      <Header isInView={isInView} label="About me." />
+      <Header isInView={isInNewSection} label="About me." />
 
       <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:gap-10 lg:mb-16">
-        <div>
+        <motion.div
+          animate={{
+            opacity: isInNewSection ? 1 : 0,
+            transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+          }}
+          transition={{
+            duration: 0.4,
+            delay: 0.1,
+          }}
+        >
           <p className="mb-4 text-slate-500 md:my-4">
             Hi, my name is <DecorationText>Sebastian Świeczkowski</DecorationText> and I am a frontend developer. Lorem
             ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, delectus officiis. Odio quisquam omnis
@@ -34,10 +44,20 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
           </p>
 
           <ScrollButton label="Check out my projects" href={ROUTES.projects} />
-        </div>
+        </motion.div>
 
-        <div className="group relative aspect-square h-fit w-fit after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-3xl after:border-b-4 after:border-r-4 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[10px] md:pr-[10px] md:after:block">
-          <div className="overflow-hidden rounded-br-2xl rounded-tl-2xl bg-teal-400">
+        <motion.div
+          animate={{
+            opacity: isInNewSection ? 1 : 0,
+            transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+          }}
+          transition={{
+            duration: 0.4,
+            delay: 0.1,
+          }}
+          className="group relative aspect-square h-fit w-fit after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-3xl after:border-b-4 after:border-r-4 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[10px] md:pr-[10px] md:after:block"
+        >
+          <div className="overflow-hidden rounded-br-2xl rounded-tl-2xl bg-teal-300">
             <Image
               alt="Sebastian Świeczkowksi"
               src="/me.jpg"
@@ -46,7 +66,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               className="aspect-square object-cover mix-blend-multiply contrast-100 grayscale group-hover:mix-blend-normal group-hover:filter-none"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div>

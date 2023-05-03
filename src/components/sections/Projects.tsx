@@ -2,16 +2,16 @@ import Image from 'next/image';
 import { StructuredText } from 'react-datocms';
 import { ProjectsQuery } from '../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
-import { useAnimationWhenInView } from 'hooks/useAnimationWhenInView';
+import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
 
 const Projects = ({ projects }: { projects: ProjectsQuery }) => {
-  const { isInView } = useAnimationWhenInView(ROUTES.projects);
+  const isInNewSection = useAnimationInNewSection(ROUTES.projects);
 
   return (
     <>
-      <Header isInView={isInView} label="Projects." />
+      <Header isInView={isInNewSection} label="Projects." />
 
       {projects.allProjects.map(({ id, title, githubUrl, projectUrl, screenshots, description, technologies }) => (
         <article key={id}>

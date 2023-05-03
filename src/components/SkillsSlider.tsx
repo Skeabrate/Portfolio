@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import Image from 'next/image';
 import {
   motion,
@@ -10,15 +10,16 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
+import cx from 'classnames';
 import { SkillsQuery } from '../../graphql/generated';
+import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
 
-type ParallaxProps = {
-  children: React.ReactNode;
-  baseVelocity: number;
-};
+function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const { isInView } = useAnimateWhenInView(sliderRef);
 
-function ParallaxSlider({ children, baseVelocity = 100 }: ParallaxProps) {
   const baseX = useMotionValue(0);
+  const baseVelocity = 8;
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -46,26 +47,44 @@ function ParallaxSlider({ children, baseVelocity = 100 }: ParallaxProps) {
     baseX.set(baseX.get() + moveBy);
   });
 
+  const children = useMemo(
+    () =>
+      skills.map(({ id, title, icon }) => (
+        <li key={id} className="flex w-28 items-center justify-center p-2">
+          <Image
+            src={icon.url}
+            height={64}
+            width={64}
+            alt={title}
+            className={cx('transition-all duration-1000', isInView ? 'filter-none' : 'grayscale')}
+          />
+        </li>
+      )),
+    [skills, isInView]
+  );
+
   return (
-    <div className="mb-5 overflow-hidden border-b-2 border-t-2 border-slate-300/50 lg:mb-7">
+    <div ref={sliderRef} className="relative mb-5 overflow-hidden py-1 lg:mb-7">
+      <span
+        className={cx(
+          isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
+          'absolute right-0 top-0 h-[2px] w-full origin-center bg-teal-500 transition-all duration-700'
+        )}
+      />
+      <span className="absolute right-0 top-0 h-[2px] w-full bg-slate-300/50" />
       <motion.div className="flex flex-nowrap" style={{ x }}>
         <ul className="flex">{children}</ul>
         <ul className="flex">{children}</ul>
       </motion.div>
+      <span className="absolute bottom-0 right-0 h-[2px] w-full bg-slate-300/50" />
+      <span
+        className={cx(
+          isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
+          'absolute bottom-0 right-0 h-[2px] w-full origin-center bg-teal-500 transition-all duration-700'
+        )}
+      />
     </div>
   );
 }
-
-const SkillsSlider = ({ skills }: { skills: SkillsQuery['allSkills'] }) => {
-  return (
-    <ParallaxSlider baseVelocity={8}>
-      {skills.map(({ id, title, icon }) => (
-        <li key={id} className="flex w-28 items-center justify-center p-2">
-          <Image src={icon.url} height={64} width={64} alt={title} className="grayscale" />
-        </li>
-      ))}
-    </ParallaxSlider>
-  );
-};
 
 export default SkillsSlider;

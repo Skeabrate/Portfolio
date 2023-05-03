@@ -1,7 +1,7 @@
-import { RefObject, useContext, useEffect } from 'react';
+import { RefObject, useContext, useEffect, useRef } from 'react';
 import { TSection } from 'pages';
 import { ScrollContext } from 'context/ScrollContext';
-import { ActiveSectionContext } from 'context/ActiveSectionContext';
+import { ActiveSectionContext, TRoute } from 'context/ActiveSectionContext';
 
 export const useActiveSection = (sections: TSection[]) => {
   const { activeSection, setActiveSection } = useContext(ActiveSectionContext);
@@ -25,4 +25,15 @@ export const useActiveSection = (sections: TSection[]) => {
   }, [scrollY, sections, setActiveSection]);
 
   return { activeSection };
+};
+
+// Animate the same time that active section change
+export const useAnimationInNewSection = (sectionId: TRoute) => {
+  const animationStart = useRef(false);
+  const { activeSection } = useContext(ActiveSectionContext);
+
+  useEffect(() => {
+    activeSection === sectionId && (animationStart.current = true);
+  }, [activeSection, sectionId]);
+  return animationStart.current;
 };
