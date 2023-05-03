@@ -49,20 +49,32 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={skeabrateRef}
           id={ROUTES.skeabrate}
-          className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center py-40 2xl:max-w-4xl"
+          className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop 2xl:max-w-4xl"
         >
           <Skeabrate />
         </section>
 
-        <section ref={aboutRef} id={ROUTES.about} className="mx-auto min-h-screen max-w-4xl pb-20 sm:pb-40">
+        <section
+          ref={aboutRef}
+          id={ROUTES.about}
+          className="mx-auto max-w-4xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+        >
           <About skills={skills} />
         </section>
 
-        <section ref={projectsRef} id={ROUTES.projects} className="mx-auto min-h-screen max-w-6xl pb-20 sm:pb-40">
+        <section
+          ref={projectsRef}
+          id={ROUTES.projects}
+          className="mx-auto max-w-6xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+        >
           <Projects projects={projects} />
         </section>
 
-        <section ref={contactRef} id={ROUTES.contact} className="mx-auto min-h-screen max-w-2xl pb-20 sm:pb-40">
+        <section
+          ref={contactRef}
+          id={ROUTES.contact}
+          className="mx-auto max-w-2xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+        >
           <Contact contact={contact.contact} resume={resume.resume} />
         </section>
       </main>
