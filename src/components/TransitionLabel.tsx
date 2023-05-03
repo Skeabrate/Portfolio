@@ -7,12 +7,12 @@ const TransitionLabel = ({ label, padding }: { label: React.ReactNode; padding?:
       <span
         className={cx(
           ptSerif,
-          'fill-child absolute bottom-0 block -translate-y-full text-teal-500 opacity-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100'
+          'fill-child absolute bottom-0 block -translate-y-full text-teal-500 opacity-0 transition-[transform_opacity] duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100'
         )}
       >
         {label}
       </span>
-      <span className="relative block opacity-100 transition-all duration-300 group-hover:translate-y-full group-hover:opacity-0">
+      <span className="relative block opacity-100 transition-[transform_opacity] duration-300 group-hover:translate-y-full group-hover:opacity-0">
         {label}
       </span>
     </span>

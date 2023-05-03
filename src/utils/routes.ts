@@ -1,6 +1,6 @@
 export const ROUTES = {
   skeabrate: 'skeabrate',
-  about: 'About me',
+  about: 'About',
   projects: 'Projects',
   contact: 'Contact',
 } as const;

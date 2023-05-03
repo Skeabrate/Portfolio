@@ -13,7 +13,7 @@ const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);
 
   return (
-    <ul className="hidden md:flex">
+    <ul className="hidden justify-center md:flex">
       {NAV_ITEMS.map((link, index) => (
         <motion.li
           initial={{
@@ -26,12 +26,12 @@ const ListNav = () => {
           }}
           transition={{
             duration: 0.25,
-            delay: 0.1 * index,
+            delay: 0.1 + 0.1 * index,
           }}
           key={link}
           className="flex"
         >
-          <a className="group rounded px-3 py-2" href={'#' + link}>
+          <a className="group rounded px-3 py-2 text-lg" href={'#' + link}>
             <TransitionLabel label={link} padding />
           </a>
         </motion.li>
@@ -40,7 +40,7 @@ const ListNav = () => {
   );
 };
 
-const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
+const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: string | undefined }) => {
   const { activeSection } = useContext(ActiveSectionContext);
 
   const showNav = {
@@ -65,7 +65,7 @@ const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
       }}
       transition={{ duration: 0.1 }}
       animate={isNavOpen ? showNav : hideNav}
-      className="absolute right-0 top-full z-40 mr-6 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 py-2 shadow"
+      className="absolute right-8 top-full z-40 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 pt-2 shadow"
     >
       {NAV_ITEMS.map((link) => (
         <li key={link} className="flex w-full">
@@ -83,6 +83,17 @@ const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
           </a>
         </li>
       ))}
+
+      <li className="flex w-full">
+        <a
+          href={resumeSrc}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cx(ptSerif, 'flex w-full justify-center bg-slate-200 px-3 py-2 font-bold text-slate-400')}
+        >
+          Resume
+        </a>
+      </li>
     </motion.ul>
   );
 };
@@ -112,7 +123,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         duration: 0.4,
         delay: 1,
       }}
-      className="fixed left-0 top-0 z-40 flex w-full items-center justify-between p-6"
+      className="fixed left-0 top-0 z-40 grid w-full items-center p-6 px-8 md:grid-cols-3"
     >
       <a
         href="/"
@@ -128,8 +139,8 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         id="hamburger"
         aria-label="open menu"
         className={cx(
-          'absolute right-6 z-10 flex h-10 w-10 flex-col justify-between rounded-full bg-slate-600 px-2 py-3 transition-transform duration-[400ms]',
-          scrollY > 10 ? 'md:scale-1 md:delay-300' : 'md:scale-0'
+          'absolute right-8 z-10 flex h-10 w-10 flex-col justify-between rounded-full bg-slate-600 px-2 py-3 transition-transform duration-300',
+          scrollY > 10 ? 'md:scale-1' : 'md:scale-0'
         )}
       >
         <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-200"></span>
@@ -138,10 +149,21 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
       </button>
 
       <ListNav />
-      <DropdownNav isNavOpen={isNavOpen} />
+      <DropdownNav isNavOpen={isNavOpen} resumeSrc={resume?.resumeSrc.url} />
 
-      <a href={resume?.resumeSrc.url} target="_blank" rel="noopener noreferrer">
-        Resume
+      <a
+        href={resume?.resumeSrc.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cx(
+          ptSerif,
+          'ml-auto hidden h-10 items-center justify-center rounded-full border-2 border-teal-500 font-bold text-teal-500 transition-all duration-300 md:flex',
+          scrollY > 10 ? 'w-10' : 'w-32'
+        )}
+      >
+        <span className={cx('transition-opacity duration-200', scrollY > 10 ? 'opacity-0' : 'opacity-100')}>
+          Resume
+        </span>
       </a>
     </motion.nav>
   );

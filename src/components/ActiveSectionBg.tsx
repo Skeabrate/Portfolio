@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { ptSerif } from 'utils/serifFont';
+import { ROUTES } from 'utils/routes';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 
 const ActiveSectionBg = () => {
@@ -36,7 +37,7 @@ const ActiveSectionBg = () => {
         transition={{ duration: 0.4 }}
         className="block"
       >
-        {activeSection}.
+        {activeSection === ROUTES.about ? activeSection + ' me' : activeSection}.
       </motion.span>
     </motion.div>
   );
