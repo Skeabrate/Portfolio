@@ -73,7 +73,7 @@ const DropdownNav = ({ isNavOpen }: { isNavOpen: boolean }) => {
               'relative w-full px-3 py-2',
               link === activeSection
                 ? ptSerif +
-                    ' text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-[6px] after:w-[6px] after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
+                    ' text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
             href={'#' + link}
