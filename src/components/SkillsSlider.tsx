@@ -20,7 +20,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const { isInView } = useAnimateWhenInView(sliderRef);
 
   const baseX = useMotionValue(0);
-  const baseVelocity = 8;
+  const baseVelocity = 10;
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -51,7 +51,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const children = useMemo(
     () =>
       skills.map(({ id, title, icon }) => (
-        <li key={id} className="flex w-28 items-center justify-center p-2">
+        <li key={id} className="flex w-12 items-center justify-center p-2 sm:w-28">
           <Image
             src={icon.url}
             height={64}

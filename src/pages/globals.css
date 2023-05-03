@@ -7,6 +7,21 @@ html {
   scroll-padding-top: 100px;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(to top, #cbd5e1, white);
+}
+::selection {
+  background-color: #14b8a6;
+  color: #f8fafc;
+}
+
 .vertical-rl {
   writing-mode: vertical-rl;
 }

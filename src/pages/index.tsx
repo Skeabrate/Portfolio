@@ -41,15 +41,15 @@ const Home: NextPage<Props> = ({ projects, skills }) => {
         <Skeabrate />
       </section>
 
-      <section ref={aboutRef} id={ROUTES.about} className="mx-auto min-h-screen max-w-4xl pb-40">
+      <section ref={aboutRef} id={ROUTES.about} className="mx-auto min-h-screen max-w-4xl pb-20 sm:pb-40">
         <About skills={skills} />
       </section>
 
-      <section ref={projectsRef} id={ROUTES.projects} className="mx-auto min-h-screen max-w-6xl pb-40">
+      <section ref={projectsRef} id={ROUTES.projects} className="mx-auto min-h-screen max-w-6xl pb-20 sm:pb-40">
         <Projects projects={projects} />
       </section>
 
-      <section ref={contactRef} id={ROUTES.contact} className="mx-auto min-h-screen max-w-2xl pb-40">
+      <section ref={contactRef} id={ROUTES.contact} className="mx-auto min-h-screen max-w-2xl pb-20 sm:pb-40">
         <Contact />
       </section>
     </main>

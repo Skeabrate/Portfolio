@@ -63,7 +63,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               src="/me.jpg"
               height={650}
               width={650}
-              className="aspect-square object-cover mix-blend-multiply contrast-100 grayscale group-hover:mix-blend-normal group-hover:filter-none"
+              className="aspect-square object-cover group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale"
             />
           </div>
         </motion.div>

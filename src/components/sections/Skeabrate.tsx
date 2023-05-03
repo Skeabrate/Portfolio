@@ -58,7 +58,13 @@ const Skeabrate = () => {
         cupiditate soluta possimus. Totam aut maxime hic quidem animi architecto minus explicabo cupiditate facilis qui.
       </motion.p>
 
-      <ScrollButton label="More about me" href={ROUTES.about} />
+      <motion.div
+        initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+        animate={{ opacity: 1, transform: 'translateY(0)' }}
+        transition={{ duration: 0.4, delay: 1.4 }}
+      >
+        <ScrollButton label="More about me" href={ROUTES.about} />
+      </motion.div>
     </>
   );
 };

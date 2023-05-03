@@ -101,7 +101,7 @@ const Navigation = () => {
     <motion.nav
       initial={{
         opacity: 0,
-        transform: 'translateY(-40px)',
+        transform: 'translateY(-10px)',
       }}
       animate={{
         opacity: 1,
@@ -109,7 +109,7 @@ const Navigation = () => {
       }}
       transition={{
         duration: 0.4,
-        delay: 0.9,
+        delay: 1,
       }}
       className="fixed left-0 top-0 z-40 flex w-full items-center justify-between p-6"
     >
