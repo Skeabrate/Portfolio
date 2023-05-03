@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-4 px-4 pb-8 pt-16 text-center text-xs tracking-widest lg:p-0">
       <div className="static bottom-0 left-0 flex w-24 flex-col items-center gap-9 lg:fixed">
-        <ul className="flex gap-4 lg:flex-col lg:gap-6">
+        <ul className="flex gap-5 lg:flex-col lg:gap-3">
           <motion.li
             initial={{
               opacity: 0,

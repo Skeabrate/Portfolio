@@ -45,32 +45,24 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           duration: 0.4,
           delay: 0.3,
         }}
-        className="group mb-9 flex items-center gap-3 text-slate-500"
+        className="group mb-5 flex items-center gap-3 text-slate-500"
         href="mailto:sebastianswiecz458@gmail.com"
       >
         <GmailSVG />
         <TransitionLabel label="sebastianswiecz458@gmail.com" />
       </motion.a>
 
-      <motion.a
-        animate={{
-          opacity: isInNewSection ? 1 : 0,
-          transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
-        }}
-        transition={{
-          duration: 0.4,
-          delay: 0.4,
-        }}
+      <a
         href={resume?.resumeSrc.url}
         target="_blank"
         rel="noopener noreferrer"
         className={cx(
           ptSerif,
-          'group relative rounded-bl-lg rounded-tr-lg bg-teal-500 px-6 py-3 font-semibold text-slate-50 after:absolute after:-bottom-1 after:-left-1 after:h-3/5 after:w-2/3 after:rounded-bl-xl after:border-b-2 after:border-l-2 after:border-teal-500 after:transition-all hover:after:h-full hover:after:w-full'
+          'flex h-10 w-32 items-center justify-center rounded-full border-2 border-teal-500 font-bold text-teal-500 transition-all duration-300'
         )}
       >
         Resume
-      </motion.a>
+      </a>
     </>
   );
 };

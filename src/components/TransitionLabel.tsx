@@ -3,7 +3,7 @@ import { ptSerif } from 'utils/serifFont';
 
 const TransitionLabel = ({ label, padding }: { label: React.ReactNode; padding?: boolean }) => {
   return (
-    <span className={cx(padding ? 'pr-2' : '', 'relative block w-full overflow-hidden pb-1 leading-4')}>
+    <span className={cx(padding ? 'pr-2' : '', 'relative block w-full overflow-hidden py-2 leading-4')}>
       <span
         className={cx(
           ptSerif,
