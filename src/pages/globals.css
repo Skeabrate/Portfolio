@@ -26,6 +26,6 @@ html {
   writing-mode: vertical-rl;
 }
 
-.fill-child > svg {
+.fill-child svg {
   fill: currentColor;
 }

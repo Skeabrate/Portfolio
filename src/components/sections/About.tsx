@@ -20,31 +20,53 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
       <Header isInView={isInNewSection} label="About me." />
 
       <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-2 md:gap-10 lg:mb-16">
-        <motion.div
-          animate={{
-            opacity: isInNewSection ? 1 : 0,
-            transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
-          }}
-          transition={{
-            duration: 0.4,
-            delay: 0.1,
-          }}
-        >
-          <p className="mb-4 text-slate-500 md:my-4">
+        <div>
+          <motion.p
+            animate={{
+              opacity: isInNewSection ? 1 : 0,
+              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+            }}
+            transition={{
+              duration: 0.4,
+              delay: 0.2,
+            }}
+            className="mb-4 text-slate-500 md:my-4"
+          >
             Hi, my name is <DecorationText>Sebastian Świeczkowski</DecorationText> and I am a frontend developer. Lorem
             ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, delectus officiis. Odio quisquam omnis
             animi, quis repellendus delectus rerum culpa expedita. My main stack is{' '}
             <DecorationText>React</DecorationText> and <DecorationText>Typescript.</DecorationText> tempore ipsum
             impedit sint atque nisi, maiores, explicabo et.
-          </p>
+          </motion.p>
 
-          <p className="mb-8 text-slate-500">
+          <motion.p
+            animate={{
+              opacity: isInNewSection ? 1 : 0,
+              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+            }}
+            transition={{
+              duration: 0.4,
+              delay: 0.3,
+            }}
+            className="mb-8 text-slate-500"
+          >
             <DecorationText>Besides proggramming</DecorationText> I love sports and guitar! amet consectetur adipisicing
             elit. Nemo repudiandae voluptates soluta minima eligendi tenetur at voluptas temporibus itaque. Suscipit.
-          </p>
+          </motion.p>
 
-          <ScrollButton label="Check out my projects" href={ROUTES.projects} />
-        </motion.div>
+          <motion.div
+            animate={{
+              opacity: isInNewSection ? 1 : 0,
+              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+            }}
+            transition={{
+              duration: 0.4,
+              delay: 0.4,
+            }}
+          >
+            <ScrollButton label="Check out my projects" href={ROUTES.projects} />
+          </motion.div>
+        </div>
 
         <motion.div
           animate={{
@@ -53,7 +75,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
           }}
           transition={{
             duration: 0.4,
-            delay: 0.1,
+            delay: 0.2,
           }}
           className="group relative aspect-square h-fit w-fit after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-3xl after:border-b-4 after:border-r-4 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-2.5 md:pr-2.5 md:after:block"
         >
