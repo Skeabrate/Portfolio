@@ -58,7 +58,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
         rel="noopener noreferrer"
         className={cx(
           ptSerif,
-          'flex h-10 w-32 items-center justify-center rounded-full border-2 border-teal-500 font-bold text-teal-500 transition-all duration-300'
+          'flex h-10 w-32 items-center justify-center rounded-full border border-teal-500 font-bold text-teal-500 transition-all duration-300'
         )}
       >
         Resume

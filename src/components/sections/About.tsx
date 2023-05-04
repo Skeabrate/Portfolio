@@ -77,7 +77,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             duration: 0.4,
             delay: 0.2,
           }}
-          className="group relative aspect-square h-fit w-fit after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-3xl after:border-b-4 after:border-r-4 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-2.5 md:pr-2.5 md:after:block"
+          className="group relative aspect-square h-fit w-fit after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-3xl after:border-b-2 after:border-r-2 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-2.5 md:pr-2.5 md:after:block"
         >
           <div className="overflow-hidden rounded-br-2xl rounded-tl-2xl bg-teal-300">
             <Image

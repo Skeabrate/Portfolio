@@ -90,7 +90,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute -top-0 right-0 h-1 w-full origin-center bg-teal-500 transition-all duration-700'
+            'absolute -top-0 right-0 h-px w-full origin-center bg-teal-500 transition-all duration-700'
           )}
         />
         <span className="absolute right-0 top-0.5 h-0.5 w-full bg-slate-300/50" />
@@ -102,7 +102,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute bottom-0 right-0 h-1 w-full origin-center bg-teal-500 transition-all duration-700'
+            'absolute bottom-0 right-0 h-px w-full origin-center bg-teal-500 transition-all duration-700'
           )}
         />
       </div>
