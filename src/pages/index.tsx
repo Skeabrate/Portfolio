@@ -49,7 +49,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={skeabrateRef}
           id={ROUTES.skeabrate}
-          className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop 2xl:max-w-4xl"
+          className="mx-auto flex min-h-screen w-fit flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
         >
           <Skeabrate />
         </section>

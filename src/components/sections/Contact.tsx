@@ -16,7 +16,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
       <header
         className={cx(
           ptSerif,
-          'relative mb-6 overflow-hidden border-b-2 border-b-slate-300/50 pb-2 pt-2 text-header font-bold leading-none md:mb-12 md:pb-4 lg:mb-16'
+          'relative mb-6 overflow-hidden border-b-2 border-b-slate-300/50 pb-2 pt-2 text-header font-bold leading-none md:mb-8 md:pb-6'
         )}
       >
         {isInNewSection ? <GreetingAnimation /> : null}

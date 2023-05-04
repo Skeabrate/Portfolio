@@ -38,6 +38,7 @@ const GreetingAnimation = () => {
         transform: 'translateY(0)',
       }}
       transition={{ duration: 0.4 }}
+      className="w-[110%]"
     >
       {greetings[currentGrettings]}
     </motion.h2>
