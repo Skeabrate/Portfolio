@@ -1,8 +1,6 @@
 import { LogoSVG } from 'assets/SVGs';
-import cx from 'classnames';
 import TransitionLabel from 'components/TransitionLabel';
 import { motion } from 'framer-motion';
-import { ptSerif } from 'utils/serifFont';
 
 const Error = () => {
   return (
@@ -29,12 +27,7 @@ const Error = () => {
 
       <main className="flex min-h-screen items-center justify-center py-40">
         <header className="w-fit text-center">
-          <h1
-            className={cx(
-              ptSerif,
-              'relative mb-4 border-b-2 border-b-slate-300/50 pb-2 text-error font-bold leading-none md:mb-6 md:pb-4'
-            )}
-          >
+          <h1 className="relative mb-4 border-b-2 border-b-slate-300/50 pb-2 text-error leading-none md:mb-6 md:pb-4">
             <motion.span
               initial={{ opacity: 0, transform: 'translateY(-10px)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
@@ -45,7 +38,7 @@ const Error = () => {
             </motion.span>
           </h1>
 
-          <h2 className="relative mb-3 text-xl font-bold text-slate-400 sm:text-3xl lg:mb-5 lg:text-4xl">
+          <h2 className="relative mb-3 text-xl text-slate-400 sm:text-3xl lg:mb-5 lg:text-4xl">
             <motion.span
               initial={{ opacity: 0, transform: 'translateY(-10px)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}

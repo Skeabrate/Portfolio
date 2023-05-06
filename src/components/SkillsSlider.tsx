@@ -12,7 +12,6 @@ import {
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
 import { SkillsQuery } from '../../graphql/generated';
-import { ptSerif } from 'utils/serifFont';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
@@ -66,11 +65,10 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
 
   return (
     <>
-      <h3 className="relative mb-5 overflow-hidden text-xl font-bold sm:text-3xl lg:mb-7 lg:text-4xl">
+      <h3 className="relative mb-5 overflow-hidden text-subHeader lg:mb-7">
         <span
           className={cx(
-            ptSerif,
-            'absolute bottom-0 left-0 top-0 block text-teal-500 transition-all duration-500 sm:leading-10 lg:leading-[2.9rem]',
+            'absolute bottom-0 left-0 top-0 block text-teal-400 transition-all duration-500',
             isInView ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           )}
         >
@@ -78,7 +76,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         </span>
         <span
           className={cx(
-            'relative block text-slate-400 transition-all duration-500 sm:leading-10 lg:leading-[2.9rem]',
+            'relative block text-slate-400 transition-all duration-500',
             isInView ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'
           )}
         >
@@ -90,19 +88,19 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute -top-0 right-0 h-px w-full origin-center bg-teal-500 transition-all duration-700'
+            'absolute -top-0 right-0 h-px w-full origin-center bg-teal-400 transition-all duration-700'
           )}
         />
-        <span className="absolute right-0 top-0.5 h-0.5 w-full bg-slate-300/50" />
+        <span className="absolute right-0 top-0.5 h-0.5 w-full bg-slate-700" />
         <motion.div className="flex flex-nowrap" style={{ x }}>
           <ul className="flex">{children}</ul>
           <ul className="flex">{children}</ul>
         </motion.div>
-        <span className="absolute bottom-0.5 right-0 h-0.5 w-full bg-slate-300/50" />
+        <span className="absolute bottom-0.5 right-0 h-0.5 w-full bg-slate-700" />
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute bottom-0 right-0 h-px w-full origin-center bg-teal-500 transition-all duration-700'
+            'absolute bottom-0 right-0 h-px w-full origin-center bg-teal-400 transition-all duration-700'
           )}
         />
       </div>

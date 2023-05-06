@@ -6,14 +6,13 @@ import { LogoSVG } from 'assets/SVGs';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
 import { NAV_ITEMS } from 'utils/routes';
-import { ptSerif } from 'utils/serifFont';
 import TransitionLabel from './TransitionLabel';
 
 const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);
 
   return (
-    <ul className="hidden justify-center md:flex">
+    <ul className="hidden justify-center gap-[1vw] md:flex">
       {NAV_ITEMS.map((link, index) => (
         <motion.li
           initial={{
@@ -31,8 +30,8 @@ const ListNav = () => {
           key={link}
           className="flex"
         >
-          <a className="group rounded px-3 py-2 text-lg" href={'#' + link}>
-            <TransitionLabel label={link} padding />
+          <a className="group rounded px-[1vw]" href={'#' + link}>
+            <TransitionLabel label={link} />
           </a>
         </motion.li>
       ))}
@@ -65,16 +64,15 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
       }}
       transition={{ duration: 0.1 }}
       animate={isNavOpen ? showNav : hideNav}
-      className="absolute right-8 top-full z-40 flex w-36 origin-top-right flex-col items-start gap-1 rounded bg-slate-100 pt-2 shadow"
+      className="absolute right-4 top-full z-40 flex w-[clamp(9rem,10vw,10vw)] origin-top-right flex-col items-start gap-1 overflow-hidden rounded bg-slate-900/50 pt-2 shadow lg:right-[2vw]"
     >
       {NAV_ITEMS.map((link) => (
         <li key={link} className="flex w-full">
           <a
             className={cx(
-              'relative w-full px-3 py-2',
+              'relative w-full px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)]',
               link === activeSection
-                ? ptSerif +
-                    ' text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
+                ? 'text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
             href={'#' + link}
@@ -89,7 +87,7 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
           href={resumeSrc}
           target="_blank"
           rel="noopener noreferrer"
-          className={cx(ptSerif, 'flex w-full justify-center bg-slate-200 px-3 py-2 font-bold text-slate-400')}
+          className="w-full bg-slate-950 px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)] font-bold text-slate-500"
         >
           Resume
         </a>
@@ -123,14 +121,11 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         duration: 0.4,
         delay: 1,
       }}
-      className="fixed left-0 top-0 z-40 grid w-full items-center p-6 px-8 md:grid-cols-3"
+      className="fixed left-0 top-0 z-40 grid w-full items-center px-4 py-6 text-nav md:grid-cols-3 lg:p-[2vw]"
     >
       <a
         href="/"
-        className={cx(
-          'flex h-10 origin-left items-center transition-transform duration-300',
-          scrollY > 10 ? 'scale-75' : 'scale-100'
-        )}
+        className={cx('origin-left transition-transform duration-300', scrollY > 10 ? 'scale-75' : 'scale-100')}
       >
         <LogoSVG />
       </a>
@@ -139,13 +134,13 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         id="hamburger"
         aria-label="open menu"
         className={cx(
-          'absolute right-8 z-10 flex h-10 w-10 flex-col justify-between rounded-full bg-slate-600 px-2 py-3 transition-transform duration-300',
+          'absolute right-4 z-10 flex h-[clamp(3rem,2.8vw,2.8vw)] w-[clamp(3rem,2.8vw,2.8vw)] flex-col justify-center gap-[clamp(0.3rem,0.25vw,0.25vw)] rounded-full bg-slate-600 px-[clamp(0.7rem,0.6vw,0.6vw)] transition-transform duration-300 lg:right-[2vw]',
           scrollY > 10 ? 'md:scale-1' : 'md:scale-0'
         )}
       >
-        <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-200"></span>
-        <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-200"></span>
-        <span className="pointer-events-none h-0.5 w-full rounded-full bg-slate-200"></span>
+        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
+        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
+        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
       </button>
 
       <ListNav />
@@ -156,14 +151,11 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         target="_blank"
         rel="noopener noreferrer"
         className={cx(
-          ptSerif,
-          'ml-auto hidden h-10 items-center justify-center rounded-full border border-teal-500 font-bold text-teal-500 transition-all duration-300 md:flex',
-          scrollY > 10 ? 'w-10' : 'w-32'
+          'ml-auto hidden h-[clamp(3rem,2.8vw,2.8vw)] items-center justify-center rounded-full border border-teal-400 text-teal-400 transition-all duration-300 md:flex',
+          scrollY > 10 ? 'w-[clamp(3rem,2.8vw,2.8vw)] opacity-0' : 'w-[clamp(8rem,7.4vw,7.4vw)] opacity-100'
         )}
       >
-        <span className={cx('transition-opacity duration-200', scrollY > 10 ? 'opacity-0' : 'opacity-100')}>
-          Resume
-        </span>
+        Resume
       </a>
     </motion.nav>
   );

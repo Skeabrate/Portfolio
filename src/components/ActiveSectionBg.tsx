@@ -1,7 +1,5 @@
 import { useContext } from 'react';
-import cx from 'classnames';
 import { motion } from 'framer-motion';
-import { ptSerif } from 'utils/serifFont';
 import { ROUTES } from 'utils/routes';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 
@@ -19,10 +17,7 @@ const ActiveSectionBg = () => {
         transform: 'translate(-50%, 0)',
       }}
       transition={{ duration: 0.4, delay: 1.45 }}
-      className={cx(
-        'fixed bottom-8 left-1/2 -z-10 w-[200%] -translate-x-1/2 text-center text-[20vw] leading-none text-slate-400/10',
-        ptSerif
-      )}
+      className="fixed bottom-[1vw] left-1/2 -z-10 w-[200%] -translate-x-1/2 text-center text-[20vw] font-bold leading-none text-slate-900/30"
     >
       <motion.span
         key={activeSection}

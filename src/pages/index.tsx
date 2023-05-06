@@ -49,7 +49,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={skeabrateRef}
           id={ROUTES.skeabrate}
-          className="mx-auto flex min-h-screen w-fit flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
+          className="mx-auto flex h-screen min-h-[50vw] flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
         >
           <Skeabrate />
         </section>
@@ -57,7 +57,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={aboutRef}
           id={ROUTES.about}
-          className="mx-auto max-w-4xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+          className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
         >
           <About skills={skills} />
         </section>
@@ -65,7 +65,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={projectsRef}
           id={ROUTES.projects}
-          className="mx-auto max-w-6xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+          className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
         >
           <Projects projects={projects} />
         </section>
@@ -73,7 +73,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={contactRef}
           id={ROUTES.contact}
-          className="mx-auto max-w-2xl pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+          className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
         >
           <Contact contact={contact.contact} resume={resume.resume} />
         </section>

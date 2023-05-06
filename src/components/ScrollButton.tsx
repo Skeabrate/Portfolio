@@ -4,10 +4,13 @@ import TransitionLabel from './TransitionLabel';
 
 const ScrollButton = ({ label, href }: { label: string; href: TRoute }) => {
   return (
-    <a className="group relative flex w-fit items-end gap-3 py-1 font-bold text-teal-500" href={'#' + href}>
+    <a
+      className="group relative flex w-fit items-end gap-[clamp(0.4rem,0.8vw,1.2rem)] pb-[0.4vw] font-bold text-teal-400"
+      href={'#' + href}
+    >
       <ArrowSVG />
       <TransitionLabel label={label} />
-      <span className="absolute bottom-0 left-0 h-px w-2/3 origin-left bg-teal-500 transition-all duration-300 group-hover:w-full" />
+      <span className="absolute bottom-0 left-0 h-[0.05vw] w-2/3 origin-left bg-teal-400 transition-all duration-300 group-hover:w-full" />
     </a>
   );
 };

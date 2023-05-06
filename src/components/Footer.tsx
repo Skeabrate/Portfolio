@@ -4,9 +4,9 @@ import TransitionLabel from './TransitionLabel';
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center gap-4 px-4 pb-8 pt-16 text-center text-xs tracking-widest lg:p-0">
-      <div className="static bottom-0 left-0 flex w-24 flex-col items-center gap-9 lg:fixed">
-        <ul className="flex gap-5 lg:flex-col lg:gap-3">
+    <footer className="flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest lg:p-0">
+      <div className="static bottom-0 left-0 flex w-[6vw] flex-col items-center gap-[3vw] lg:fixed">
+        <ul className="flex gap-[clamp(0.9rem,1.4vw,1.4vw)] lg:flex-col">
           <motion.li
             initial={{
               opacity: 0,
@@ -116,7 +116,7 @@ const Footer = () => {
             duration: 0.4,
             delay: 1.6,
           }}
-          className="hidden h-20 w-px origin-bottom bg-slate-500 lg:block"
+          className="hidden h-[6vw] w-[0.1vw] origin-bottom bg-slate-800 lg:block"
         ></motion.p>
       </div>
 
@@ -131,14 +131,14 @@ const Footer = () => {
           duration: 0.4,
           delay: 1.6,
         }}
-        className="bottom-1 lg:fixed"
+        className="bottom-[0.5vw] lg:fixed lg:px-[1vw]"
       >
         &copy;/ {new Date().getFullYear()}
-        <span className="absolute -left-full top-1/2 hidden h-px w-10 translate-y-1/2 bg-slate-500 lg:block"></span>
-        <span className="absolute -right-full top-1/2 hidden h-px w-10 translate-y-1/2 bg-slate-500 lg:block"></span>
+        <span className="absolute left-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 bg-slate-800 lg:block"></span>
+        <span className="absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 bg-slate-800 lg:block"></span>
       </motion.p>
 
-      <div className="vertical-rl bottom-0 right-0 flex items-center gap-9 text-slate-700 lg:fixed lg:h-screen lg:w-24 lg:pt-8">
+      <div className="vertical-rl bottom-0 right-0 hidden w-[6vw] items-center gap-[3vw] text-slate-400 lg:fixed lg:flex">
         <motion.a
           initial={{
             opacity: 0,
@@ -150,7 +150,7 @@ const Footer = () => {
             duration: 0.4,
             delay: 2,
           }}
-          className="mt-auto hidden transition-all hover:text-teal-500 lg:block"
+          className="mt-auto transition-all hover:text-teal-400"
           href="mailto:sebastianswiecz458@gmail.com"
         >
           sebastianswiecz458@gmail.com
@@ -167,7 +167,7 @@ const Footer = () => {
             duration: 0.4,
             delay: 1.6,
           }}
-          className="hidden h-20 w-px origin-bottom bg-slate-500 lg:block"
+          className="hidden h-[6vw] w-[0.1vw] origin-bottom bg-slate-800 lg:block"
         ></motion.p>
       </div>
     </footer>

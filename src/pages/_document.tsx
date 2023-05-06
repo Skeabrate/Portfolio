@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="description" content="Skeabrate, Sebastian Świeczkowski portoflio" />
       </Head>
 
-      <body className="relative bg-slate-300 px-4 text-slate-800 after:fixed after:inset-0 after:-z-20 after:h-full after:w-full after:bg-gradient-to-t after:from-slate-300 after:to-white sm:px-10 lg:px-24">
+      <body className="relative bg-slate-950 px-4 text-default text-slate-300 after:fixed after:inset-0 after:-z-20 after:h-full after:w-full after:bg-gradient-to-b after:from-slate-800 after:to-slate-950 md:px-[6vw]">
         <Main />
         <NextScript />
       </body>
