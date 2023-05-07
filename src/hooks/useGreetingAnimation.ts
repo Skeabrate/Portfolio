@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export const greetings = ['Hello', 'Olá', 'Ahoj', 'Guten tag', 'こんにちは', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
+const greetings = ['Hello', 'Olá', 'Ahoj', 'Guten tag', 'こんにちは', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
 
-const GreetingAnimation = () => {
+export const useGreetingAnimation = () => {
   const [currentGrettings, setCurrentGretting] = useState(0);
   const [startGreetingAnimation, setStartGreetingAnimation] = useState(false);
 
@@ -26,7 +26,8 @@ const GreetingAnimation = () => {
     };
   }, [startGreetingAnimation, currentGrettings]);
 
-  return <h2 className="w-[110%] leading-none">{greetings[currentGrettings]}</h2>;
+  return {
+    greeting: greetings[currentGrettings],
+    defaultGreeting: greetings[greetings.length - 1],
+  };
 };
-
-export default GreetingAnimation;

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SkillsQuery } from '../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
@@ -6,7 +7,6 @@ import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
 import SkillsSlider from 'components/SkillsSlider';
-import TextWithImage from 'components/TextWithImage';
 
 const DecorationText = ({ children }: { children: React.ReactNode }) => (
   <span className="font-bold text-teal-400">{children}</span>
@@ -19,8 +19,8 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
     <>
       <Header isInView={isInNewSection} label="About me." />
 
-      <div className="mb-[clamp(2rem,8vw,8vw)]">
-        <TextWithImage imgSrc="/me.jpg" isInNewSection={isInNewSection}>
+      <div className="mb-[clamp(2rem,8vw,8vw)] grid gap-[clamp(2rem,4vw,4vw)] text-slate-400 md:grid-cols-2">
+        <article>
           <motion.p
             animate={{
               opacity: opacity(isInNewSection),
@@ -66,7 +66,29 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
           >
             <ScrollButton label="Check out my projects" href={ROUTES.projects} />
           </motion.div>
-        </TextWithImage>
+        </article>
+
+        <motion.picture
+          animate={{
+            opacity: isInNewSection ? 1 : 0,
+            transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+          }}
+          transition={{
+            duration: isInNewSection ? 0.4 : 0.1,
+            delay: isInNewSection ? 0.3 : 0,
+          }}
+          className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-[0.1vw] after:border-r-[0.1vw] after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
+        >
+          <div className="overflow-hidden rounded-2xl bg-teal-300 md:rounded-bl-none md:rounded-br-[1.4vw] md:rounded-tl-[1.4vw] md:rounded-tr-none">
+            <Image
+              alt="Sebastian Świeczkowksi"
+              src="/me.jpg"
+              width={1600}
+              height={1600}
+              className="aspect-square w-full object-cover group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale"
+            />
+          </div>
+        </motion.picture>
       </div>
 
       <SkillsSlider skills={allSkills} />

@@ -73,7 +73,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={contactRef}
           id={ROUTES.contact}
-          className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+          className="mx-auto pb-sectionMobile sm:max-w-[70vw] sm:pb-sectionTablet md:pb-sectionDesktop lg:max-w-[50vw]"
         >
           <Contact contact={contact.contact} resume={resume.resume} />
         </section>
