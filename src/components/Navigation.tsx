@@ -7,6 +7,7 @@ import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
 import { NAV_ITEMS } from 'utils/routes';
 import TransitionLabel from './TransitionLabel';
+import ResumeButton from './ResumeButton';
 
 const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);
@@ -121,7 +122,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         duration: 0.4,
         delay: 1,
       }}
-      className="fixed left-0 top-0 z-30 grid w-full items-center px-4 py-6 text-nav md:grid-cols-3 lg:p-[2vw]"
+      className="fixed left-0 top-0 z-30 grid w-full items-center px-4 py-6 md:grid-cols-3 lg:p-[2vw]"
     >
       <a
         href="/"
@@ -146,17 +147,9 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
       <ListNav />
       <DropdownNav isNavOpen={isNavOpen} resumeSrc={resume?.resumeSrc.url} />
 
-      <a
-        href={resume?.resumeSrc.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cx(
-          'ml-auto hidden h-[clamp(3rem,2.8vw,2.8vw)] items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300 md:flex',
-          scrollY > 10 ? 'w-[clamp(3rem,2.8vw,2.8vw)] opacity-0' : 'w-[clamp(8rem,7.4vw,7.4vw)] opacity-100'
-        )}
-      >
-        Resume
-      </a>
+      <div className="ml-auto hidden md:block">
+        <ResumeButton resumeSrc={resume?.resumeSrc.url} scrollY={scrollY} />
+      </div>
     </motion.nav>
   );
 };

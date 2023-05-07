@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react';
 
-const GREETINGS = ['Hello', 'Olá', 'Ahoj', 'Guten tag', 'こんにちは', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
+const GREETINGS = [
+  'Hello',
+  'Olá',
+  'Ahoj',
+  'Ciao',
+  'Guten tag',
+  'こんにちは',
+  'Bonjour',
+  'Hei',
+  '¡Hola!',
+  'Привіт',
+  'Cześć!',
+];
 export const defaultGreering = GREETINGS[GREETINGS.length - 1];
 
 const Greeting = () => {
@@ -20,7 +32,7 @@ const Greeting = () => {
         return;
       }
       setCurrentGretting((state) => state + 1);
-    }, 300);
+    }, 250);
 
     return () => {
       clearInterval(updateGretting);

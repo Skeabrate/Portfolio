@@ -6,6 +6,7 @@ import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import { ContactQuery, ResumeQuery } from '../../../graphql/generated';
 import Greeting, { defaultGreering } from 'components/Greeting';
 import TransitionLabel from 'components/TransitionLabel';
+import ResumeButton from 'components/ResumeButton';
 
 const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume: ResumeQuery['resume'] }) => {
   const isInNewSection = useAnimationInNewSection(ROUTES.contact);
@@ -54,7 +55,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
         <TransitionLabel label="sebastianswiecz458@gmail.com" />
       </motion.a>
 
-      <motion.a
+      <motion.div
         animate={{
           opacity: opacity(isInNewSection),
           transform: translate(isInNewSection),
@@ -63,13 +64,9 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           duration: duration(isInNewSection),
           delay: delay(isInNewSection, 0.2),
         }}
-        href={resume?.resumeSrc.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex h-[clamp(3rem,4vw,4vw)] w-[clamp(8rem,12vw,12vw)] items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300"
       >
-        Resume
-      </motion.a>
+        <ResumeButton resumeSrc={resume?.resumeSrc.url} />
+      </motion.div>
     </>
   );
 };
