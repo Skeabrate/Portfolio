@@ -50,13 +50,16 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const children = useMemo(
     () =>
       skills.map(({ id, title, icon }) => (
-        <li key={id} className="flex w-12 items-center justify-center p-2 sm:w-28">
+        <li key={id} className="flex w-14 items-center justify-center p-3 sm:w-[9vw] sm:p-[2vw]">
           <Image
             src={icon.url}
             height={64}
             width={64}
             alt={title}
-            className={cx('transition-all duration-1000', isInView ? 'filter-none' : 'grayscale')}
+            className={cx(
+              'h-full w-full object-contain transition-all duration-1000',
+              isInView ? 'filter-none' : 'grayscale'
+            )}
           />
         </li>
       )),
@@ -65,7 +68,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
 
   return (
     <>
-      <h3 className="relative mb-5 overflow-hidden text-subHeader lg:mb-7">
+      <h3 className="relative mb-[clamp(0.6rem,2vw,2vw)] overflow-hidden text-subHeader">
         <span
           className={cx(
             'absolute bottom-0 left-0 top-0 block text-teal-400 transition-all duration-500',
@@ -84,23 +87,25 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         </span>
       </h3>
 
-      <div ref={sliderRef} className="relative mb-5 overflow-hidden py-1 lg:mb-7">
+      <div ref={sliderRef} className="relative overflow-hidden">
+        <span className="absolute right-0 top-0 h-[0.1vw] w-full bg-slate-700" />
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute -top-0 right-0 h-px w-full origin-center bg-teal-400 transition-all duration-700'
+            'absolute right-0 top-0 h-[0.1vw] w-full origin-center bg-teal-400 transition-all duration-700'
           )}
         />
-        <span className="absolute right-0 top-0.5 h-0.5 w-full bg-slate-700" />
+
         <motion.div className="flex flex-nowrap" style={{ x }}>
           <ul className="flex">{children}</ul>
           <ul className="flex">{children}</ul>
         </motion.div>
-        <span className="absolute bottom-0.5 right-0 h-0.5 w-full bg-slate-700" />
+
+        <span className="absolute bottom-0 right-0 h-[0.1vw] w-full bg-slate-700" />
         <span
           className={cx(
             isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-            'absolute bottom-0 right-0 h-px w-full origin-center bg-teal-400 transition-all duration-700'
+            'absolute bottom-0 right-0 h-[0.1vw] w-full origin-center bg-teal-400 transition-all duration-700'
           )}
         />
       </div>

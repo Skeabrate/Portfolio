@@ -10,7 +10,7 @@ const ScrollButton = ({ label, href }: { label: string; href: TRoute }) => {
     >
       <ArrowSVG />
       <TransitionLabel label={label} />
-      <span className="absolute bottom-0 left-0 h-[0.05vw] w-2/3 origin-left bg-teal-400 transition-all duration-300 group-hover:w-full" />
+      <span className="absolute bottom-0 left-0 h-[0.1vw] w-2/3 origin-left bg-teal-400 transition-all duration-300 group-hover:w-full" />
     </a>
   );
 };

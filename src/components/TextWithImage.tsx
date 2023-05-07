@@ -24,7 +24,7 @@ const TextWithImage = ({
           duration: isInNewSection ? 0.4 : 0.1,
           delay: isInNewSection ? 0.3 : 0,
         }}
-        className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-2 after:border-r-2 after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
+        className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-[0.1vw] after:border-r-[0.1vw] after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
       >
         <div className="overflow-hidden rounded-2xl bg-teal-300 md:rounded-bl-none md:rounded-br-[1.4vw] md:rounded-tl-[1.4vw] md:rounded-tr-none">
           <Image

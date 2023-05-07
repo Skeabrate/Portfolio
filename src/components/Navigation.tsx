@@ -151,7 +151,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         target="_blank"
         rel="noopener noreferrer"
         className={cx(
-          'ml-auto hidden h-[clamp(3rem,2.8vw,2.8vw)] items-center justify-center rounded-full border border-teal-400 text-teal-400 transition-all duration-300 md:flex',
+          'ml-auto hidden h-[clamp(3rem,2.8vw,2.8vw)] items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300 md:flex',
           scrollY > 10 ? 'w-[clamp(3rem,2.8vw,2.8vw)] opacity-0' : 'w-[clamp(8rem,7.4vw,7.4vw)] opacity-100'
         )}
       >

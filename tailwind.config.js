@@ -6,7 +6,7 @@ module.exports = {
       padding: {
         sectionMobile: 'clamp(4rem, 10vh, 10vh)',
         sectionTablet: 'clamp(6rem, 14vh, 14vh)',
-        sectionDesktop: 'clamp(10rem, 24vh, 24vh)',
+        sectionDesktop: 'clamp(10rem, 28vh, 28vh)',
       },
       fontSize: {
         default: 'clamp(1rem, 1.2vw, 1.2vw)',

@@ -59,7 +59,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           href={resume?.resumeSrc.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-[clamp(3rem,4vw,4vw)] w-[clamp(8rem,12vw,12vw)] items-center justify-center rounded-full border border-teal-400 text-teal-400 transition-all duration-300"
+          className="flex h-[clamp(3rem,4vw,4vw)] w-[clamp(8rem,12vw,12vw)] items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300"
         >
           Resume
         </motion.a>
