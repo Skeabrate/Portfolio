@@ -3,13 +3,12 @@ import { GmailSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
 import { delay, opacity, translate, duration } from 'utils/transitions';
 import { useAnimationInNewSection } from 'hooks/useActiveSection';
-import { useGreetingAnimation } from 'hooks/useGreetingAnimation';
 import { ContactQuery, ResumeQuery } from '../../../graphql/generated';
+import Greeting, { defaultGreering } from 'components/Greeting';
 import TransitionLabel from 'components/TransitionLabel';
 
 const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume: ResumeQuery['resume'] }) => {
   const isInNewSection = useAnimationInNewSection(ROUTES.contact);
-  const { greeting, defaultGreeting } = useGreetingAnimation();
 
   return (
     <>
@@ -20,7 +19,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
             transition={{ duration: duration(isInNewSection) }}
             className="block"
           >
-            {isInNewSection ? greeting : defaultGreeting}
+            {isInNewSection ? <Greeting /> : defaultGreering}
           </motion.span>
         </h2>
       </header>
