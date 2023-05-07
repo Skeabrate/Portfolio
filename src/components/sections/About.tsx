@@ -30,7 +30,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               duration: duration(isInNewSection),
               delay: delay(isInNewSection),
             }}
-            className="mb-[clamp(0.6rem,2vw,2vw)] lg:my-[clamp(0.6rem,2vw,2vw)]"
+            className="mb-[clamp(0.6rem,2vw,2vw)] lg:mt-[clamp(0.6rem,4vw,4vw)]"
           >
             Hi, my name is <DecorationText>Sebastian Świeczkowski</DecorationText> and I am a frontend developer. Lorem
             ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, delectus officiis. Odio quisquam omnis

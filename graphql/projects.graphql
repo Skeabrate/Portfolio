@@ -11,6 +11,7 @@ query Projects {
       id
       url
     }
+    projectType
     technologies {
       id
       title

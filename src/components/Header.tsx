@@ -14,7 +14,7 @@ const Header = ({ label, isInView }: { label: React.ReactNode; isInView: boolean
 
   return (
     <header ref={elRef}>
-      <h2 className="relative mb-[clamp(0.6rem,6vw,6vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
+      <h2 className="relative mb-[clamp(0.6rem,4vw,4vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
         <motion.span
           animate={{ opacity: fadeInOpacity(isInView), transform: translate(isInView) }}
           transition={{ duration: duration(isInView) }}
