@@ -21,8 +21,8 @@ export const ArrowSVG = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="fill-teal-400"
-    width="clamp(1rem, 1.6vw, 1.6vw)"
-    height="clamp(1rem, 1.6vw, 1.6vw)"
+    width="clamp(1rem, 1.3vw, 1.3vw)"
+    height="clamp(1rem, 1.3vw, 1.3vw)"
     viewBox="0 0 24 24"
   >
     <path d="M12 21l-12-18h24z" />

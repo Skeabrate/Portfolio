@@ -111,7 +111,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
     <motion.nav
       initial={{
         opacity: 0,
-        transform: 'translateY(-10px)',
+        transform: 'translateY(-1vw)',
       }}
       animate={{
         opacity: 1,

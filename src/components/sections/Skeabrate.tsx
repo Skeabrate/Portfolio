@@ -1,7 +1,7 @@
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ROUTES } from 'utils/routes';
 import ScrollButton from 'components/ScrollButton';
-import { useRef } from 'react';
 
 const Skeabrate = () => {
   const elRef = useRef<HTMLDivElement>(null);
@@ -19,7 +19,7 @@ const Skeabrate = () => {
         <div className="relative mb-[clamp(0.6rem,2vw,2vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)]">
           <motion.div ref={elRef} style={{ y, opacity }}>
             <motion.p
-              initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+              initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
               transition={{ duration: 0.4, delay: 1 }}
               className="mb-[clamp(0.6rem,1vw,1vw)] font-bold text-teal-400"
@@ -27,9 +27,9 @@ const Skeabrate = () => {
               Hello, my name is
             </motion.p>
 
-            <h1 className="relative text-header leading-none">
+            <h1 className="relative text-header font-medium leading-none">
               <motion.span
-                initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+                initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
                 animate={{ opacity: 1, transform: 'translateY(0)' }}
                 transition={{ duration: 0.4, delay: 1.1 }}
                 className="block"
@@ -44,7 +44,7 @@ const Skeabrate = () => {
 
         <h2 className="relative mb-[clamp(0.6rem,2vw,2vw)] text-subHeader leading-tight text-slate-400">
           <motion.span
-            initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+            initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}
             transition={{ duration: 0.4, delay: 1.2 }}
             className="block"
@@ -55,7 +55,7 @@ const Skeabrate = () => {
       </header>
 
       <motion.div
-        initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+        initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
         animate={{ opacity: 1, transform: 'translateY(0)' }}
         transition={{ duration: 0.4, delay: 1.3 }}
       >

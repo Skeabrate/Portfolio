@@ -5,7 +5,7 @@ import TransitionLabel from './TransitionLabel';
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest lg:p-0">
-      <div className="static bottom-0 left-0 flex w-[6vw] flex-col items-center gap-[3vw] lg:fixed">
+      <div className="static bottom-0 left-0 flex w-[5vw] flex-col items-center gap-[3vw] lg:fixed">
         <ul className="flex gap-[clamp(0.9rem,1.4vw,1.4vw)] lg:flex-col">
           <motion.li
             initial={{
@@ -138,7 +138,7 @@ const Footer = () => {
         <span className="absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 bg-slate-800 lg:block"></span>
       </motion.p>
 
-      <div className="vertical-rl bottom-0 right-0 hidden w-[6vw] items-center gap-[3vw] text-slate-400 lg:fixed lg:flex">
+      <div className="vertical-rl bottom-0 right-0 hidden w-[5vw] items-center gap-[3vw] text-slate-400 lg:fixed lg:flex">
         <motion.a
           initial={{
             opacity: 0,

@@ -10,7 +10,7 @@ const ActiveSectionBg = () => {
     <motion.div
       initial={{
         opacity: 0,
-        transform: 'translate(-50%, 40px)',
+        transform: 'translate(-50%, 2vw)',
       }}
       animate={{
         opacity: 1,
@@ -23,13 +23,13 @@ const ActiveSectionBg = () => {
         key={activeSection}
         initial={{
           opacity: 0,
-          transform: 'translateY(20px)',
+          transform: 'translateY(2vw)',
         }}
         animate={{
           opacity: 1,
           transform: 'translateY(0)',
         }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.5 }}
         className="block"
       >
         {activeSection === ROUTES.about ? activeSection + ' me' : activeSection}.

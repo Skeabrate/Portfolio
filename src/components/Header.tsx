@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { opacity as fadeInOpacity, translate, duration } from 'utils/transitions';
 
 const Header = ({ label, isInView }: { label: React.ReactNode; isInView: boolean }) => {
   const elRef = useRef<HTMLDivElement>(null);
@@ -13,10 +14,10 @@ const Header = ({ label, isInView }: { label: React.ReactNode; isInView: boolean
 
   return (
     <header ref={elRef}>
-      <h2 className="relative mb-[clamp(0.6rem,6vw,6vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header leading-none tracking-tight">
+      <h2 className="relative mb-[clamp(0.6rem,6vw,6vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
         <motion.span
-          animate={{ opacity: isInView ? 1 : 0, transform: isInView ? 'translateY(0)' : 'translateY(20px)' }}
-          transition={{ duration: 0.4 }}
+          animate={{ opacity: fadeInOpacity(isInView), transform: translate(isInView) }}
+          transition={{ duration: duration(isInView) }}
           className="block"
         >
           <motion.span className="block" style={{ y, opacity }}>

@@ -7,7 +7,7 @@ import ActiveSectionBg from 'components/ActiveSectionBg';
 import Footer from 'components/Footer';
 import Curtain from 'components/Curtain';
 
-const font = Montserrat({ subsets: ['latin'], weight: ['400', '700'], display: 'swap' });
+const font = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

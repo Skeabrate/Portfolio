@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SkillsQuery } from '../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
+import { delay, duration, opacity, translate } from 'utils/transitions';
 import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
@@ -19,15 +20,15 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
       <Header isInView={isInNewSection} label="About me." />
 
       <div className="mb-[clamp(2rem,8vw,8vw)]">
-        <TextWithImage imgSrc="/me.jpg">
+        <TextWithImage imgSrc="/me.jpg" isInNewSection={isInNewSection}>
           <motion.p
             animate={{
-              opacity: isInNewSection ? 1 : 0,
-              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+              opacity: opacity(isInNewSection),
+              transform: translate(isInNewSection),
             }}
             transition={{
-              duration: 0.4,
-              delay: 0.2,
+              duration: duration(isInNewSection),
+              delay: delay(isInNewSection),
             }}
             className="mb-[clamp(0.6rem,2vw,2vw)] lg:my-[clamp(0.6rem,2vw,2vw)]"
           >
@@ -40,12 +41,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
           <motion.p
             animate={{
-              opacity: isInNewSection ? 1 : 0,
-              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+              opacity: opacity(isInNewSection),
+              transform: translate(isInNewSection),
             }}
             transition={{
-              duration: 0.4,
-              delay: 0.3,
+              duration: duration(isInNewSection),
+              delay: delay(isInNewSection, 0.1),
             }}
             className="mb-[clamp(0.6rem,2vw,2vw)]"
           >
@@ -55,12 +56,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
           <motion.div
             animate={{
-              opacity: isInNewSection ? 1 : 0,
-              transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+              opacity: opacity(isInNewSection),
+              transform: translate(isInNewSection),
             }}
             transition={{
-              duration: 0.4,
-              delay: 0.4,
+              duration: duration(isInNewSection),
+              delay: delay(isInNewSection, 0.2),
             }}
           >
             <ScrollButton label="Check out my projects" href={ROUTES.projects} />
