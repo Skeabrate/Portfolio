@@ -4,8 +4,8 @@ import { ROUTES } from 'utils/routes';
 import { delay, opacity, translate, duration } from 'utils/transitions';
 import { useAnimationInNewSection } from 'hooks/useActiveSection';
 import { ContactQuery, ResumeQuery } from '../../../graphql/generated';
+import GreetingAnimation, { greetings } from 'components/GreetingAnimation';
 import TransitionLabel from 'components/TransitionLabel';
-import GreetingAnimation from 'components/GreetingAnimation';
 import Header from 'components/Header';
 import TextWithImage from 'components/TextWithImage';
 
@@ -14,7 +14,10 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
 
   return (
     <>
-      <Header isInView={isInNewSection} label={<GreetingAnimation />} />
+      <Header
+        isInView={isInNewSection}
+        label={isInNewSection ? <GreetingAnimation /> : greetings[greetings.length - 1]}
+      />
 
       <TextWithImage imgSrc="/me.jpg" isInNewSection={isInNewSection}>
         <motion.p

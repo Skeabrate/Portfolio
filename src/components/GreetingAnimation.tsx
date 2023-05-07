@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 
-const greetings = ['Hello', 'Guten tag', 'やあ', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
+export const greetings = ['Hello', 'Olá', 'Ahoj', 'Guten tag', 'こんにちは', 'Bonjour', 'Hola', 'Привіт', 'Cześć!'];
 
 const GreetingAnimation = () => {
   const [currentGrettings, setCurrentGretting] = useState(0);
@@ -20,29 +19,14 @@ const GreetingAnimation = () => {
         return;
       }
       setCurrentGretting((state) => state + 1);
-    }, 250);
+    }, 300);
 
     return () => {
       clearInterval(updateGretting);
     };
   }, [startGreetingAnimation, currentGrettings]);
 
-  return (
-    <motion.h2
-      initial={{
-        opacity: 0,
-        transform: 'translateY(20px)',
-      }}
-      animate={{
-        opacity: 1,
-        transform: 'translateY(0)',
-      }}
-      transition={{ duration: 0.4 }}
-      className="w-[110%] leading-none"
-    >
-      {greetings[currentGrettings]}
-    </motion.h2>
-  );
+  return <h2 className="w-[110%] leading-none">{greetings[currentGrettings]}</h2>;
 };
 
 export default GreetingAnimation;

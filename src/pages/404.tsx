@@ -8,7 +8,7 @@ const Error = () => {
       <motion.nav
         initial={{
           opacity: 0,
-          transform: 'translate(-50%, -10px)',
+          transform: 'translate(-50%, -1vw)',
         }}
         animate={{
           opacity: 1,
@@ -18,7 +18,7 @@ const Error = () => {
           duration: 0.4,
           delay: 1,
         }}
-        className="fixed left-1/2 top-2 -translate-x-1/2"
+        className="fixed left-1/2 top-6 -translate-x-1/2 lg:top-[2vw]"
       >
         <a aria-label="go home" href="/">
           <LogoSVG />
@@ -27,9 +27,9 @@ const Error = () => {
 
       <main className="flex min-h-screen items-center justify-center py-40">
         <header className="w-fit text-center">
-          <h1 className="relative mb-4 border-b-2 border-b-slate-300/50 pb-2 text-error leading-none md:mb-6 md:pb-4">
+          <h1 className="relative mb-[clamp(0.6rem,2vw,2vw)] border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-error leading-none">
             <motion.span
-              initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+              initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
               transition={{ duration: 0.4, delay: 1.1 }}
               className="block"
@@ -38,9 +38,9 @@ const Error = () => {
             </motion.span>
           </h1>
 
-          <h2 className="relative mb-3 text-xl text-slate-400 sm:text-3xl lg:mb-5 lg:text-4xl">
+          <h2 className="relative mb-[clamp(0.6rem,0.4vw,0.4vw)] text-subHeader text-slate-400">
             <motion.span
-              initial={{ opacity: 0, transform: 'translateY(-10px)' }}
+              initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
               transition={{ duration: 0.4, delay: 1.2 }}
               className="block"
@@ -49,7 +49,7 @@ const Error = () => {
             </motion.span>
           </h2>
 
-          <a href="/" className="group relative mx-auto flex w-24 px-2 py-1 text-left text-slate-400">
+          <a href="/" className="group relative mx-auto flex w-fit text-left text-slate-400">
             <TransitionLabel label="Go Home" />
           </a>
         </header>
