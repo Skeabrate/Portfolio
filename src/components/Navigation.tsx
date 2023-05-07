@@ -121,7 +121,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         duration: 0.4,
         delay: 1,
       }}
-      className="fixed left-0 top-0 z-40 grid w-full items-center px-4 py-6 text-nav md:grid-cols-3 lg:p-[2vw]"
+      className="fixed left-0 top-0 z-30 grid w-full items-center px-4 py-6 text-nav md:grid-cols-3 lg:p-[2vw]"
     >
       <a
         href="/"
