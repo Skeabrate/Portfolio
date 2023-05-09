@@ -63,7 +63,7 @@ const Project = ({
             <Image
               alt={title}
               src={thumbnail.url}
-              className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale"
+              className="aspect-square w-full object-cover transition-transform duration-500 group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale md:group-hover:scale-110"
               height="1600"
               width="1600"
             />

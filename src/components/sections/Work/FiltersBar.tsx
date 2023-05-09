@@ -13,7 +13,7 @@ const FiltersBar = ({
   handleNewFilter: (filter: TFilter) => void;
 }) => {
   return (
-    <ul className="mb-[clamp(0.6rem,6vw,6vw)] flex flex-wrap gap-[clamp(1rem,1.4vw,1.4vw)]">
+    <ul className="mb-[clamp(2.4rem,6vw,6vw)] flex flex-wrap gap-[clamp(0.8rem,1.4vw,1.4vw)]">
       {FILTERS.map((filter, index) => (
         <motion.li
           animate={{
