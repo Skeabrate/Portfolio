@@ -49,7 +49,7 @@ const Project = ({
           isScaledDown ? 'md:scale-90' : 'delay-100 md:scale-100'
         )}
       >
-        <div className="relative mb-[clamp(0.6rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-300 md:rounded-[1.4vw]">
+        <div className="relative mb-[clamp(0.6rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-500/60 md:rounded-[1.4vw]">
           {githubUrl ? (
             <button
               onClick={() => window.open(githubUrl, '_ blank')}
