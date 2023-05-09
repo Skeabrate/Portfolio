@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import cx from 'classnames';
 import { ProjectsQuery } from '../../../../graphql/generated';
@@ -22,18 +22,18 @@ const Project = ({
       }
       onMouseLeave={() => setIsHovered((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))}
       className={cx(
-        'group flex origin-center cursor-pointer flex-col duration-300',
-        isScaledDown ? 'scale-90' : 'scale-100 delay-100'
+        'group relative flex origin-center cursor-pointer flex-col delay-100 duration-300',
+        isScaledDown ? 'md:scale-90' : 'md:scale-100 '
       )}
     >
-      <a href={projectUrl || '/'}>
-        <div className="mb-[clamp(1rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-300 md:rounded-[1.4vw]">
+      <a href={projectUrl || '/'} target="_blank" rel="noopener noreferrer">
+        <div className="mb-[clamp(0.6rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-300 md:rounded-[1.4vw]">
           {thumbnail ? (
             <Image
               alt={title}
               src={thumbnail.url}
               className={cx(
-                gif ? 'group-hover:hidden' : '',
+                gif ? 'md:group-hover:hidden' : '',
                 'aspect-square w-full object-cover transition-transform group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale'
               )}
               height="1600"
@@ -45,31 +45,33 @@ const Project = ({
               alt={title}
               src={gif.url}
               className={cx(
-                'hidden aspect-square w-full object-cover transition-transform group-hover:block group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale'
+                'hidden aspect-square w-full object-cover transition-transform group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale md:group-hover:block'
               )}
               height="1600"
               width="1600"
             />
           ) : null}
         </div>
+
+        <ul className="flex items-center gap-[clamp(0.4rem,1vw,1vw)]">
+          {technologies.map(({ id, icon, title }) => (
+            <li key={id}>
+              <Image
+                alt={title}
+                src={icon.url}
+                height="24"
+                width="24"
+                className="w-[clamp(1rem,1.2vw,1.2vw)] group-hover:filter-none md:grayscale"
+              />
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="text-[clamp(1.3rem,2vw,2vw)]">{title}</h3>
+        {description ? (
+          <p className="text-[clamp(0.8rem,1vw,1vw)] leading-[1.3] text-slate-400">{description}</p>
+        ) : null}
       </a>
-
-      <ul className="flex items-center gap-[clamp(0.4rem,1vw,1vw)]">
-        {technologies.map(({ id, icon, title }) => (
-          <li key={id}>
-            <Image
-              alt={title}
-              src={icon.url}
-              height="24"
-              width="24"
-              className="w-[clamp(1.4rem,1.6vw,1.6vw)] group-hover:filter-none md:grayscale"
-            />
-          </li>
-        ))}
-      </ul>
-
-      <h3 className="text-subHeader">{title}</h3>
-      {description ? <p className="leading-[1.3] text-slate-400">{description}</p> : null}
     </li>
   );
 };
