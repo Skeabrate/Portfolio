@@ -70,12 +70,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
         <motion.picture
           animate={{
-            opacity: isInNewSection ? 1 : 0,
-            transform: isInNewSection ? 'translateY(0)' : 'translateY(20px)',
+            opacity: opacity(isInNewSection),
+            transform: translate(isInNewSection),
           }}
           transition={{
-            duration: isInNewSection ? 0.4 : 0.1,
-            delay: isInNewSection ? 0.3 : 0,
+            duration: duration(isInNewSection),
+            delay: delay(isInNewSection),
           }}
           className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-[0.1vw] after:border-r-[0.1vw] after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
         >

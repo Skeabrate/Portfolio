@@ -35,7 +35,13 @@ const Skeabrate = () => {
                 className="block"
               >
                 Sebastian
-                <br />
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
+                animate={{ opacity: 1, transform: 'translateY(0)' }}
+                transition={{ duration: 0.4, delay: 1.2 }}
+                className="block"
+              >
                 Świeczkowski.
               </motion.span>
             </h1>
@@ -46,7 +52,7 @@ const Skeabrate = () => {
           <motion.span
             initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}
-            transition={{ duration: 0.4, delay: 1.2 }}
+            transition={{ duration: 0.4, delay: 1.3 }}
             className="block"
           >
             I create digital products for web.
@@ -57,7 +63,7 @@ const Skeabrate = () => {
       <motion.div
         initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
         animate={{ opacity: 1, transform: 'translateY(0)' }}
-        transition={{ duration: 0.4, delay: 1.3 }}
+        transition={{ duration: 0.4, delay: 1.4 }}
       >
         <ScrollButton label="More about me" href={ROUTES.about} />
       </motion.div>

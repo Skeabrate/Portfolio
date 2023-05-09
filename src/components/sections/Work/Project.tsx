@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import cx from 'classnames';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
 import { ProjectsQuery } from '../../../../graphql/generated';
 import { TIsHovered } from '.';
@@ -17,27 +18,42 @@ const Project = ({
   const { title, description, thumbnail, technologies, color, githubUrl, projectUrl, gif } = project;
 
   return (
-    <li
-      onMouseEnter={() =>
-        setIsHovered((state) => state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item)))
-      }
-      onMouseLeave={() => setIsHovered((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))}
-      className={cx(
-        'group relative flex origin-center cursor-pointer flex-col delay-100 duration-300',
-        isScaledDown ? 'md:scale-90' : 'md:scale-100 '
-      )}
+    <motion.li
+      initial={{
+        opacity: 0,
+        transform: 'translateY(2vw)',
+      }}
+      whileInView={{
+        opacity: 1,
+        transform: 'translateY(0)',
+      }}
+      transition={{
+        duration: 0.4,
+      }}
     >
-      <a href={projectUrl || '/'} target="_blank" rel="noopener noreferrer">
+      <a
+        href={projectUrl || '/'}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={() =>
+          setIsHovered((state) =>
+            state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
+          )
+        }
+        onMouseLeave={() => setIsHovered((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))}
+        className={cx(
+          'group relative flex origin-center cursor-pointer flex-col duration-300',
+          isScaledDown ? 'md:scale-90' : 'delay-100 md:scale-100'
+        )}
+      >
         <div className="relative mb-[clamp(0.6rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-300 md:rounded-[1.4vw]">
           {githubUrl ? (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => window.open(githubUrl, '_ blank')}
               className="absolute left-[clamp(0.4rem,1vw,1vw)] top-[clamp(0.4rem,1vw,1vw)] z-30 rounded-xl bg-slate-800/60 p-[clamp(1rem,1.6vw,1.6vw)] md:bottom-[clamp(0.4rem,1vw,1vw)] md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-full md:rounded-full md:opacity-0 md:transition-all md:duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100"
             >
-              <GithubSVG />
-            </a>
+              <GithubSVG isBig />
+            </button>
           ) : null}
 
           {thumbnail ? (
@@ -84,7 +100,7 @@ const Project = ({
           <p className="text-[clamp(0.8rem,1vw,1vw)] leading-[1.3] text-slate-400">{description}</p>
         ) : null}
       </a>
-    </li>
+    </motion.li>
   );
 };
 

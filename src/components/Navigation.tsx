@@ -22,7 +22,7 @@ const ListNav = () => {
           }}
           animate={{
             opacity: scrollY > 10 ? 0 : 1,
-            transform: scrollY > 10 ? 'translateY(-10px)' : 'translateY(0)',
+            transform: scrollY > 10 ? 'translateY(-1vw)' : 'translateY(0)',
           }}
           transition={{
             duration: 0.25,
