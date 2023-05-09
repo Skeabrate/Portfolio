@@ -17,7 +17,6 @@ export type Scalars = {
   FloatType: any;
   IntType: any;
   ItemId: any;
-  JsonField: any;
   MetaTagAttributes: any;
   UploadId: any;
 };
@@ -56,6 +55,12 @@ export type ColorField = {
   green: Scalars['IntType'];
   hex: Scalars['String'];
   red: Scalars['IntType'];
+};
+
+/** Specifies how to filter Color fields */
+export type ColorFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars['BooleanType']>;
 };
 
 /** Record of type Contact (contact) */
@@ -276,20 +281,6 @@ export type FileFilter = {
   /** Exclude records with an exact match. The specified value must be an Upload ID */
   neq?: InputMaybe<Scalars['UploadId']>;
   /** Filter records that do not have one of the specified uploads */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-};
-
-/** Specifies how to filter Multiple files/images field */
-export type GalleryFilter = {
-  /** Filter records that have all of the specified uploads. The specified values must be Upload IDs */
-  allIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Filter records that have one of the specified uploads. The specified values must be Upload IDs */
-  anyIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Search for records with an exact match. The specified values must be Upload IDs */
-  eq?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records that do not have any of the specified uploads. The specified values must be Upload IDs */
   notIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
 };
 
@@ -1784,13 +1775,6 @@ export type PositionFilter = {
   neq?: InputMaybe<Scalars['IntType']>;
 };
 
-export type ProjectModelDescriptionField = {
-  __typename?: 'ProjectModelDescriptionField';
-  blocks: Array<Scalars['String']>;
-  links: Array<Scalars['String']>;
-  value: Scalars['JsonField'];
-};
-
 export type ProjectModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<ProjectModelFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ProjectModelFilter>>>;
@@ -1802,14 +1786,16 @@ export type ProjectModelFilter = {
   _status?: InputMaybe<StatusFilter>;
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
-  description?: InputMaybe<StructuredTextFilter>;
+  color?: InputMaybe<ColorFilter>;
+  description?: InputMaybe<StringFilter>;
+  gif?: InputMaybe<FileFilter>;
   githubUrl?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
   position?: InputMaybe<PositionFilter>;
   projectType?: InputMaybe<StringFilter>;
   projectUrl?: InputMaybe<StringFilter>;
-  screenshots?: InputMaybe<GalleryFilter>;
   technologies?: InputMaybe<LinksFilter>;
+  thumbnail?: InputMaybe<FileFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -1830,6 +1816,8 @@ export enum ProjectModelOrderBy {
   UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
   UpdatedAtAsc = '_updatedAt_ASC',
   UpdatedAtDesc = '_updatedAt_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   GithubUrlAsc = 'githubUrl_ASC',
   GithubUrlDesc = 'githubUrl_DESC',
   IdAsc = 'id_ASC',
@@ -1858,14 +1846,16 @@ export type ProjectRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  description?: Maybe<ProjectModelDescriptionField>;
+  color: ColorField;
+  description?: Maybe<Scalars['String']>;
+  gif?: Maybe<FileField>;
   githubUrl?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
   position?: Maybe<Scalars['IntType']>;
   projectType: Scalars['String'];
   projectUrl?: Maybe<Scalars['String']>;
-  screenshots: Array<FileField>;
   technologies: Array<SkillRecord>;
+  thumbnail?: Maybe<FileField>;
   title: Scalars['String'];
 };
 
@@ -1901,7 +1891,7 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allSkillsMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
-  _allUploadsMeta?: Maybe<CollectionMetadata>;
+  _allUploadsMeta: CollectionMetadata;
   /** Returns the single instance record */
   _site: Site;
   /** Returns a collection of records */
@@ -2242,20 +2232,6 @@ export type StringMatchesFilter = {
   caseSensitive?: InputMaybe<Scalars['BooleanType']>;
   pattern: Scalars['String'];
   regexp?: InputMaybe<Scalars['BooleanType']>;
-};
-
-/** Specifies how to filter Structured Text fields */
-export type StructuredTextFilter = {
-  /** Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED] */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records with the specified field set as blank (null or single empty paragraph) */
-  isBlank?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records with the specified field present (neither null, nor empty string) */
-  isPresent?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records based on a regular expression */
-  matches?: InputMaybe<StringMatchesFilter>;
-  /** Exclude records based on a regular expression */
-  notMatches?: InputMaybe<StringMatchesFilter>;
 };
 
 export type Tag = {
@@ -2645,7 +2621,7 @@ export type ContactQuery = { __typename?: 'Query', contact?: { __typename?: 'Con
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectRecord', id: string, title: string, githubUrl?: string | null, projectUrl?: string | null, projectType: string, description?: { __typename?: 'ProjectModelDescriptionField', value: unknown } | null, screenshots: Array<{ __typename?: 'FileField', id: string, url: string }>, technologies: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> }> };
+export type ProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectRecord', id: string, title: string, description?: string | null, githubUrl?: string | null, projectUrl?: string | null, projectType: string, thumbnail?: { __typename?: 'FileField', url: string } | null, gif?: { __typename?: 'FileField', url: string } | null, color: { __typename?: 'ColorField', cssRgb: string }, technologies: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> }> };
 
 export type ResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2659,6 +2635,6 @@ export type SkillsQuery = { __typename?: 'Query', allSkills: Array<{ __typename?
 
 
 export const ContactDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}}]} as unknown as DocumentNode<ContactQuery, ContactQueryVariables>;
-export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"githubUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectUrl"}},{"kind":"Field","name":{"kind":"Name","value":"screenshots"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"projectType"}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
+export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"githubUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectUrl"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"gif"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"projectType"}},{"kind":"Field","name":{"kind":"Name","value":"color"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cssRgb"}}]}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
 export const ResumeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Resume"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resume"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resumeSrc"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<ResumeQuery, ResumeQueryVariables>;
 export const SkillsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Skills"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allSkills"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<SkillsQuery, SkillsQueryVariables>;

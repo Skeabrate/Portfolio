@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SkillsQuery } from '../../../graphql/generated';
+import { SkillsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { delay, duration, opacity, translate } from 'utils/transitions';
 import { useAnimationInNewSection } from 'hooks/useActiveSection';
+import SkillsSlider from 'components/sections/About/SkillsSlider';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
-import SkillsSlider from 'components/SkillsSlider';
 
 const DecorationText = ({ children }: { children: React.ReactNode }) => (
   <span className="font-bold text-teal-400">{children}</span>
@@ -64,7 +64,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               delay: delay(isInNewSection, 0.2),
             }}
           >
-            <ScrollButton label="Check out my projects" href={ROUTES.projects} />
+            <ScrollButton label="Check out my work" href={ROUTES.work} />
           </motion.div>
         </article>
 

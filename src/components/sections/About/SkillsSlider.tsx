@@ -11,7 +11,7 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
-import { SkillsQuery } from '../../graphql/generated';
+import { SkillsQuery } from '../../../../graphql/generated';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {

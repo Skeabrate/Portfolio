@@ -17,7 +17,7 @@ import {
 import Navigation from 'components/Navigation';
 import Skeabrate from 'components/sections/Skeabrate';
 import About from 'components/sections/About';
-import Projects from 'components/sections/Projects';
+import Work from 'components/sections/Work';
 import Contact from 'components/sections/Contact';
 
 type Props = { projects: ProjectsQuery; skills: SkillsQuery; resume: ResumeQuery; contact: ContactQuery };
@@ -26,14 +26,14 @@ export type TSection = { id: TRoute; ref: RefObject<HTMLDivElement> };
 const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
   const skeabrateRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
+  const workRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   const sections: TSection[] = useMemo(
     () => [
       { id: ROUTES.skeabrate, ref: skeabrateRef },
       { id: ROUTES.about, ref: aboutRef },
-      { id: ROUTES.projects, ref: projectsRef },
+      { id: ROUTES.work, ref: workRef },
       { id: ROUTES.contact, ref: contactRef },
     ],
     []
@@ -63,11 +63,11 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         </section>
 
         <section
-          ref={projectsRef}
-          id={ROUTES.projects}
+          ref={workRef}
+          id={ROUTES.work}
           className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
         >
-          <Projects projects={projects} />
+          <Work projects={projects} />
         </section>
 
         <section

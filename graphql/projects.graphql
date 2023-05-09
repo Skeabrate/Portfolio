@@ -2,16 +2,19 @@ query Projects {
   allProjects {
     id
     title
-    description {
-      value
-    }
+    description
     githubUrl
     projectUrl
-    screenshots {
-      id
+    thumbnail {
+      url
+    }
+    gif {
       url
     }
     projectType
+    color {
+      cssRgb
+    }
     technologies {
       id
       title

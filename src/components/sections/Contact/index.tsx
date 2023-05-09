@@ -3,8 +3,8 @@ import { GmailSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
 import { delay, opacity, translate, duration } from 'utils/transitions';
 import { useAnimationInNewSection } from 'hooks/useActiveSection';
-import { ContactQuery, ResumeQuery } from '../../../graphql/generated';
-import Greeting, { defaultGreering } from 'components/Greeting';
+import { ContactQuery, ResumeQuery } from '../../../../graphql/generated';
+import Greeting, { defaultGreering } from 'components/sections/Contact/Greeting';
 import TransitionLabel from 'components/TransitionLabel';
 import ResumeButton from 'components/ResumeButton';
 
