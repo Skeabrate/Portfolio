@@ -8,9 +8,6 @@ query Projects {
     thumbnail {
       url
     }
-    gif {
-      url
-    }
     projectType
     color {
       cssRgb

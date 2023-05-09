@@ -38,6 +38,7 @@ const Work = ({ projects }: { projects: ProjectsQuery }) => {
       <ul className="grid gap-16 md:grid-cols-2 md:gap-x-[clamp(3rem,6vw,6vw)] md:md:gap-y-[clamp(6rem,8vw,8vw)]">
         {filteredProjects.map((project) => (
           <Project
+            filterChange={filter}
             key={project.id}
             project={project}
             isScaledDown={isHovered.find((item) => item.id === project.id)!.isScaledDown as TIsHovered['isScaledDown']}

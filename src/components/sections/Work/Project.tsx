@@ -1,24 +1,27 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import cx from 'classnames';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
 import { ProjectsQuery } from '../../../../graphql/generated';
 import { TIsHovered } from '.';
 
 const Project = ({
   project,
+  filterChange,
   isScaledDown,
   setIsHovered,
 }: {
   project: ProjectsQuery['allProjects'][number];
+  filterChange: string;
   isScaledDown: TIsHovered['isScaledDown'];
   setIsHovered: React.Dispatch<React.SetStateAction<TIsHovered[]>>;
 }) => {
-  const { title, description, thumbnail, technologies, color, githubUrl, projectUrl, gif } = project;
+  const { title, description, thumbnail, technologies, color, githubUrl, projectUrl } = project;
 
   return (
     <motion.li
+      key={filterChange}
       initial={{
         opacity: 0,
         transform: 'translateY(2vw)',
@@ -60,21 +63,7 @@ const Project = ({
             <Image
               alt={title}
               src={thumbnail.url}
-              className={cx(
-                gif ? 'md:group-hover:hidden' : '',
-                'aspect-square w-full object-cover transition-transform group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale'
-              )}
-              height="1600"
-              width="1600"
-            />
-          ) : null}
-          {gif ? (
-            <Image
-              alt={title}
-              src={gif.url}
-              className={cx(
-                'hidden aspect-square w-full object-cover transition-transform group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale md:group-hover:block'
-              )}
+              className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale"
               height="1600"
               width="1600"
             />
