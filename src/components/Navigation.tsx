@@ -14,7 +14,7 @@ const ListNav = () => {
 
   return (
     <ul className="hidden justify-center gap-[1vw] md:flex">
-      {NAV_ITEMS.map((link, index) => (
+      {NAV_ITEMS.map(({ label }, index) => (
         <motion.li
           initial={{
             opacity: 1,
@@ -28,11 +28,11 @@ const ListNav = () => {
             duration: 0.25,
             delay: 0.1 + 0.1 * index,
           }}
-          key={link}
+          key={label}
           className="flex"
         >
-          <a className="group rounded px-[1vw]" href={'#' + link}>
-            <TransitionLabel label={link} />
+          <a className="group rounded px-[1vw]" href={'#' + label}>
+            <TransitionLabel label={label} />
           </a>
         </motion.li>
       ))}
@@ -67,18 +67,18 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
       animate={isNavOpen ? showNav : hideNav}
       className="absolute right-4 top-full z-40 flex w-[clamp(9rem,10vw,10vw)] origin-top-right flex-col items-start gap-1 overflow-hidden rounded bg-slate-900/50 pt-2 shadow lg:right-[2vw]"
     >
-      {NAV_ITEMS.map((link) => (
-        <li key={link} className="flex w-full">
+      {NAV_ITEMS.map(({ label }) => (
+        <li key={label} className="flex w-full">
           <a
             className={cx(
               'relative w-full px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)]',
-              link === activeSection
+              label === activeSection.label
                 ? 'text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
-            href={'#' + link}
+            href={'#' + label}
           >
-            <TransitionLabel label={link} />
+            <TransitionLabel label={label} />
           </a>
         </li>
       ))}
@@ -112,14 +112,14 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
     <motion.nav
       initial={{
         opacity: 0,
-        transform: 'translateY(-1vw)',
+        transform: 'translateY(-0.5vw)',
       }}
       animate={{
         opacity: 1,
         transform: 'translateY(0)',
       }}
       transition={{
-        duration: 0.4,
+        duration: 0.5,
         delay: 1,
       }}
       className="fixed left-0 top-0 z-30 grid w-full items-center px-4 py-6 md:grid-cols-3 lg:p-[2vw]"

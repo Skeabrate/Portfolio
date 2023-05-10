@@ -4,11 +4,11 @@ import { FILTERS, TFilter } from 'hooks/useFilters';
 import { duration, opacity } from 'utils/transitions';
 
 const FiltersBar = ({
-  isInView,
+  animationState,
   currentFilter,
   handleNewFilter,
 }: {
-  isInView: boolean;
+  animationState: boolean;
   currentFilter: TFilter;
   handleNewFilter: (filter: TFilter) => void;
 }) => {
@@ -17,12 +17,12 @@ const FiltersBar = ({
       {FILTERS.map((filter, index) => (
         <motion.li
           animate={{
-            opacity: opacity(isInView),
-            transform: isInView ? 'translateY(0)' : 'translateY(0.6vw)',
+            opacity: opacity(animationState),
+            transform: animationState ? 'translateY(0)' : 'translateY(0.6vw)',
           }}
           transition={{
-            duration: duration(isInView),
-            delay: isInView ? 0.3 + 0.05 * index : 0,
+            duration: duration(animationState),
+            delay: animationState ? 0.3 + 0.05 * index : 0,
           }}
           className="flex"
           key={filter}

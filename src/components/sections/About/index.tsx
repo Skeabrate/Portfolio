@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { SkillsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { delay, duration, opacity, translate } from 'utils/transitions';
-import { useAnimationInNewSection } from 'hooks/useActiveSection';
+import { useWasInView } from 'hooks/useUpdateActiveSection';
 import SkillsSlider from 'components/sections/About/SkillsSlider';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
@@ -13,22 +13,22 @@ const DecorationText = ({ children }: { children: React.ReactNode }) => (
 );
 
 const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
-  const isInNewSection = useAnimationInNewSection(ROUTES.about);
+  const animationState = useWasInView(ROUTES.about.id);
 
   return (
     <>
-      <Header isInView={isInNewSection} label="About me." />
+      <Header animationState={animationState} label="About me." />
 
       <div className="mb-[clamp(2rem,8vw,8vw)] grid gap-[clamp(2rem,4vw,4vw)] text-slate-400 md:grid-cols-2">
         <article>
           <motion.p
             animate={{
-              opacity: opacity(isInNewSection),
-              transform: translate(isInNewSection),
+              opacity: opacity(animationState),
+              transform: translate(animationState),
             }}
             transition={{
-              duration: duration(isInNewSection),
-              delay: delay(isInNewSection),
+              duration: duration(animationState),
+              delay: delay(animationState),
             }}
             className="mb-[clamp(0.6rem,2vw,2vw)] lg:mt-[clamp(0.6rem,4vw,4vw)]"
           >
@@ -41,12 +41,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
           <motion.p
             animate={{
-              opacity: opacity(isInNewSection),
-              transform: translate(isInNewSection),
+              opacity: opacity(animationState),
+              transform: translate(animationState),
             }}
             transition={{
-              duration: duration(isInNewSection),
-              delay: delay(isInNewSection, 0.1),
+              duration: duration(animationState),
+              delay: delay(animationState, 0.1),
             }}
             className="mb-[clamp(0.6rem,2vw,2vw)]"
           >
@@ -56,12 +56,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
           <motion.div
             animate={{
-              opacity: opacity(isInNewSection),
-              transform: translate(isInNewSection),
+              opacity: opacity(animationState),
+              transform: translate(animationState),
             }}
             transition={{
-              duration: duration(isInNewSection),
-              delay: delay(isInNewSection, 0.2),
+              duration: duration(animationState),
+              delay: delay(animationState, 0.2),
             }}
           >
             <ScrollButton label="Check out my work" href={ROUTES.work} />
@@ -70,12 +70,12 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
 
         <motion.picture
           animate={{
-            opacity: opacity(isInNewSection),
-            transform: translate(isInNewSection),
+            opacity: opacity(animationState),
+            transform: translate(animationState),
           }}
           transition={{
-            duration: duration(isInNewSection),
-            delay: delay(isInNewSection),
+            duration: duration(animationState),
+            delay: delay(animationState),
           }}
           className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-[0.1vw] after:border-r-[0.1vw] after:border-teal-500 after:transition-all after:duration-300 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
         >

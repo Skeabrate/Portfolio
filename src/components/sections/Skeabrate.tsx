@@ -21,7 +21,7 @@ const Skeabrate = () => {
             <motion.p
               initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
-              transition={{ duration: 0.4, delay: 1 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
               className="mb-[clamp(0.6rem,1vw,1vw)] font-bold text-teal-400"
             >
               Hello, my name is
@@ -31,7 +31,7 @@ const Skeabrate = () => {
               <motion.span
                 initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
                 animate={{ opacity: 1, transform: 'translateY(0)' }}
-                transition={{ duration: 0.4, delay: 1.1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
                 className="block"
               >
                 Sebastian
@@ -39,7 +39,7 @@ const Skeabrate = () => {
               <motion.span
                 initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
                 animate={{ opacity: 1, transform: 'translateY(0)' }}
-                transition={{ duration: 0.4, delay: 1.2 }}
+                transition={{ duration: 0.6, delay: 1.3 }}
                 className="block"
               >
                 Świeczkowski.
@@ -52,7 +52,7 @@ const Skeabrate = () => {
           <motion.span
             initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}
-            transition={{ duration: 0.4, delay: 1.3 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
             className="block"
           >
             I create digital products for web.
@@ -63,9 +63,9 @@ const Skeabrate = () => {
       <motion.div
         initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
         animate={{ opacity: 1, transform: 'translateY(0)' }}
-        transition={{ duration: 0.4, delay: 1.4 }}
+        transition={{ duration: 0.6, delay: 1.5 }}
       >
-        <ScrollButton label="More about me" href={ROUTES.about} />
+        <ScrollButton label="More about me" href={ROUTES.about.label} />
       </motion.div>
     </>
   );

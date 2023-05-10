@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { ROUTES } from 'utils/routes';
 
 type TRouteKey = keyof typeof ROUTES;
-export type TRoute = (typeof ROUTES)[TRouteKey];
+type TRoute = (typeof ROUTES)[TRouteKey];
+
+export type TActiveSection = {
+  id: TRoute['id'];
+  label: TRoute['label'];
+};
 
 type TActiveSectionContext = {
-  activeSection: TRoute;
-  setActiveSection: React.Dispatch<React.SetStateAction<TRoute>>;
+  activeSection: TActiveSection;
+  setActiveSection: React.Dispatch<React.SetStateAction<TActiveSection>>;
 };
 
 export const ActiveSectionContext = React.createContext({} as TActiveSectionContext);
 
 function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
-  const [activeSection, setActiveSection] = useState<TRoute>(ROUTES.skeabrate);
+  const [activeSection, setActiveSection] = useState<TActiveSection>({
+    id: ROUTES.skeabrate.id,
+    label: ROUTES.skeabrate.label,
+  });
 
   return (
     <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>

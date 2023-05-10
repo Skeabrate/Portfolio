@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ProjectsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
-import { useAnimationInNewSection } from 'hooks/useActiveSection';
+import { useWasInView } from 'hooks/useUpdateActiveSection';
 import { FILTERS, useFilters } from 'hooks/useFilters';
 import Header from 'components/Header';
 import FiltersBar from './FiltersBar';
@@ -27,13 +27,13 @@ const Work = ({ projects }: { projects: ProjectsQuery }) => {
     }))
   );
 
-  const isInNewSection = useAnimationInNewSection(ROUTES.work);
+  const animationState = useWasInView(ROUTES.work.id);
 
   return (
     <>
-      <Header isInView={isInNewSection} label="Work." />
+      <Header animationState={animationState} label="Work." />
 
-      <FiltersBar isInView={isInNewSection} currentFilter={filter} handleNewFilter={handleNewFilter} />
+      <FiltersBar animationState={animationState} currentFilter={filter} handleNewFilter={handleNewFilter} />
 
       <ul className="grid gap-16 md:grid-cols-2 md:gap-x-[clamp(3rem,6vw,6vw)] md:md:gap-y-[clamp(6rem,8vw,8vw)]">
         {filteredProjects.map((project) => (
