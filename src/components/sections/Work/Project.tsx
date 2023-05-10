@@ -60,13 +60,15 @@ const Project = ({
           ) : null}
 
           {thumbnail ? (
-            <Image
-              alt={title}
-              src={thumbnail.url}
-              className="aspect-square w-full object-cover transition-transform duration-500 group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale md:group-hover:scale-110"
-              height="1600"
-              width="1600"
-            />
+            <div className="overflow-hidden rounded-2xl md:rounded-[1.4vw]">
+              <Image
+                alt={title}
+                src={thumbnail.url}
+                className="aspect-square w-full object-cover transition-transform duration-500 group-hover:mix-blend-normal group-hover:filter-none md:mix-blend-multiply md:contrast-100 md:grayscale md:group-hover:scale-110"
+                height="1600"
+                width="1600"
+              />
+            </div>
           ) : null}
         </div>
 
