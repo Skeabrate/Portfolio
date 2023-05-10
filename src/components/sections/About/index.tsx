@@ -64,7 +64,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               delay: delay(animationState, 0.2),
             }}
           >
-            <ScrollButton label="Check out my work" href={ROUTES.work} />
+            <ScrollButton label="Check out my work" href={ROUTES.work.label} />
           </motion.div>
         </article>
 

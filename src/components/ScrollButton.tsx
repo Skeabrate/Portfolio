@@ -1,8 +1,8 @@
 import { ArrowSVG } from 'assets/SVGs';
-import { TRoute } from 'context/ActiveSectionContext';
+import { TActiveSection } from 'context/ActiveSectionContext';
 import TransitionLabel from './TransitionLabel';
 
-const ScrollButton = ({ label, href }: { label: string; href: TRoute }) => {
+const ScrollButton = ({ label, href }: { label: string; href: TActiveSection['label'] }) => {
   return (
     <a
       className="group relative flex w-fit items-end gap-[clamp(0.4rem,0.8vw,1.2rem)] pb-[0.4vw] font-bold text-teal-400"
