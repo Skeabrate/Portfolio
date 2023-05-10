@@ -5,7 +5,7 @@ import { ActiveSectionContext, TActiveSection } from 'context/ActiveSectionConte
 export const useAnimateWhenInView = (
   ref: React.RefObject<HTMLDivElement>,
   currentSection: TActiveSection['label'],
-  threshold = 1 / 4
+  threshold = 1 / 5
 ) => {
   const [isInView, setIsInView] = useState(false);
   const { scrollY } = useContext(ScrollContext);
