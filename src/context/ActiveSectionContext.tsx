@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ROUTES } from 'utils/routes';
 
 type TRouteKey = keyof typeof ROUTES;
@@ -22,11 +22,15 @@ function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
     label: ROUTES.skeabrate.label,
   });
 
-  return (
-    <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
-      {children}
-    </ActiveSectionContext.Provider>
+  const value = useMemo(
+    () => ({
+      activeSection,
+      setActiveSection,
+    }),
+    [activeSection]
   );
+
+  return <ActiveSectionContext.Provider value={value}>{children}</ActiveSectionContext.Provider>;
 }
 
 export default ActiveSectionProvider;

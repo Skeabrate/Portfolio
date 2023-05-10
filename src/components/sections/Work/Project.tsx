@@ -4,18 +4,18 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
 import { ProjectsQuery } from '../../../../graphql/generated';
-import { TIsHovered } from '.';
+import { TProjectHoverEffect } from '.';
 
 const Project = ({
   project,
   filterChange,
   isScaledDown,
-  setIsHovered,
+  setProjectHoverEffect,
 }: {
   project: ProjectsQuery['allProjects'][number];
   filterChange: string;
-  isScaledDown: TIsHovered['isScaledDown'];
-  setIsHovered: React.Dispatch<React.SetStateAction<TIsHovered[]>>;
+  isScaledDown: TProjectHoverEffect['isScaledDown'];
+  setProjectHoverEffect: React.Dispatch<React.SetStateAction<TProjectHoverEffect[]>>;
 }) => {
   const { title, description, thumbnail, technologies, color, githubUrl, projectUrl } = project;
 
@@ -39,11 +39,13 @@ const Project = ({
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() =>
-          setIsHovered((state) =>
+          setProjectHoverEffect((state) =>
             state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
           )
         }
-        onMouseLeave={() => setIsHovered((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))}
+        onMouseLeave={() =>
+          setProjectHoverEffect((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))
+        }
         className={cx(
           'group relative flex origin-center cursor-pointer flex-col duration-300',
           isScaledDown ? 'md:scale-90' : 'delay-100 md:scale-100'

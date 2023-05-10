@@ -1,12 +1,16 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import cx from 'classnames';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { WorkSectionContext } from 'context/WorkSectionContext';
 import { opacity as fadeInOpacity, translate, duration } from 'utils/transitions';
 
 const Header = ({ label, animationState }: { label: React.ReactNode; animationState: boolean }) => {
+  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+
   const elRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: elRef,
-    offset: ['start 15vh', 'start -20vh'],
+    offset: ['start 15vh', 'start -15vh'],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
@@ -14,7 +18,12 @@ const Header = ({ label, animationState }: { label: React.ReactNode; animationSt
 
   return (
     <header ref={elRef}>
-      <h2 className="relative mb-[clamp(0.6rem,4vw,4vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
+      <h2
+        className={cx(
+          'relative mb-[clamp(0.6rem,4vw,4vw)] overflow-hidden border-b-[0.1vw] pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight transition-all duration-700',
+          isWorkSectionEffectActive ? 'border-b-teal-500 text-teal-500' : 'border-b-slate-700'
+        )}
+      >
         <motion.span
           animate={{ opacity: fadeInOpacity(animationState), transform: translate(animationState) }}
           transition={{ duration: duration(animationState) }}

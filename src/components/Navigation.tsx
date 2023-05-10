@@ -5,6 +5,7 @@ import { ResumeQuery } from '../../graphql/generated';
 import { LogoSVG } from 'assets/SVGs';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
+import { WorkSectionContext } from 'context/WorkSectionContext';
 import { NAV_ITEMS } from 'utils/routes';
 import TransitionLabel from './TransitionLabel';
 import ResumeButton from './ResumeButton';
@@ -101,6 +102,8 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { scrollY } = useContext(ScrollContext);
 
+  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+
   useEffect(() => {
     document.addEventListener('click', (e) => {
       if ((e.target as Element).id === 'hamburger') setIsNavOpen((state) => !state);
@@ -135,20 +138,36 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         id="hamburger"
         aria-label="open menu"
         className={cx(
-          'absolute right-4 z-10 flex h-[clamp(3rem,2.8vw,2.8vw)] w-[clamp(3rem,2.8vw,2.8vw)] flex-col justify-center gap-[clamp(0.3rem,0.25vw,0.25vw)] rounded-full bg-slate-600 px-[clamp(0.7rem,0.6vw,0.6vw)] transition-transform duration-300 lg:right-[2vw]',
-          scrollY > 10 ? 'md:scale-1' : 'md:scale-0'
+          isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-600',
+          scrollY > 10 ? 'md:scale-1' : 'md:scale-0',
+          'transition-hamburger absolute right-4 z-10 flex h-[clamp(3rem,2.8vw,2.8vw)] w-[clamp(3rem,2.8vw,2.8vw)] flex-col justify-center gap-[clamp(0.3rem,0.25vw,0.25vw)] rounded-full px-[clamp(0.7rem,0.6vw,0.6vw)] lg:right-[2vw]'
         )}
       >
-        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
-        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
-        <span className="pointer-events-none h-[clamp(0.15rem,0.1vw,0.1vw)] w-full rounded-full bg-slate-300"></span>
+        <span
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+          )}
+        ></span>
+        <span
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+          )}
+        ></span>
+        <span
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+          )}
+        ></span>
       </button>
 
       <ListNav />
       <DropdownNav isNavOpen={isNavOpen} resumeSrc={resume?.resumeSrc.url} />
 
       <div className="ml-auto hidden md:block">
-        <ResumeButton resumeSrc={resume?.resumeSrc.url} scrollY={scrollY} />
+        <ResumeButton isNav resumeSrc={resume?.resumeSrc.url} scrollY={scrollY} />
       </div>
     </motion.nav>
   );

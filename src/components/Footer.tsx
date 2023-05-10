@@ -1,10 +1,20 @@
+import { useContext } from 'react';
+import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG } from 'assets/SVGs';
+import { WorkSectionContext } from 'context/WorkSectionContext';
 import TransitionLabel from './TransitionLabel';
 
 const Footer = () => {
+  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+
   return (
-    <footer className="flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest lg:p-0">
+    <footer
+      className={cx(
+        isWorkSectionEffectActive ? 'text-teal-400' : 'text-slate-400',
+        'flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest transition-colors duration-700 lg:p-0'
+      )}
+    >
       <div className="static bottom-0 left-0 flex w-[5vw] flex-col items-center gap-[3vw] lg:fixed">
         <ul className="flex gap-[clamp(0.9rem,1.4vw,1.4vw)] lg:flex-col">
           <motion.li
@@ -116,7 +126,10 @@ const Footer = () => {
             duration: 0.4,
             delay: 1.6,
           }}
-          className="hidden h-[6vw] w-[0.1vw] origin-bottom bg-slate-800 lg:block"
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
+            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-700 lg:block'
+          )}
         ></motion.p>
       </div>
 
@@ -134,11 +147,21 @@ const Footer = () => {
         className="bottom-[0.5vw] lg:fixed lg:px-[1vw]"
       >
         &copy;/ {new Date().getFullYear()}
-        <span className="absolute left-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 bg-slate-800 lg:block"></span>
-        <span className="absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 bg-slate-800 lg:block"></span>
+        <span
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
+            'absolute left-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-700 lg:block'
+          )}
+        ></span>
+        <span
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
+            'absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-700 lg:block'
+          )}
+        ></span>
       </motion.p>
 
-      <div className="vertical-rl bottom-0 right-0 hidden w-[5vw] items-center gap-[3vw] text-slate-400 lg:fixed lg:flex">
+      <div className="vertical-rl bottom-0 right-0 hidden w-[5vw] items-center gap-[3vw] lg:fixed lg:flex">
         <motion.a
           initial={{
             opacity: 0,
@@ -150,7 +173,7 @@ const Footer = () => {
             duration: 0.4,
             delay: 2,
           }}
-          className="mt-auto transition-all hover:text-teal-400"
+          className="mt-auto hover:text-teal-300"
           href="mailto:sebastianswiecz458@gmail.com"
         >
           sebastianswiecz458@gmail.com
@@ -167,7 +190,10 @@ const Footer = () => {
             duration: 0.4,
             delay: 1.6,
           }}
-          className="hidden h-[6vw] w-[0.1vw] origin-bottom bg-slate-800 lg:block"
+          className={cx(
+            isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
+            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-700 lg:block'
+          )}
         ></motion.p>
       </div>
     </footer>

@@ -1,18 +1,23 @@
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
+import cx from 'classnames';
 import { ProjectsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
 import { FILTERS, useFilters } from 'hooks/useFilters';
+import { WorkSectionContext } from 'context/WorkSectionContext';
 import Header from 'components/Header';
 import FiltersBar from './FiltersBar';
 import Project from './Project';
 
-export type TIsHovered = {
+export type TProjectHoverEffect = {
   id: string;
   isScaledDown: boolean;
 };
 
 const Work = ({ projects }: { projects: ProjectsQuery }) => {
+  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const animationState = useWasInView(ROUTES.work.id);
+
   const { filter, handleNewFilter } = useFilters();
   const filteredProjects = useMemo(
     () =>
@@ -20,17 +25,22 @@ const Work = ({ projects }: { projects: ProjectsQuery }) => {
     [filter, projects]
   );
 
-  const [isHovered, setIsHovered] = useState<TIsHovered[]>(
+  const [projectHoverEffect, setProjectHoverEffect] = useState<TProjectHoverEffect[]>(
     projects.allProjects.map((project) => ({
       id: project.id,
       isScaledDown: false,
     }))
   );
 
-  const animationState = useWasInView(ROUTES.work.id);
-
   return (
     <>
+      <div
+        className={cx(
+          'fixed left-0 top-0 h-full w-full bg-gradient-to-b from-slate-950 to-black transition-all duration-700',
+          isWorkSectionEffectActive ? 'visible opacity-100' : 'invisible opacity-0'
+        )}
+      ></div>
+
       <Header animationState={animationState} label="Work." />
 
       <FiltersBar animationState={animationState} currentFilter={filter} handleNewFilter={handleNewFilter} />
@@ -41,8 +51,11 @@ const Work = ({ projects }: { projects: ProjectsQuery }) => {
             filterChange={filter}
             key={project.id}
             project={project}
-            isScaledDown={isHovered.find((item) => item.id === project.id)!.isScaledDown as TIsHovered['isScaledDown']}
-            setIsHovered={setIsHovered}
+            isScaledDown={
+              projectHoverEffect.find((item) => item.id === project.id)!
+                .isScaledDown as TProjectHoverEffect['isScaledDown']
+            }
+            setProjectHoverEffect={setProjectHoverEffect}
           />
         ))}
       </ul>

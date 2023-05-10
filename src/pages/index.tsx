@@ -2,6 +2,7 @@ import { RefObject, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { TActiveSection } from 'context/ActiveSectionContext';
 import { useUpdateActiveSection } from 'hooks/useUpdateActiveSection';
+import { useWorkSectionEffect } from 'hooks/useWorkSectionEffect';
 import { request } from 'lib/request';
 import { ROUTES } from 'utils/routes';
 import {
@@ -40,6 +41,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
   );
 
   useUpdateActiveSection(sections);
+  useWorkSectionEffect(workRef);
 
   return (
     <>

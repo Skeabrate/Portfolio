@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import ActiveSectionProvider from 'context/ActiveSectionContext';
 import ScrollProvider from 'context/ScrollContext';
+import WorkSectionContext from 'context/WorkSectionContext';
 import ActiveSectionBg from 'components/ActiveSectionBg';
 import SkipToContent from 'components/SkipToContent';
 import Curtain from 'components/Curtain';
@@ -15,11 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={font.className}>
       <ActiveSectionProvider>
         <ScrollProvider>
-          <SkipToContent />
-          <Curtain />
-          <Component {...pageProps} />
-          <ActiveSectionBg />
-          <Footer />
+          <WorkSectionContext>
+            <SkipToContent />
+            <Curtain />
+            <Component {...pageProps} />
+            <ActiveSectionBg />
+            <Footer />
+          </WorkSectionContext>
         </ScrollProvider>
       </ActiveSectionProvider>
     </div>

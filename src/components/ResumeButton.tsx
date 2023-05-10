@@ -1,17 +1,32 @@
 import cx from 'classnames';
 
-const ResumeButton = ({ resumeSrc, scrollY = 0 }: { resumeSrc: string | undefined; scrollY?: number }) => {
+const ResumeButton = ({
+  resumeSrc,
+  scrollY = 0,
+  isNav,
+}: {
+  resumeSrc: string | undefined;
+  scrollY?: number;
+  isNav?: boolean;
+}) => {
   return (
     <a
       href={resumeSrc}
       target="_blank"
       rel="noopener noreferrer"
       className={cx(
-        'flex h-[clamp(3rem,2.8vw,2.8vw)] items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300',
-        scrollY > 10 ? 'w-[clamp(3rem,2.8vw,2.8vw)] opacity-0' : 'w-[clamp(8rem,8vw,8vw)] opacity-100'
+        isNav ? 'h-[clamp(3rem,2.8vw,2.8vw)]' : 'h-[clamp(3rem,4vw,4vw)]',
+        'flex items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300',
+        isNav
+          ? scrollY > 10
+            ? 'w-[clamp(3rem,2.8vw,2.8vw)]'
+            : 'w-[clamp(8rem,8vw,8vw)]'
+          : 'w-fit px-[clamp(2rem,2vw,2vw)]'
       )}
     >
-      Resume
+      <span className={cx('transition-opacity duration-[200ms]', scrollY > 10 ? 'opacity-0' : 'opacity-100 delay-75')}>
+        Resume
+      </span>
     </a>
   );
 };
