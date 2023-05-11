@@ -1,5 +1,6 @@
-import { RefObject, useMemo, useRef } from 'react';
+import { RefObject, useContext, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
+import { WindowHeightContext } from 'context/WindowHeightContext';
 import { TActiveSection } from 'context/ActiveSectionContext';
 import { useUpdateActiveSection } from 'hooks/useUpdateActiveSection';
 import { useWorkSectionEffect } from 'hooks/useWorkSectionEffect';
@@ -25,6 +26,8 @@ type Props = { projects: ProjectsQuery; skills: SkillsQuery; resume: ResumeQuery
 export type TSection = TActiveSection & { ref: RefObject<HTMLDivElement> };
 
 const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
+  const { windowHeight } = useContext(WindowHeightContext);
+
   const skeabrateRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const workRef = useRef<HTMLDivElement>(null);
@@ -51,7 +54,10 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={skeabrateRef}
           id={ROUTES.skeabrate.label}
-          className="mx-auto flex h-screen min-h-[50vw] flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
+          style={{
+            height: windowHeight,
+          }}
+          className="mx-auto flex min-h-[50vw] flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
         >
           <Skeabrate />
         </section>

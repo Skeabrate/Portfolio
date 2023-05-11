@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
+import WindowHeightProvider from 'context/WindowHeightContext';
 import ActiveSectionProvider from 'context/ActiveSectionContext';
 import ScrollProvider from 'context/ScrollContext';
 import WorkSectionContext from 'context/WorkSectionContext';
@@ -14,17 +15,19 @@ const font = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700'], dis
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={font.className}>
-      <ActiveSectionProvider>
-        <ScrollProvider>
-          <WorkSectionContext>
-            <SkipToContent />
-            <Curtain />
-            <Component {...pageProps} />
-            <ActiveSectionBg />
-            <Footer />
-          </WorkSectionContext>
-        </ScrollProvider>
-      </ActiveSectionProvider>
+      <WindowHeightProvider>
+        <ActiveSectionProvider>
+          <ScrollProvider>
+            <WorkSectionContext>
+              <SkipToContent />
+              <Curtain />
+              <Component {...pageProps} />
+              <ActiveSectionBg />
+              <Footer />
+            </WorkSectionContext>
+          </ScrollProvider>
+        </ActiveSectionProvider>
+      </WindowHeightProvider>
     </div>
   );
 }
