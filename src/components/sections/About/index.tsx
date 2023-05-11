@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SkillsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { delay, duration, opacity, translate } from 'utils/transitions';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
-import SkillsSlider from 'components/sections/About/SkillsSlider';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
+import SkillsSlider from 'components/sections/About/SkillsSlider';
+import { SkillsQuery } from '../../../../graphql/generated';
 
 const DecorationText = ({ children }: { children: React.ReactNode }) => (
   <span className="font-bold text-teal-400">{children}</span>

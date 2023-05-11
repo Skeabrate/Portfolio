@@ -1,4 +1,5 @@
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -44,7 +45,7 @@ export enum ColorBucketType {
   Purple = 'purple',
   Red = 'red',
   White = 'white',
-  Yellow = 'yellow'
+  Yellow = 'yellow',
 }
 
 export type ColorField = {
@@ -81,12 +82,10 @@ export type ContactRecord = RecordInterface & {
   text: Scalars['String'];
 };
 
-
 /** Record of type Contact (contact) */
 export type ContactRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** Record of type Contact (contact) */
 export type ContactRecordTextArgs = {
@@ -114,7 +113,7 @@ export type CreatedAtFilter = {
 export enum FaviconType {
   AppleTouchIcon = 'appleTouchIcon',
   Icon = 'icon',
-  MsApplication = 'msApplication'
+  MsApplication = 'msApplication',
 }
 
 export type FileField = FileFieldInterface & {
@@ -149,12 +148,10 @@ export type FileField = FileFieldInterface & {
   width?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FileFieldAltArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldBlurUpThumbArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -163,18 +160,15 @@ export type FileFieldBlurUpThumbArgs = {
   size?: Scalars['Int'];
 };
 
-
 export type FileFieldCustomDataArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 export type FileFieldFocalPointArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldResponsiveImageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -183,12 +177,10 @@ export type FileFieldResponsiveImageArgs = {
   sizes?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileFieldTitleArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldUrlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -225,12 +217,10 @@ export type FileFieldInterface = {
   width?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FileFieldInterfaceAltArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceBlurUpThumbArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -239,18 +229,15 @@ export type FileFieldInterfaceBlurUpThumbArgs = {
   size?: Scalars['Int'];
 };
 
-
 export type FileFieldInterfaceCustomDataArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 export type FileFieldInterfaceFocalPointArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceResponsiveImageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -259,12 +246,10 @@ export type FileFieldInterfaceResponsiveImageArgs = {
   sizes?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileFieldInterfaceTitleArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceUrlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -1532,7 +1517,7 @@ export enum ImgixParamsAuto {
   Compress = 'compress',
   Enhance = 'enhance',
   Format = 'format',
-  Redeye = 'redeye'
+  Redeye = 'redeye',
 }
 
 export enum ImgixParamsBlendAlign {
@@ -1541,7 +1526,7 @@ export enum ImgixParamsBlendAlign {
   Left = 'left',
   Middle = 'middle',
   Right = 'right',
-  Top = 'top'
+  Top = 'top',
 }
 
 export enum ImgixParamsBlendCrop {
@@ -1549,7 +1534,7 @@ export enum ImgixParamsBlendCrop {
   Faces = 'faces',
   Left = 'left',
   Right = 'right',
-  Top = 'top'
+  Top = 'top',
 }
 
 export enum ImgixParamsBlendFit {
@@ -1557,7 +1542,7 @@ export enum ImgixParamsBlendFit {
   Clip = 'clip',
   Crop = 'crop',
   Max = 'max',
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export enum ImgixParamsBlendMode {
@@ -1576,17 +1561,17 @@ export enum ImgixParamsBlendMode {
   Overlay = 'overlay',
   Saturation = 'saturation',
   Screen = 'screen',
-  Softlight = 'softlight'
+  Softlight = 'softlight',
 }
 
 export enum ImgixParamsBlendSize {
-  Inherit = 'inherit'
+  Inherit = 'inherit',
 }
 
 export enum ImgixParamsCh {
   Dpr = 'dpr',
   SaveData = 'saveData',
-  Width = 'width'
+  Width = 'width',
 }
 
 export enum ImgixParamsCrop {
@@ -1597,19 +1582,19 @@ export enum ImgixParamsCrop {
   Focalpoint = 'focalpoint',
   Left = 'left',
   Right = 'right',
-  Top = 'top'
+  Top = 'top',
 }
 
 export enum ImgixParamsCs {
   Adobergb1998 = 'adobergb1998',
   Srgb = 'srgb',
   Strip = 'strip',
-  Tinysrgb = 'tinysrgb'
+  Tinysrgb = 'tinysrgb',
 }
 
 export enum ImgixParamsFill {
   Blur = 'blur',
-  Solid = 'solid'
+  Solid = 'solid',
 }
 
 export enum ImgixParamsFit {
@@ -1621,13 +1606,13 @@ export enum ImgixParamsFit {
   Fillmax = 'fillmax',
   Max = 'max',
   Min = 'min',
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export enum ImgixParamsFlip {
   H = 'h',
   Hv = 'hv',
-  V = 'v'
+  V = 'v',
 }
 
 export enum ImgixParamsFm {
@@ -1644,12 +1629,12 @@ export enum ImgixParamsFm {
   Png8 = 'png8',
   Png32 = 'png32',
   Webm = 'webm',
-  Webp = 'webp'
+  Webp = 'webp',
 }
 
 export enum ImgixParamsIptc {
   Allow = 'allow',
-  Block = 'block'
+  Block = 'block',
 }
 
 export enum ImgixParamsMarkAlign {
@@ -1658,7 +1643,7 @@ export enum ImgixParamsMarkAlign {
   Left = 'left',
   Middle = 'middle',
   Right = 'right',
-  Top = 'top'
+  Top = 'top',
 }
 
 export enum ImgixParamsMarkFit {
@@ -1666,25 +1651,25 @@ export enum ImgixParamsMarkFit {
   Crop = 'crop',
   Fill = 'fill',
   Max = 'max',
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export enum ImgixParamsMarkTile {
-  Grid = 'grid'
+  Grid = 'grid',
 }
 
 export enum ImgixParamsPalette {
   Css = 'css',
-  Json = 'json'
+  Json = 'json',
 }
 
 export enum ImgixParamsTransparency {
-  Grid = 'grid'
+  Grid = 'grid',
 }
 
 export enum ImgixParamsTrim {
   Auto = 'auto',
-  Color = 'color'
+  Color = 'color',
 }
 
 export enum ImgixParamsTxtAlign {
@@ -1693,18 +1678,18 @@ export enum ImgixParamsTxtAlign {
   Left = 'left',
   Middle = 'middle',
   Right = 'right',
-  Top = 'top'
+  Top = 'top',
 }
 
 export enum ImgixParamsTxtClip {
   Ellipsis = 'ellipsis',
   End = 'end',
   Middle = 'middle',
-  Start = 'start'
+  Start = 'start',
 }
 
 export enum ImgixParamsTxtFit {
-  Max = 'max'
+  Max = 'max',
 }
 
 /** Specifies how to filter by usage */
@@ -1728,7 +1713,7 @@ export type ItemIdFilter = {
 export enum ItemStatus {
   Draft = 'draft',
   Published = 'published',
-  Updated = 'updated'
+  Updated = 'updated',
 }
 
 /** Specifies how to filter Multiple-links fields */
@@ -1748,7 +1733,7 @@ export type LinksFilter = {
 export enum MuxThumbnailFormatType {
   Gif = 'gif',
   Jpg = 'jpg',
-  Png = 'png'
+  Png = 'png',
 }
 
 /** Specifies how to filter by image orientation */
@@ -1829,7 +1814,7 @@ export enum ProjectModelOrderBy {
   ProjectUrlAsc = 'projectUrl_ASC',
   ProjectUrlDesc = 'projectUrl_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
 }
 
 /** Record of type Project (project) */
@@ -1858,7 +1843,6 @@ export type ProjectRecord = RecordInterface & {
   thumbnail?: Maybe<FileField>;
   title: Scalars['String'];
 };
-
 
 /** Record of type Project (project) */
 export type ProjectRecord_SeoMetaTagsArgs = {
@@ -1912,14 +1896,12 @@ export type Query = {
   upload?: Maybe<FileField>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllProjectsMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<ProjectModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type Query_AllSkillsMetaArgs = {
@@ -1928,20 +1910,17 @@ export type Query_AllSkillsMetaArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllUploadsMetaArgs = {
   filter?: InputMaybe<UploadFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 /** The query root for this schema */
 export type Query_SiteArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllProjectsArgs = {
@@ -1953,7 +1932,6 @@ export type QueryAllProjectsArgs = {
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
-
 /** The query root for this schema */
 export type QueryAllSkillsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -1963,7 +1941,6 @@ export type QueryAllSkillsArgs = {
   orderBy?: InputMaybe<Array<InputMaybe<SkillModelOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllUploadsArgs = {
@@ -1975,13 +1952,11 @@ export type QueryAllUploadsArgs = {
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
-
 /** The query root for this schema */
 export type QueryContactArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QueryProjectArgs = {
@@ -1991,13 +1966,11 @@ export type QueryProjectArgs = {
   orderBy?: InputMaybe<Array<InputMaybe<ProjectModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryResumeArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QuerySkillArgs = {
@@ -2006,7 +1979,6 @@ export type QuerySkillArgs = {
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<SkillModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryUploadArgs = {
@@ -2031,7 +2003,6 @@ export type RecordInterface = {
   id: Scalars['ItemId'];
 };
 
-
 export type RecordInterface_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2052,7 +2023,7 @@ export enum ResolutionType {
   Icon = 'icon',
   Large = 'large',
   Medium = 'medium',
-  Small = 'small'
+  Small = 'small',
 }
 
 export type ResponsiveImage = {
@@ -2088,7 +2059,6 @@ export type ResumeRecord = RecordInterface & {
   resumeSrc: FileField;
 };
 
-
 /** Record of type Resume (resume) */
 export type ResumeRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -2110,11 +2080,9 @@ export type Site = {
   locales: Array<SiteLocale>;
 };
 
-
 export type SiteFaviconMetaTagsArgs = {
   variants?: InputMaybe<Array<InputMaybe<FaviconType>>>;
 };
-
 
 export type SiteGlobalSeoArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -2123,7 +2091,7 @@ export type SiteGlobalSeoArgs = {
 
 export enum SiteLocale {
   En = 'en',
-  PlPl = 'pl_PL'
+  PlPl = 'pl_PL',
 }
 
 export type SkillModelFilter = {
@@ -2165,7 +2133,7 @@ export enum SkillModelOrderBy {
   PositionAsc = 'position_ASC',
   PositionDesc = 'position_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
 }
 
 /** Record of type Skill (skill) */
@@ -2187,7 +2155,6 @@ export type SkillRecord = RecordInterface & {
   position?: Maybe<Scalars['IntType']>;
   title: Scalars['String'];
 };
-
 
 /** Record of type Skill (skill) */
 export type SkillRecord_SeoMetaTagsArgs = {
@@ -2479,13 +2446,13 @@ export enum UploadOrderBy {
   ResolutionAsc = 'resolution_ASC',
   ResolutionDesc = 'resolution_DESC',
   SizeAsc = 'size_ASC',
-  SizeDesc = 'size_DESC'
+  SizeDesc = 'size_DESC',
 }
 
 export enum UploadOrientation {
   Landscape = 'landscape',
   Portrait = 'portrait',
-  Square = 'square'
+  Square = 'square',
 }
 
 /** Specifies how to filter by size */
@@ -2544,7 +2511,7 @@ export enum UploadType {
   Presentation = 'presentation',
   Richtext = 'richtext',
   Spreadsheet = 'spreadsheet',
-  Video = 'video'
+  Video = 'video',
 }
 
 /** Specifies how to filter by update datetime */
@@ -2574,12 +2541,10 @@ export type UploadVideoField = {
   thumbnailUrl: Scalars['String'];
 };
 
-
 export type UploadVideoFieldMp4UrlArgs = {
   exactRes?: InputMaybe<VideoMp4Res>;
   res?: InputMaybe<VideoMp4Res>;
 };
-
 
 export type UploadVideoFieldThumbnailUrlArgs = {
   format?: InputMaybe<MuxThumbnailFormatType>;
@@ -2604,7 +2569,7 @@ export type UploadWidthFilter = {
 export enum VideoMp4Res {
   High = 'high',
   Low = 'low',
-  Medium = 'medium'
+  Medium = 'medium',
 }
 
 export type FocalPoint = {
@@ -2613,28 +2578,203 @@ export type FocalPoint = {
   y: Scalars['FloatType'];
 };
 
-export type ContactQueryVariables = Exact<{ [key: string]: never; }>;
+export type ContactQueryVariables = Exact<{ [key: string]: never }>;
 
+export type ContactQuery = { __typename?: 'Query'; contact?: { __typename?: 'ContactRecord'; text: string } | null };
 
-export type ContactQuery = { __typename?: 'Query', contact?: { __typename?: 'ContactRecord', text: string } | null };
+export type ProjectsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ProjectsQuery = {
+  __typename?: 'Query';
+  allProjects: Array<{
+    __typename?: 'ProjectRecord';
+    id: string;
+    title: string;
+    description?: string | null;
+    githubUrl?: string | null;
+    projectUrl?: string | null;
+    projectType: string;
+    thumbnail?: { __typename?: 'FileField'; url: string } | null;
+    color: { __typename?: 'ColorField'; cssRgb: string };
+    technologies: Array<{
+      __typename?: 'SkillRecord';
+      id: string;
+      title: string;
+      icon: { __typename?: 'FileField'; url: string };
+    }>;
+  }>;
+};
 
+export type ResumeQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectRecord', id: string, title: string, description?: string | null, githubUrl?: string | null, projectUrl?: string | null, projectType: string, thumbnail?: { __typename?: 'FileField', url: string } | null, color: { __typename?: 'ColorField', cssRgb: string }, technologies: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> }> };
+export type ResumeQuery = {
+  __typename?: 'Query';
+  resume?: { __typename?: 'ResumeRecord'; resumeSrc: { __typename?: 'FileField'; url: string } } | null;
+};
 
-export type ResumeQueryVariables = Exact<{ [key: string]: never; }>;
+export type SkillsQueryVariables = Exact<{ [key: string]: never }>;
 
+export type SkillsQuery = {
+  __typename?: 'Query';
+  allSkills: Array<{
+    __typename?: 'SkillRecord';
+    id: string;
+    title: string;
+    icon: { __typename?: 'FileField'; url: string };
+  }>;
+};
 
-export type ResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'ResumeRecord', resumeSrc: { __typename?: 'FileField', url: string } } | null };
-
-export type SkillsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SkillsQuery = { __typename?: 'Query', allSkills: Array<{ __typename?: 'SkillRecord', id: string, title: string, icon: { __typename?: 'FileField', url: string } }> };
-
-
-export const ContactDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}}]} as unknown as DocumentNode<ContactQuery, ContactQueryVariables>;
-export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"githubUrl"}},{"kind":"Field","name":{"kind":"Name","value":"projectUrl"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"projectType"}},{"kind":"Field","name":{"kind":"Name","value":"color"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cssRgb"}}]}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
-export const ResumeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Resume"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resume"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resumeSrc"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<ResumeQuery, ResumeQueryVariables>;
-export const SkillsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Skills"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allSkills"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<SkillsQuery, SkillsQueryVariables>;
+export const ContactDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'Contact' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'contact' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [{ kind: 'Field', name: { kind: 'Name', value: 'text' } }],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ContactQuery, ContactQueryVariables>;
+export const ProjectsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'Projects' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'allProjects' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'githubUrl' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'projectUrl' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'thumbnail' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [{ kind: 'Field', name: { kind: 'Name', value: 'url' } }],
+                  },
+                },
+                { kind: 'Field', name: { kind: 'Name', value: 'projectType' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'color' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [{ kind: 'Field', name: { kind: 'Name', value: 'cssRgb' } }],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'technologies' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'icon' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [{ kind: 'Field', name: { kind: 'Name', value: 'url' } }],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
+export const ResumeDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'Resume' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'resume' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'resumeSrc' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [{ kind: 'Field', name: { kind: 'Name', value: 'url' } }],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ResumeQuery, ResumeQueryVariables>;
+export const SkillsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'Skills' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'allSkills' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'icon' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [{ kind: 'Field', name: { kind: 'Name', value: 'url' } }],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SkillsQuery, SkillsQueryVariables>;

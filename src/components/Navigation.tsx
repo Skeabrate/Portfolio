@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
-import { ResumeQuery } from '../../graphql/generated';
 import { LogoSVG } from 'assets/SVGs';
+import { NAV_ITEMS } from 'utils/routes';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
 import { WorkSectionContext } from 'context/WorkSectionContext';
-import { NAV_ITEMS } from 'utils/routes';
-import TransitionLabel from './TransitionLabel';
+import { ResumeQuery } from '../../graphql/generated';
 import ResumeButton from './ResumeButton';
+import TransitionLabel from './TransitionLabel';
 
 const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);

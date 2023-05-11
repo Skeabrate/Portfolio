@@ -1,15 +1,10 @@
-import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
-import { WindowHeightContext } from 'context/WindowHeightContext';
 
 const Curtain = () => {
-  const { windowHeight } = useContext(WindowHeightContext);
-
   return (
     <motion.div
-      style={{ height: windowHeight }}
-      className="fixed inset-0 z-50 flex w-full items-center justify-center bg-slate-950"
+      className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-slate-950"
       initial={{
         transform: 'translateY(0)',
       }}

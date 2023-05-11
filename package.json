@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-ts-types": "graphql-codegen --config graphql.config.yml"
+    "generate-ts-types": "graphql-codegen --config graphql.config.yml",
+    "format": "prettier --write \"./**/*.{ts,tsx,json}\""
   },
   "dependencies": {
     "@graphql-codegen/cli": "^3.3.0",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",

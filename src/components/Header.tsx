@@ -1,8 +1,8 @@
 import { useContext, useRef } from 'react';
 import cx from 'classnames';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { duration, opacity as fadeInOpacity, translate } from 'utils/transitions';
 import { WorkSectionContext } from 'context/WorkSectionContext';
-import { opacity as fadeInOpacity, translate, duration } from 'utils/transitions';
 
 const Header = ({ label, animationState }: { label: React.ReactNode; animationState: boolean }) => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionContext);

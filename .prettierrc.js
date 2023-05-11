@@ -4,4 +4,18 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   useTabs: false,
+  importOrder: [
+    'classnames',
+    'framer-motion',
+    '@motionone',
+    '^lib/(.*)$',
+    '^assets/(.*)$',
+    '^utils/(.*)$',
+    '^hooks/(.*)$',
+    '^context/(.*)$',
+    '^components/(.*)$',
+    '^[./]',
+  ],
+  importOrderSeparation: false,
+  importOrderSortSpecifiers: true,
 };

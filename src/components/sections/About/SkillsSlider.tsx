@@ -1,19 +1,19 @@
-import { useMemo, useRef } from 'react';
 import Image from 'next/image';
+import { useMemo, useRef } from 'react';
 import cx from 'classnames';
 import {
   motion,
+  useAnimationFrame,
+  useMotionValue,
   useScroll,
   useSpring,
   useTransform,
-  useMotionValue,
   useVelocity,
-  useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
-import { SkillsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
+import { SkillsQuery } from '../../../../graphql/generated';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const sliderRef = useRef<HTMLDivElement>(null);

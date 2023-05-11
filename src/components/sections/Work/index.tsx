@@ -1,11 +1,11 @@
 import { useContext, useMemo, useState } from 'react';
 import cx from 'classnames';
-import { ProjectsQuery } from '../../../../graphql/generated';
 import { ROUTES } from 'utils/routes';
-import { useWasInView } from 'hooks/useUpdateActiveSection';
 import { FILTERS, useFilters } from 'hooks/useFilters';
+import { useWasInView } from 'hooks/useUpdateActiveSection';
 import { WorkSectionContext } from 'context/WorkSectionContext';
 import Header from 'components/Header';
+import { ProjectsQuery } from '../../../../graphql/generated';
 import FiltersBar from './FiltersBar';
 import Project from './Project';
 

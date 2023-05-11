@@ -1,11 +1,15 @@
-import { RefObject, useContext, useMemo, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import { WindowHeightContext } from 'context/WindowHeightContext';
-import { TActiveSection } from 'context/ActiveSectionContext';
-import { useUpdateActiveSection } from 'hooks/useUpdateActiveSection';
-import { useWorkSectionEffect } from 'hooks/useWorkSectionEffect';
+import { RefObject, useMemo, useRef } from 'react';
 import { request } from 'lib/request';
 import { ROUTES } from 'utils/routes';
+import { useUpdateActiveSection } from 'hooks/useUpdateActiveSection';
+import { useWorkSectionEffect } from 'hooks/useWorkSectionEffect';
+import { TActiveSection } from 'context/ActiveSectionContext';
+import Navigation from 'components/Navigation';
+import About from 'components/sections/About';
+import Contact from 'components/sections/Contact';
+import Skeabrate from 'components/sections/Skeabrate';
+import Work from 'components/sections/Work';
 import {
   ContactDocument,
   ContactQuery,
@@ -16,18 +20,11 @@ import {
   SkillsDocument,
   SkillsQuery,
 } from '../../graphql/generated';
-import Navigation from 'components/Navigation';
-import Skeabrate from 'components/sections/Skeabrate';
-import About from 'components/sections/About';
-import Work from 'components/sections/Work';
-import Contact from 'components/sections/Contact';
 
 type Props = { projects: ProjectsQuery; skills: SkillsQuery; resume: ResumeQuery; contact: ContactQuery };
 export type TSection = TActiveSection & { ref: RefObject<HTMLDivElement> };
 
 const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
-  const { windowHeight } = useContext(WindowHeightContext);
-
   const skeabrateRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const workRef = useRef<HTMLDivElement>(null);
@@ -54,10 +51,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={skeabrateRef}
           id={ROUTES.skeabrate.label}
-          style={{
-            height: windowHeight,
-          }}
-          className="mx-auto flex min-h-[50vw] flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
+          className="mx-auto h-screen flex min-h-[50vw] flex-col justify-center py-sectionMobile pt-24 sm:py-sectionTablet md:py-sectionDesktop"
         >
           <Skeabrate />
         </section>

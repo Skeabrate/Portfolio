@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import { ScrollContext } from 'context/ScrollContext';
 import { ActiveSectionContext, TActiveSection } from 'context/ActiveSectionContext';
+import { ScrollContext } from 'context/ScrollContext';
 
 export const useAnimateWhenInView = (
   ref: React.RefObject<HTMLDivElement>,

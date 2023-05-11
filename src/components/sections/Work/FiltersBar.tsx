@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
-import { WorkSectionContext } from 'context/WorkSectionContext';
-import { FILTERS, TFilter } from 'hooks/useFilters';
 import { duration, opacity } from 'utils/transitions';
+import { FILTERS, TFilter } from 'hooks/useFilters';
+import { WorkSectionContext } from 'context/WorkSectionContext';
 
 const FiltersBar = ({
   animationState,

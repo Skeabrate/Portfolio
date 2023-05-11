@@ -1,10 +1,10 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
-import { ProjectsQuery } from '../../../../graphql/generated';
 import { TProjectHoverEffect } from '.';
+import { ProjectsQuery } from '../../../../graphql/generated';
 
 const Project = ({
   project,

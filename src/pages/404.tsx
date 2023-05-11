@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import TransitionLabel from 'components/TransitionLabel';
-import { motion } from 'framer-motion';
 
 const Error = () => {
   return (

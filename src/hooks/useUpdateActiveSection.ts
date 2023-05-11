@@ -1,7 +1,7 @@
-import { RefObject, useContext, useEffect } from 'react';
 import { TSection } from 'pages';
-import { ScrollContext } from 'context/ScrollContext';
+import { RefObject, useContext, useEffect } from 'react';
 import { ActiveSectionContext, TActiveSection } from 'context/ActiveSectionContext';
+import { ScrollContext } from 'context/ScrollContext';
 
 export const useUpdateActiveSection = (sections: TSection[]) => {
   const { activeSection, setActiveSection } = useContext(ActiveSectionContext);

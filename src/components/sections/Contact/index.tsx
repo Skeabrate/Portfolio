@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { GmailSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
-import { delay, opacity, translate, duration } from 'utils/transitions';
+import { delay, duration, opacity, translate } from 'utils/transitions';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
-import { ContactQuery, ResumeQuery } from '../../../../graphql/generated';
-import Greeting, { defaultGreering } from 'components/sections/Contact/Greeting';
-import TransitionLabel from 'components/TransitionLabel';
 import ResumeButton from 'components/ResumeButton';
+import TransitionLabel from 'components/TransitionLabel';
+import Greeting, { defaultGreering } from 'components/sections/Contact/Greeting';
+import { ContactQuery, ResumeQuery } from '../../../../graphql/generated';
 
 const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume: ResumeQuery['resume'] }) => {
   const animationState = useWasInView(ROUTES.contact.id);
