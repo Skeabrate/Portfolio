@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="description" content="Skeabrate, Sebastian Świeczkowski portoflio" />
       </Head>
 
-      <body className="bg-slate-950 ">
+      <body className="bg-slate-950">
         <Main />
         <NextScript />
       </body>

@@ -4,7 +4,7 @@ import { LogoSVG } from 'assets/SVGs';
 const Curtain = () => {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-slate-950"
+      className="h-screen-fixed fixed inset-0 z-50 flex w-full items-center justify-center bg-slate-950"
       initial={{
         transform: 'translateY(0)',
       }}
