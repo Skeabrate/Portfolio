@@ -14,7 +14,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
   return (
     <>
       <header>
-        <h2 className="mb-[clamp(0.6rem,4vw,4vw)] border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
+        <h2 className="mb-[clamp(1.2rem,4vw,4vw)] border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight">
           <motion.span
             animate={{ opacity: opacity(animationState), transform: translate(animationState) }}
             transition={{ duration: duration(animationState) }}
@@ -34,7 +34,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           duration: duration(animationState),
           delay: delay(animationState),
         }}
-        className="mb-[clamp(0.6rem,2vw,2vw)] text-slate-400 lg:my-[clamp(0.6rem,2vw,2vw)]"
+        className="mb-[clamp(0.8rem,2vw,2vw)] text-slate-400 lg:my-[clamp(0.8rem,2vw,2vw)]"
       >
         {contact?.text}
       </motion.p>
@@ -48,7 +48,7 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           duration: duration(animationState),
           delay: delay(animationState, 0.1),
         }}
-        className="group mb-[clamp(1rem,2vw,2vw)] flex w-fit items-center gap-[clamp(0.6rem,1vw,1vw)] text-slate-400"
+        className="group mb-[clamp(1.2rem,2vw,2vw)] flex w-fit items-center gap-[clamp(0.6rem,1vw,1vw)] text-slate-400"
         href="mailto:sebastianswiecz458@gmail.com"
       >
         <GmailSVG />

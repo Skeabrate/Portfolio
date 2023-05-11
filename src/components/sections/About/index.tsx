@@ -30,7 +30,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               duration: duration(animationState),
               delay: delay(animationState),
             }}
-            className="mb-[clamp(0.6rem,2vw,2vw)] lg:mt-[clamp(0.6rem,4vw,4vw)]"
+            className="mb-[clamp(0.8rem,2vw,2vw)] lg:mt-[clamp(0.8rem,4vw,4vw)]"
           >
             Hi, my name is <DecorationText>Sebastian Świeczkowski</DecorationText> and I am a frontend developer. Lorem
             ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, delectus officiis. Odio quisquam omnis
@@ -48,7 +48,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               duration: duration(animationState),
               delay: delay(animationState, 0.1),
             }}
-            className="mb-[clamp(0.6rem,2vw,2vw)]"
+            className="mb-[clamp(0.8rem,2vw,2vw)]"
           >
             <DecorationText>Besides proggramming</DecorationText> I love sports and guitar! amet consectetur adipisicing
             elit. Nemo repudiandae voluptates soluta minima eligendi tenetur at voluptas temporibus itaque. Suscipit.
