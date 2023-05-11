@@ -5,7 +5,7 @@ import { LogoSVG } from 'assets/SVGs';
 import { NAV_ITEMS } from 'utils/routes';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
-import { WorkSectionContext } from 'context/WorkSectionContext';
+import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import { ResumeQuery } from '../../graphql/generated';
 import ResumeButton from './ResumeButton';
 import TransitionLabel from './TransitionLabel';
@@ -102,7 +102,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { scrollY } = useContext(ScrollContext);
 
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
 
   useEffect(() => {
     document.addEventListener('click', (e) => {

@@ -11,13 +11,12 @@ import {
   useVelocity,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
-import { ROUTES } from 'utils/routes';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
 import { SkillsQuery } from '../../../../graphql/generated';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const { isInView } = useAnimateWhenInView(sliderRef, ROUTES.about.label);
+  const { isInView } = useAnimateWhenInView(sliderRef);
 
   const baseX = useMotionValue(0);
   const baseVelocity = 10;

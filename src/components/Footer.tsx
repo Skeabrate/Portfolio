@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG } from 'assets/SVGs';
-import { WorkSectionContext } from 'context/WorkSectionContext';
+import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import TransitionLabel from './TransitionLabel';
 
 const Footer = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
 
   return (
     <footer

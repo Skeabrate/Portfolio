@@ -1,12 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import { ActiveSectionContext, TActiveSection } from 'context/ActiveSectionContext';
+import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { ScrollContext } from 'context/ScrollContext';
 
-export const useAnimateWhenInView = (
-  ref: React.RefObject<HTMLDivElement>,
-  currentSection: TActiveSection['label'],
-  threshold = 1 / 5
-) => {
+export const useAnimateWhenInView = (ref: React.RefObject<HTMLDivElement>, threshold = 1 / 4) => {
   const [isInView, setIsInView] = useState(false);
   const { scrollY } = useContext(ScrollContext);
   const { activeSection } = useContext(ActiveSectionContext);
@@ -15,14 +11,11 @@ export const useAnimateWhenInView = (
     if (!ref.current) return;
     const animationStartPoint = window.innerHeight * threshold;
 
-    if (
-      Math.floor(ref.current.getBoundingClientRect().top + animationStartPoint) <= window.innerHeight &&
-      currentSection === activeSection.label
-    )
+    if (Math.floor(ref.current.getBoundingClientRect().top + animationStartPoint) <= window.innerHeight)
       setIsInView(true);
     else setIsInView(false);
     if (Math.floor(ref.current.getBoundingClientRect().bottom) <= animationStartPoint) setIsInView(false);
-  }, [scrollY, ref, threshold, activeSection, currentSection]);
+  }, [scrollY, ref, threshold, activeSection]);
 
   return { isInView };
 };

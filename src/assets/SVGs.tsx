@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import cx from 'classnames';
-import { WorkSectionContext } from 'context/WorkSectionContext';
+import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 
 export const LogoSVG = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       width="clamp(10rem,14vw,14vw)"
@@ -37,7 +37,7 @@ export const ArrowSVG = () => (
 );
 
 export const FacebookSVG = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
@@ -52,7 +52,7 @@ export const FacebookSVG = () => {
 };
 
 export const InstagramSVG = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
@@ -67,7 +67,7 @@ export const InstagramSVG = () => {
 };
 
 export const GmailSVG = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
@@ -84,7 +84,7 @@ export const GmailSVG = () => {
 };
 
 export const GithubSVG = ({ isBig }: { isBig?: boolean }) => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       className={cx(
@@ -102,7 +102,7 @@ export const GithubSVG = ({ isBig }: { isBig?: boolean }) => {
 };
 
 export const TwitterSVG = () => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
       className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}

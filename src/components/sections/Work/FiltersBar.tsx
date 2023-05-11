@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { duration, opacity } from 'utils/transitions';
 import { FILTERS, TFilter } from 'hooks/useFilters';
-import { WorkSectionContext } from 'context/WorkSectionContext';
+import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 
 const FiltersBar = ({
   animationState,
@@ -14,7 +14,7 @@ const FiltersBar = ({
   currentFilter: TFilter;
   handleNewFilter: (filter: TFilter) => void;
 }) => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
 
   return (
     <ul className="mb-[clamp(2.4rem,6vw,6vw)] flex flex-wrap gap-[clamp(0.8rem,1.4vw,1.4vw)]">

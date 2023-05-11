@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { ROUTES } from 'utils/routes';
 import { FILTERS, useFilters } from 'hooks/useFilters';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
-import { WorkSectionContext } from 'context/WorkSectionContext';
+import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import Header from 'components/Header';
 import { ProjectsQuery } from '../../../../graphql/generated';
 import FiltersBar from './FiltersBar';
@@ -15,7 +15,7 @@ export type TProjectHoverEffect = {
 };
 
 const Work = ({ projects }: { projects: ProjectsQuery }) => {
-  const { isWorkSectionEffectActive } = useContext(WorkSectionContext);
+  const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   const animationState = useWasInView(ROUTES.work.id);
 
   const { filter, handleNewFilter } = useFilters();

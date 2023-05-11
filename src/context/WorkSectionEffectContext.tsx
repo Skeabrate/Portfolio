@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 
-type TWorkSectionContext = {
+type TWorkSectionEffectContext = {
   isWorkSectionEffectActive: boolean;
   setIsWorkSectionEffectActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const WorkSectionContext = React.createContext({} as TWorkSectionContext);
+export const WorkSectionEffectContext = React.createContext({} as TWorkSectionEffectContext);
 
-function WorkSectionProvider({ children }: { children: React.ReactNode }) {
+function WorkSectionEffectProvider({ children }: { children: React.ReactNode }) {
   const [isWorkSectionEffectActive, setIsWorkSectionEffectActive] = useState(false);
 
   const value = useMemo(
@@ -18,7 +18,7 @@ function WorkSectionProvider({ children }: { children: React.ReactNode }) {
     [isWorkSectionEffectActive]
   );
 
-  return <WorkSectionContext.Provider value={value}>{children}</WorkSectionContext.Provider>;
+  return <WorkSectionEffectContext.Provider value={value}>{children}</WorkSectionEffectContext.Provider>;
 }
 
-export default WorkSectionProvider;
+export default WorkSectionEffectProvider;
