@@ -13,11 +13,14 @@ import TransitionLabel from './TransitionLabel';
 
 const ListNav = () => {
   const { scrollY } = useContext(ScrollContext);
+  const { setMouseEffect } = useContext(MouseAnimationContext);
 
   return (
     <ul className="hidden justify-center gap-[1vw] md:flex">
       {NAV_ITEMS.map(({ label }, index) => (
         <motion.li
+          onMouseEnter={() => setMouseEffect('scaleDown')}
+          onMouseLeave={() => setMouseEffect('default')}
           initial={{
             opacity: 1,
             transform: 'translateY(0)',
@@ -44,6 +47,7 @@ const ListNav = () => {
 
 const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: string | undefined }) => {
   const { activeSection } = useContext(ActiveSectionContext);
+  const { setMouseEffect } = useContext(MouseAnimationContext);
 
   const showNav = {
     opacity: 1,
@@ -70,7 +74,12 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
       className="absolute right-4 top-full z-40 flex w-[clamp(9rem,10vw,10vw)] origin-top-right flex-col items-start gap-1 overflow-hidden rounded bg-slate-900/50 pt-2 shadow lg:right-[2vw]"
     >
       {NAV_ITEMS.map(({ label }) => (
-        <li key={label} className="flex w-full">
+        <li
+          onMouseEnter={() => setMouseEffect('scaleDown')}
+          onMouseLeave={() => setMouseEffect('default')}
+          key={label}
+          className="flex w-full"
+        >
           <a
             className={cx(
               'relative w-full px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)]',

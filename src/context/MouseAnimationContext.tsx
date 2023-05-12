@@ -44,7 +44,7 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
     scaleDown: {
       top: mousePosition.y,
       left: mousePosition.x,
-      scale: 0.4,
+      transform: 'translate(-50%,-75%) scale(0.4)',
       transition: {
         scale: {
           duration: 0.2,
