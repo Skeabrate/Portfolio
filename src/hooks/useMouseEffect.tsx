@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ContactMouseEffect from 'components/MouseEffects/ContactMouseEffect';
+import ScrollMouseEffect from 'components/MouseEffects/ScrollMouseEffect';
 import TextLoop from 'components/MouseEffects/TextLoop';
 
 export type TEffectTypes = 'default' | 'difference' | 'scaleDown' | 'disappear';
@@ -51,6 +52,13 @@ export const contactEffect = (): TMouseEffect => ({
   type: 'default',
   bgColor: 'default',
   Component: <ContactMouseEffect />,
+});
+
+export const scrollEffect = (): TMouseEffect => ({
+  key: 'scroll',
+  type: 'default',
+  bgColor: 'default',
+  Component: <ScrollMouseEffect />,
 });
 
 export const disappearEffect = (): TMouseEffect => ({
