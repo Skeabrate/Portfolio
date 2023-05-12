@@ -2,9 +2,9 @@ import type { AppProps } from 'next/app';
 import { Montserrat } from 'next/font/google';
 import cx from 'classnames';
 import ActiveSectionProvider from 'context/ActiveSectionContext';
-import MouseAnimationProvider from 'context/MouseEffectContext';
+import MouseAnimationProvider from 'context/MouseAnimationContext';
 import ScrollProvider from 'context/ScrollContext';
-import WorkSectionEffectContext from 'context/WorkSectionEffectContext';
+import WorkSectionEffectProvider from 'context/WorkSectionEffectContext';
 import ActiveSectionBg from 'components/ActiveSectionBg';
 import Curtain from 'components/Curtain';
 import Footer from 'components/Footer';
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={cx(font.className, 'px-4 text-default text-slate-300 md:px-[6vw] lg:px-[8vw]')}>
       <ActiveSectionProvider>
         <ScrollProvider>
-          <WorkSectionEffectContext>
+          <WorkSectionEffectProvider>
             <MouseAnimationProvider>
               <SkipToContent />
               <Curtain />
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
               <ActiveSectionBg />
               <Footer />
             </MouseAnimationProvider>
-          </WorkSectionEffectContext>
+          </WorkSectionEffectProvider>
         </ScrollProvider>
       </ActiveSectionProvider>
     </div>

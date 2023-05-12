@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import { NAV_ITEMS } from 'utils/routes';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { ScrollContext } from 'context/ScrollContext';
 import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import { ResumeQuery } from '../../graphql/generated';
@@ -100,9 +101,19 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
 
 const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const { scrollY } = useContext(ScrollContext);
 
+  const { scrollY } = useContext(ScrollContext);
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
+  const { setMouseEffect, setMouseColor } = useContext(MouseAnimationContext);
+
+  const differenceMouseAnimationEnter = () => {
+    setMouseEffect('difference');
+    setMouseColor('white');
+  };
+  const differenceMouseAnimationLeave = () => {
+    setMouseEffect('default');
+    setMouseColor('default');
+  };
 
   useEffect(() => {
     document.addEventListener('click', (e) => {
@@ -130,6 +141,8 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
       <a
         href="/"
         className={cx('w-fit origin-left transition-transform duration-300', scrollY > 10 ? 'scale-75' : 'scale-100')}
+        onMouseEnter={differenceMouseAnimationEnter}
+        onMouseLeave={differenceMouseAnimationLeave}
       >
         <LogoSVG />
       </a>
@@ -137,6 +150,8 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
       <button
         id="hamburger"
         aria-label="open menu"
+        onMouseEnter={differenceMouseAnimationEnter}
+        onMouseLeave={differenceMouseAnimationLeave}
         className={cx(
           isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-600',
           scrollY > 10 ? 'md:scale-1' : 'md:scale-0',

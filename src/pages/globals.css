@@ -37,6 +37,10 @@ html {
   transition: background-color 700ms ease-in-out, transform 300ms ease-in-out;
 }
 
+.transition-cursor-background {
+  transition: background 0.2s ease-in-out;
+}
+
 .h-screen-fixed {
   height: calc(100vh - calc(100vh - 100%));
 }

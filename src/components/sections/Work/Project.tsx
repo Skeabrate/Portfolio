@@ -24,14 +24,15 @@ const Project = ({
       key={filterChange}
       initial={{
         opacity: 0,
-        transform: 'translateY(2vw)',
+        transform: 'translateY(1vw)',
       }}
       whileInView={{
         opacity: 1,
         transform: 'translateY(0)',
       }}
       transition={{
-        duration: 0.4,
+        duration: 0.6,
+        delay: 0.1,
       }}
     >
       <a

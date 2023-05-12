@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG } from 'assets/SVGs';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import TransitionLabel from './TransitionLabel';
 
 const Footer = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
+  const { setMouseText } = useContext(MouseAnimationContext);
 
   return (
     <footer
@@ -163,6 +165,8 @@ const Footer = () => {
 
       <div className="vertical-rl bottom-0 right-0 hidden w-[5vw] items-center gap-[3vw] lg:fixed lg:flex">
         <motion.a
+          onMouseEnter={() => setMouseText(<GmailSVG />)}
+          onMouseLeave={() => setMouseText('')}
           initial={{
             opacity: 0,
           }}
