@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import { NAV_ITEMS } from 'utils/routes';
-import { defaultEffect, difference, scaleDown } from 'hooks/useMouseEffect';
+import { defaultEffect, differenceEffect, scaleDownEffect } from 'hooks/useMouseEffect';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { ScrollContext } from 'context/ScrollContext';
@@ -20,7 +20,7 @@ const ListNav = () => {
     <ul className="hidden justify-center gap-[1vw] md:flex">
       {NAV_ITEMS.map(({ label }, index) => (
         <motion.li
-          onMouseEnter={() => setMouseEffect(scaleDown())}
+          onMouseEnter={() => setMouseEffect(scaleDownEffect())}
           onMouseLeave={() => setMouseEffect(defaultEffect())}
           initial={{
             opacity: 1,
@@ -76,7 +76,7 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
     >
       {NAV_ITEMS.map(({ label }) => (
         <li
-          onMouseEnter={() => setMouseEffect(scaleDown())}
+          onMouseEnter={() => setMouseEffect(scaleDownEffect())}
           onMouseLeave={() => setMouseEffect(defaultEffect())}
           key={label}
           className="flex w-full"
@@ -117,7 +117,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
   const { setMouseEffect } = useContext(MouseAnimationContext);
 
   const differenceMouseAnimationEnter = () => {
-    setMouseEffect(difference());
+    setMouseEffect(differenceEffect());
   };
   const differenceMouseAnimationLeave = () => {
     setMouseEffect(defaultEffect());

@@ -1,14 +1,18 @@
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { GmailSVG } from 'assets/SVGs';
 import { ROUTES } from 'utils/routes';
 import { delay, duration, opacity, translate } from 'utils/transitions';
+import { contactEffect, defaultEffect } from 'hooks/useMouseEffect';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import ResumeButton from 'components/ResumeButton';
 import TransitionLabel from 'components/TransitionLabel';
 import Greeting, { defaultGreering } from 'components/sections/Contact/Greeting';
 import { ContactQuery, ResumeQuery } from '../../../../graphql/generated';
 
 const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume: ResumeQuery['resume'] }) => {
+  const { setMouseEffect } = useContext(MouseAnimationContext);
   const animationState = useWasInView(ROUTES.contact.id);
 
   return (
@@ -48,6 +52,8 @@ const Contact = ({ contact, resume }: { contact: ContactQuery['contact']; resume
           duration: duration(animationState),
           delay: delay(animationState, 0.1),
         }}
+        onMouseEnter={() => setMouseEffect(contactEffect())}
+        onMouseLeave={() => setMouseEffect(defaultEffect())}
         className="group mb-[clamp(1.2rem,2vw,2vw)] flex w-fit items-center gap-[clamp(0.6rem,1vw,1vw)] text-slate-400"
         href="mailto:sebastianswiecz458@gmail.com"
       >

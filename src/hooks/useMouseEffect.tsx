@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import IconEffect from 'components/MouseEffects/IconEffect';
+import ContactMouseEffect from 'components/MouseEffects/ContactMouseEffect';
 import TextLoop from 'components/MouseEffects/TextLoop';
 
 export type TEffectTypes = 'default' | 'difference' | 'scaleDown' | 'disappear';
@@ -17,35 +17,43 @@ export const defaultEffect = (): TMouseEffect => ({
   Component: <></>,
 });
 
-export const scaleDown = (): TMouseEffect => ({
+export const scaleDownEffect = (): TMouseEffect => ({
   key: 'scaleDown',
   type: 'scaleDown',
   bgColor: 'default',
   Component: <></>,
 });
 
-export const difference = (): TMouseEffect => ({
+export const differenceEffect = (): TMouseEffect => ({
   key: 'difference',
   type: 'difference',
   bgColor: 'white',
   Component: <></>,
 });
 
-export const loopedText = ({ text, bgColor, key }: { text: string; bgColor?: string; key?: string }): TMouseEffect => ({
+export const loopedTextEffect = ({
+  text,
+  bgColor,
+  key,
+}: {
+  text: string;
+  bgColor?: string;
+  key?: string;
+}): TMouseEffect => ({
   key: key || 'loopedText',
   type: 'default',
   bgColor: bgColor || 'default',
   Component: <TextLoop text={text} />,
 });
 
-export const iconEffect = (icon: React.ReactNode, bgColor?: string): TMouseEffect => ({
-  key: 'iconEffect',
+export const contactEffect = (): TMouseEffect => ({
+  key: 'contact',
   type: 'default',
-  bgColor: bgColor || 'default',
-  Component: <IconEffect icon={icon} />,
+  bgColor: 'default',
+  Component: <ContactMouseEffect />,
 });
 
-export const disappear = (): TMouseEffect => ({
+export const disappearEffect = (): TMouseEffect => ({
   key: 'disappear',
   type: 'disappear',
   bgColor: 'default',

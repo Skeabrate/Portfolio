@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import cx from 'classnames';
-import { defaultEffect, loopedText } from 'hooks/useMouseEffect';
+import { defaultEffect, loopedTextEffect } from 'hooks/useMouseEffect';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 
 const ResumeButton = ({
@@ -16,7 +16,7 @@ const ResumeButton = ({
 
   return (
     <a
-      onMouseEnter={() => setMouseEffect(loopedText({ text: 'resume' }))}
+      onMouseEnter={() => setMouseEffect(loopedTextEffect({ text: 'resume' }))}
       onMouseLeave={() => setMouseEffect(defaultEffect())}
       href={resumeSrc}
       target="_blank"

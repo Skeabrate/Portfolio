@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
-import { defaultEffect, loopedText } from 'hooks/useMouseEffect';
+import { defaultEffect, loopedTextEffect } from 'hooks/useMouseEffect';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { TProjectHoverEffect } from '.';
 import { ProjectsQuery } from '../../../../graphql/generated';
@@ -26,7 +26,7 @@ const Project = ({
     setProjectHoverEffect((state) =>
       state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
     );
-    setMouseEffect(loopedText({ text: title, bgColor: color.hex }));
+    setMouseEffect(loopedTextEffect({ text: title, bgColor: color.hex }));
   };
 
   const onMouseLeaveProject = () => {
@@ -66,7 +66,7 @@ const Project = ({
           {githubUrl ? (
             <a
               onClick={(e) => e.stopPropagation()}
-              onMouseEnter={() => setMouseEffect(loopedText({ text: 'check code', key: 'loopedText2' }))}
+              onMouseEnter={() => setMouseEffect(loopedTextEffect({ text: 'check code', key: 'loopedTextEffect2' }))}
               onMouseLeave={onMouseEnterProject}
               href={githubUrl}
               target="_blank"
