@@ -7,22 +7,23 @@ const IconEffect = ({ icon }: { icon: React.ReactNode }) => {
       initial={{
         opacity: 0,
         width: '1vw',
-        height: '1vh',
+        height: '1vw',
       }}
       animate={{
         opacity: 1,
         width: 'auto',
         height: 'auto',
+        margin: '0.6vw',
       }}
       exit={{
         opacity: 0,
         width: '1vw',
-        height: '1vh',
+        height: '1vw',
+        margin: '0',
       }}
       transition={{
         duration: 0.2,
       }}
-      className="relative m-[0.4vw] flex items-center justify-center"
     >
       <motion.span
         initial={{
@@ -35,7 +36,7 @@ const IconEffect = ({ icon }: { icon: React.ReactNode }) => {
           opacity: 0,
         }}
         transition={{
-          duration: 0.4,
+          duration: 0.2,
         }}
       >
         {icon}

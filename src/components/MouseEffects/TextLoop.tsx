@@ -8,22 +8,24 @@ const TextLoop = ({ text }: { text: string }) => {
       initial={{
         opacity: 0,
         width: '1vw',
-        height: '1vh',
+        height: '1vw',
       }}
       animate={{
         opacity: 1,
         width: 'auto',
         height: 'auto',
+        marginBlock: '0.4vw',
       }}
       exit={{
         opacity: 0,
         width: '1vw',
-        height: '1vh',
+        height: '1vw',
+        marginBlock: '0',
       }}
       transition={{
         duration: 0.2,
       }}
-      className="relative my-[0.4vw] block overflow-hidden text-[1vw] font-medium uppercase text-white"
+      className="relative block overflow-hidden text-[1vw] font-medium uppercase text-white"
     >
       <motion.span
         initial={{
