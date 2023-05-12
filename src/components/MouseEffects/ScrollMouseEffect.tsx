@@ -40,9 +40,9 @@ const ScrollMouseEffect = () => {
         transition={{
           duration: 0.2,
         }}
-        className="flex flex-col items-center text-[clamp(1rem,0.8vw,0.8vw)] font-medium tracking-wide text-white"
+        className="flex flex-col items-center text-[clamp(0.8rem,0.6vw,0.6vw)] font-medium tracking-wide text-white"
       >
-        <span>Scroll</span>
+        Scroll
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="fill-white"
