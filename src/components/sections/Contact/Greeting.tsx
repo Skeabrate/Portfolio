@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 const GREETINGS = [
   'Hello',
   'Olá',
+  'नमस्ते',
   'Ahoj',
   'Ciao',
   'Guten tag',
