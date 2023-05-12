@@ -53,6 +53,21 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
         },
       },
     },
+    disappear: {
+      ...defaultOptions,
+      transform: 'translate(-50%,-75%) scale(0)',
+      transition: {
+        scale: {
+          duration: 0.2,
+        },
+        top: {
+          duration: 0.05,
+        },
+        left: {
+          duration: 0.05,
+        },
+      },
+    },
     scaleDown: {
       ...defaultOptions,
       transform: 'translate(-50%,-75%) scale(0.4)',

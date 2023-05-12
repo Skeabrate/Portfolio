@@ -2,7 +2,7 @@ import { useState } from 'react';
 import IconEffect from 'components/MouseEffects/IconEffect';
 import TextLoop from 'components/MouseEffects/TextLoop';
 
-export type TEffectTypes = 'default' | 'difference' | 'scaleDown';
+export type TEffectTypes = 'default' | 'difference' | 'scaleDown' | 'disappear';
 export type TMouseEffect = {
   key: string;
   type: TEffectTypes;
@@ -43,6 +43,13 @@ export const iconEffect = (icon: React.ReactNode, bgColor?: string): TMouseEffec
   type: 'default',
   bgColor: bgColor || 'default',
   Component: <IconEffect icon={icon} />,
+});
+
+export const disappear = (): TMouseEffect => ({
+  key: 'disappear',
+  type: 'disappear',
+  bgColor: 'default',
+  Component: <></>,
 });
 
 export const useMouseEffect = () => {

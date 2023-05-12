@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ROUTES } from 'utils/routes';
 import { delay, duration, opacity, translate } from 'utils/transitions';
+import { defaultEffect, disappear } from 'hooks/useMouseEffect';
 import { useWasInView } from 'hooks/useUpdateActiveSection';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import Header from 'components/Header';
 import ScrollButton from 'components/ScrollButton';
 import SkillsSlider from 'components/sections/About/SkillsSlider';
@@ -13,6 +16,7 @@ const DecorationText = ({ children }: { children: React.ReactNode }) => (
 );
 
 const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
+  const { setMouseEffect } = useContext(MouseAnimationContext);
   const animationState = useWasInView(ROUTES.about.id);
 
   return (
@@ -77,6 +81,8 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             duration: duration(animationState),
             delay: delay(animationState),
           }}
+          onMouseEnter={() => setMouseEffect(disappear())}
+          onMouseLeave={() => setMouseEffect(defaultEffect())}
           className="group relative aspect-square h-fit w-full after:absolute after:bottom-0 after:right-0 after:hidden after:h-1/3 after:w-1/3 after:rounded-br-[2vw] after:border-b-[0.1vw] after:border-r-[0.1vw] after:border-teal-500 after:transition-all after:duration-500 hover:after:h-full hover:after:w-full md:pb-[0.8vw] md:pr-[0.8vw] md:after:block"
         >
           <div className="overflow-hidden rounded-2xl bg-teal-500/80 md:rounded-bl-none md:rounded-br-[1.4vw] md:rounded-tl-[1.4vw] md:rounded-tr-none">
