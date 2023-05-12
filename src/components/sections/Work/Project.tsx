@@ -22,14 +22,14 @@ const Project = ({
   const { setMouseEffect } = useContext(MouseAnimationContext);
   const { title, description, thumbnail, technologies, color, githubUrl, projectUrl } = project;
 
-  const onMouseEnter = () => {
+  const onMouseEnterProject = () => {
     setProjectHoverEffect((state) =>
       state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
     );
-    setMouseEffect(loopedText(title, color.hex));
+    setMouseEffect(loopedText({ text: title, bgColor: color.hex }));
   };
 
-  const onMouseLeave = () => {
+  const onMouseLeaveProject = () => {
     setProjectHoverEffect((state) => state.map((item) => ({ id: item.id, isScaledDown: false })));
     setMouseEffect(defaultEffect());
   };
@@ -50,12 +50,13 @@ const Project = ({
         delay: 0.1,
       }}
     >
-      <a
-        href={projectUrl || '/'}
-        target="_blank"
-        rel="noopener noreferrer"
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+      <div
+        role="link"
+        tabIndex={0}
+        onClick={() => window.open(projectUrl || '/', '_ blank')}
+        onKeyDown={() => false}
+        onMouseEnter={onMouseEnterProject}
+        onMouseLeave={onMouseLeaveProject}
         className={cx(
           'group relative flex origin-center cursor-pointer flex-col duration-300',
           isScaledDown ? 'md:scale-90' : 'delay-100 md:scale-100'
@@ -63,12 +64,17 @@ const Project = ({
       >
         <div className="relative mb-[clamp(0.6rem,1vw,1vw)] aspect-square overflow-hidden rounded-2xl bg-teal-500/60 md:rounded-[1.4vw]">
           {githubUrl ? (
-            <button
-              onClick={() => window.open(githubUrl, '_ blank')}
+            <a
+              onClick={(e) => e.stopPropagation()}
+              onMouseEnter={() => setMouseEffect(loopedText({ text: 'check code', key: 'loopedText2' }))}
+              onMouseLeave={onMouseEnterProject}
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="absolute left-[clamp(0.4rem,1vw,1vw)] top-[clamp(0.4rem,1vw,1vw)] z-30 rounded-xl bg-slate-800/60 p-[clamp(1rem,1.6vw,1.6vw)] md:bottom-[clamp(0.4rem,1vw,1vw)] md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-full md:rounded-full md:opacity-0 md:transition-all md:duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100"
             >
               <GithubSVG isBig />
-            </button>
+            </a>
           ) : null}
 
           {thumbnail ? (
@@ -102,7 +108,7 @@ const Project = ({
         {description ? (
           <p className="text-[clamp(0.8rem,1vw,1vw)] leading-[1.3] text-slate-400">{description}</p>
         ) : null}
-      </a>
+      </div>
     </motion.li>
   );
 };

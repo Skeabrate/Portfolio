@@ -16,7 +16,7 @@ const ResumeButton = ({
 
   return (
     <a
-      onMouseEnter={() => setMouseEffect(loopedText('resume'))}
+      onMouseEnter={() => setMouseEffect(loopedText({ text: 'resume' }))}
       onMouseLeave={() => setMouseEffect(defaultEffect())}
       href={resumeSrc}
       target="_blank"

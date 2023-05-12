@@ -39,7 +39,7 @@ const TextLoop = ({ text }: { text: string }) => {
           duration: 0.2,
         }}
         className={cx(
-          text.toLowerCase() === 'resume' ? 'animate-textLoopFaster' : 'animate-textLoop',
+          text.length < 7 ? 'animate-textLoopFast' : text.length < 12 ? 'animate-textLoopMedium' : 'animate-textLoop',
           'absolute -left-full bottom-0 block whitespace-nowrap px-[0.5vw]'
         )}
       >
@@ -59,7 +59,7 @@ const TextLoop = ({ text }: { text: string }) => {
           duration: 0.2,
         }}
         className={cx(
-          text.toLowerCase() === 'resume' ? 'animate-textLoopFaster' : 'animate-textLoop',
+          text.length < 7 ? 'animate-textLoopFast' : text.length < 12 ? 'animate-textLoopMedium' : 'animate-textLoop',
           'relative block w-auto whitespace-nowrap px-[0.5vw]'
         )}
       >

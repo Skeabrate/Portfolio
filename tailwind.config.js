@@ -23,7 +23,8 @@ module.exports = {
       },
       animation: {
         textLoop: 'textLoop 2.6s linear infinite',
-        textLoopFaster: 'textLoop 1.6s linear infinite',
+        textLoopMedium: 'textLoop 1.8s linear infinite',
+        textLoopFast: 'textLoop 1.4s linear infinite',
       },
     },
   },
