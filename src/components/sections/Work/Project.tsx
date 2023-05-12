@@ -1,8 +1,10 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { GithubSVG } from 'assets/SVGs';
+import { defaultEffect, loopedText } from 'hooks/useMouseEffect';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { TProjectHoverEffect } from '.';
 import { ProjectsQuery } from '../../../../graphql/generated';
 
@@ -17,7 +19,20 @@ const Project = ({
   isScaledDown: TProjectHoverEffect['isScaledDown'];
   setProjectHoverEffect: React.Dispatch<React.SetStateAction<TProjectHoverEffect[]>>;
 }) => {
+  const { setMouseEffect } = useContext(MouseAnimationContext);
   const { title, description, thumbnail, technologies, color, githubUrl, projectUrl } = project;
+
+  const onMouseEnter = () => {
+    setProjectHoverEffect((state) =>
+      state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
+    );
+    setMouseEffect(loopedText(title, color.hex));
+  };
+
+  const onMouseLeave = () => {
+    setProjectHoverEffect((state) => state.map((item) => ({ id: item.id, isScaledDown: false })));
+    setMouseEffect(defaultEffect());
+  };
 
   return (
     <motion.li
@@ -39,14 +54,8 @@ const Project = ({
         href={projectUrl || '/'}
         target="_blank"
         rel="noopener noreferrer"
-        onMouseEnter={() =>
-          setProjectHoverEffect((state) =>
-            state.map((item) => (item.id !== project.id ? { ...item, isScaledDown: true } : item))
-          )
-        }
-        onMouseLeave={() =>
-          setProjectHoverEffect((state) => state.map((item) => ({ id: item.id, isScaledDown: false })))
-        }
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         className={cx(
           'group relative flex origin-center cursor-pointer flex-col duration-300',
           isScaledDown ? 'md:scale-90' : 'delay-100 md:scale-100'

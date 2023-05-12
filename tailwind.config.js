@@ -15,6 +15,16 @@ module.exports = {
         footer: 'clamp(0.7rem, 0.7vw, 0.7vw)',
         error: 'clamp(6rem, 16vw, 16vw)',
       },
+      keyframes: {
+        textLoop: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        textLoop: 'textLoop 2.6s linear infinite',
+        textLoopFaster: 'textLoop 1.6s linear infinite',
+      },
     },
   },
   plugins: [],

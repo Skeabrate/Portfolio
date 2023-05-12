@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import cx from 'classnames';
+import { defaultEffect, loopedText } from 'hooks/useMouseEffect';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 
 const ResumeButton = ({
   resumeSrc,
@@ -9,8 +12,12 @@ const ResumeButton = ({
   scrollY?: number;
   isNav?: boolean;
 }) => {
+  const { setMouseEffect } = useContext(MouseAnimationContext);
+
   return (
     <a
+      onMouseEnter={() => setMouseEffect(loopedText('resume'))}
+      onMouseLeave={() => setMouseEffect(defaultEffect())}
       href={resumeSrc}
       target="_blank"
       rel="noopener noreferrer"
@@ -19,8 +26,8 @@ const ResumeButton = ({
         'flex items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300',
         isNav
           ? scrollY > 10
-            ? 'w-[clamp(3rem,2.8vw,2.8vw)]'
-            : 'w-[clamp(8rem,8vw,8vw)]'
+            ? 'invisible w-[clamp(3rem,2.8vw,2.8vw)]'
+            : 'visible w-[clamp(8rem,8vw,8vw)]'
           : 'w-fit px-[clamp(2rem,2vw,2vw)]'
       )}
     >

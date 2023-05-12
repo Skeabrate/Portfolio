@@ -2,13 +2,37 @@ import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG } from 'assets/SVGs';
+import { defaultEffect, scaleDown } from 'hooks/useMouseEffect';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import TransitionLabel from './TransitionLabel';
 
+const SOCIALS = [
+  {
+    title: 'github',
+    label: <GithubSVG />,
+    href: 'https://github.com/Skeabrate',
+  },
+  {
+    title: 'gmail',
+    label: <GmailSVG />,
+    href: 'mailto:sebastianswiecz458@gmail.com',
+  },
+  {
+    title: 'instagram',
+    label: <InstagramSVG />,
+    href: 'https://www.instagram.com/sebaswieca/',
+  },
+  {
+    title: 'facebook',
+    label: <FacebookSVG />,
+    href: 'https://www.facebook.com/sebastian.swieczkowski.9/',
+  },
+];
+
 const Footer = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
-  const { setMouseText } = useContext(MouseAnimationContext);
+  const { setMouseEffect } = useContext(MouseAnimationContext);
 
   return (
     <footer
@@ -19,102 +43,29 @@ const Footer = () => {
     >
       <div className="static bottom-0 left-0 flex w-[5vw] flex-col items-center gap-[3vw] lg:fixed">
         <ul className="flex gap-[clamp(0.9rem,1.4vw,1.4vw)] lg:flex-col">
-          <motion.li
-            initial={{
-              opacity: 0,
-              scale: 0,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.4,
-              delay: 2.3,
-            }}
-          >
-            <a
-              aria-label="github"
-              className="group"
-              href="https://github.com/Skeabrate"
-              target="_blank"
-              rel="noopener noreferrer"
+          {SOCIALS.map(({ title, label, href }, index) => (
+            <motion.li
+              key={title}
+              initial={{
+                opacity: 0,
+                scale: 0,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.4,
+                delay: 2.3 - 0.1 * index,
+              }}
+              onMouseEnter={() => setMouseEffect(scaleDown())}
+              onMouseLeave={() => setMouseEffect(defaultEffect())}
             >
-              <TransitionLabel label={<GithubSVG />} />
-            </a>
-          </motion.li>
-          <motion.li
-            initial={{
-              opacity: 0,
-              scale: 0,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.4,
-              delay: 2.2,
-            }}
-          >
-            <a
-              aria-label="gmail"
-              className="group"
-              href="mailto:sebastianswiecz458@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TransitionLabel label={<GmailSVG />} />
-            </a>
-          </motion.li>
-          <motion.li
-            initial={{
-              opacity: 0,
-              scale: 0,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.4,
-              delay: 2.1,
-            }}
-          >
-            <a
-              aria-label="instagram"
-              className="group"
-              href="https://www.instagram.com/sebaswieca/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TransitionLabel label={<InstagramSVG />} />
-            </a>
-          </motion.li>
-          <motion.li
-            initial={{
-              opacity: 0,
-              scale: 0,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.4,
-              delay: 2,
-            }}
-          >
-            <a
-              aria-label="facebook"
-              className="group"
-              href="https://www.facebook.com/sebastian.swieczkowski.9/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TransitionLabel label={<FacebookSVG />} />
-            </a>
-          </motion.li>
+              <a aria-label={title} className="group" href={href} target="_blank" rel="noopener noreferrer">
+                <TransitionLabel label={label} />
+              </a>
+            </motion.li>
+          ))}
         </ul>
 
         <motion.p
@@ -165,8 +116,6 @@ const Footer = () => {
 
       <div className="vertical-rl bottom-0 right-0 hidden w-[5vw] items-center gap-[3vw] lg:fixed lg:flex">
         <motion.a
-          onMouseEnter={() => setMouseText(<GmailSVG />)}
-          onMouseLeave={() => setMouseText('')}
           initial={{
             opacity: 0,
           }}

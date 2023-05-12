@@ -10,7 +10,7 @@ query Projects {
     }
     projectType
     color {
-      cssRgb
+      hex
     }
     technologies {
       id

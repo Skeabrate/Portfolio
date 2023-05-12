@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import { NAV_ITEMS } from 'utils/routes';
+import { defaultEffect, difference, scaleDown } from 'hooks/useMouseEffect';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { ScrollContext } from 'context/ScrollContext';
@@ -19,8 +20,8 @@ const ListNav = () => {
     <ul className="hidden justify-center gap-[1vw] md:flex">
       {NAV_ITEMS.map(({ label }, index) => (
         <motion.li
-          onMouseEnter={() => setMouseEffect('scaleDown')}
-          onMouseLeave={() => setMouseEffect('default')}
+          onMouseEnter={() => setMouseEffect(scaleDown())}
+          onMouseLeave={() => setMouseEffect(defaultEffect())}
           initial={{
             opacity: 1,
             transform: 'translateY(0)',
@@ -75,8 +76,8 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
     >
       {NAV_ITEMS.map(({ label }) => (
         <li
-          onMouseEnter={() => setMouseEffect('scaleDown')}
-          onMouseLeave={() => setMouseEffect('default')}
+          onMouseEnter={() => setMouseEffect(scaleDown())}
+          onMouseLeave={() => setMouseEffect(defaultEffect())}
           key={label}
           className="flex w-full"
         >
@@ -113,15 +114,13 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
 
   const { scrollY } = useContext(ScrollContext);
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
-  const { setMouseEffect, setMouseColor } = useContext(MouseAnimationContext);
+  const { setMouseEffect } = useContext(MouseAnimationContext);
 
   const differenceMouseAnimationEnter = () => {
-    setMouseEffect('difference');
-    setMouseColor('white');
+    setMouseEffect(difference());
   };
   const differenceMouseAnimationLeave = () => {
-    setMouseEffect('default');
-    setMouseColor('default');
+    setMouseEffect(defaultEffect());
   };
 
   useEffect(() => {
