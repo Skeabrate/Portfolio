@@ -2,6 +2,7 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TEffectTypes, TMouseEffect, useMouseEffect } from 'hooks/useMouseEffect';
 import { useMousePosition } from 'hooks/useMousePosition';
+import { useScreenSettings } from 'hooks/useScreenSettings';
 
 type TMouseAnimationContext = {
   setMouseEffect: React.Dispatch<React.SetStateAction<TMouseEffect>>;
@@ -10,6 +11,7 @@ type TMouseAnimationContext = {
 export const MouseAnimationContext = React.createContext({} as TMouseAnimationContext);
 
 const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => {
+  const { displayMouseEffect } = useScreenSettings();
   const { mousePosition } = useMousePosition();
   const { mouseEffect, setMouseEffect } = useMouseEffect();
 
@@ -87,18 +89,21 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
 
   return (
     <MouseAnimationContext.Provider value={{ setMouseEffect }}>
-      <motion.div
-        variants={variants}
-        animate={mouseEffect.type}
-        className="transition-cursor-background pointer-events-none fixed z-40 hidden h-fit min-h-[1vw] w-fit min-w-[1vw] origin-center -translate-x-1/2 -translate-y-3/4 items-center justify-center rounded-full lg:flex"
-        style={{
-          background: mouseEffect.bgColor === 'default' ? '#2dd4bf' : mouseEffect.bgColor,
-        }}
-      >
-        <AnimatePresence initial={false}>
-          <React.Fragment key={mouseEffect.key}>{mouseEffect.Component}</React.Fragment>
-        </AnimatePresence>
-      </motion.div>
+      {displayMouseEffect ? (
+        <motion.div
+          variants={variants}
+          animate={mouseEffect.type}
+          className="transition-cursor-background pointer-events-none fixed z-40 flex h-fit min-h-[1vw] w-fit min-w-[1vw] origin-center -translate-x-1/2 -translate-y-3/4 items-center justify-center rounded-full"
+          style={{
+            background: mouseEffect.bgColor === 'default' ? '#2dd4bf' : mouseEffect.bgColor,
+          }}
+        >
+          <AnimatePresence initial={false}>
+            <React.Fragment key={mouseEffect.key}>{mouseEffect.Component}</React.Fragment>
+          </AnimatePresence>
+        </motion.div>
+      ) : null}
+
       {children}
     </MouseAnimationContext.Provider>
   );
