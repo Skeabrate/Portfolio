@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import { RefObject, useMemo, useRef } from 'react';
 import { request } from 'lib/request';
 import { ROUTES } from 'utils/routes';
@@ -45,6 +46,10 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
 
   return (
     <>
+      <Head>
+        <title>Skeabrate</title>
+      </Head>
+
       <Navigation resume={resume.resume} />
 
       <main>

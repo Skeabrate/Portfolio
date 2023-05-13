@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import TransitionLabel from 'components/TransitionLabel';
@@ -5,6 +6,10 @@ import TransitionLabel from 'components/TransitionLabel';
 const Error = () => {
   return (
     <>
+      <Head>
+        <title>Skeabrate</title>
+      </Head>
+
       <motion.nav
         initial={{
           opacity: 0,
