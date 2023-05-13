@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 
-const TextLoop = ({ text }: { text: string }) => {
+const TextLoopMouseEffect = ({ text }: { text: string }) => {
   return (
     <motion.div
       initial={{
@@ -71,4 +71,4 @@ const TextLoop = ({ text }: { text: string }) => {
   );
 };
 
-export default TextLoop;
+export default TextLoopMouseEffect;

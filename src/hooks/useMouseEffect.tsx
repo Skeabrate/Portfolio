@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import ContactMouseEffect from 'components/MouseEffects/ContactMouseEffect';
+import FooterMouseEffect from 'components/MouseEffects/FooterMouseEffect';
 import ScrollMouseEffect from 'components/MouseEffects/ScrollMouseEffect';
-import TextLoop from 'components/MouseEffects/TextLoop';
+import TextLoopMouseEffect from 'components/MouseEffects/TextLoopMouseEffect';
 
 export type TEffectTypes = 'default' | 'difference' | 'scaleDown' | 'disappear';
 export type TMouseEffect = {
@@ -32,6 +33,13 @@ export const differenceEffect = (): TMouseEffect => ({
   Component: <></>,
 });
 
+export const disappearEffect = (): TMouseEffect => ({
+  key: 'disappear',
+  type: 'disappear',
+  bgColor: 'default',
+  Component: <></>,
+});
+
 export const loopedTextEffect = ({
   text,
   bgColor,
@@ -44,7 +52,7 @@ export const loopedTextEffect = ({
   key: key || 'loopedText',
   type: 'default',
   bgColor: bgColor || 'default',
-  Component: <TextLoop text={text} />,
+  Component: <TextLoopMouseEffect text={text} />,
 });
 
 export const contactEffect = (): TMouseEffect => ({
@@ -61,11 +69,11 @@ export const scrollEffect = (): TMouseEffect => ({
   Component: <ScrollMouseEffect />,
 });
 
-export const disappearEffect = (): TMouseEffect => ({
-  key: 'disappear',
-  type: 'disappear',
+export const footerEffect = (): TMouseEffect => ({
+  key: 'footer',
+  type: 'default',
   bgColor: 'default',
-  Component: <></>,
+  Component: <FooterMouseEffect />,
 });
 
 export const useMouseEffect = () => {

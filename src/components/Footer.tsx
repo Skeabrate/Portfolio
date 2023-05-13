@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { FacebookSVG, GithubSVG, GmailSVG, InstagramSVG } from 'assets/SVGs';
-import { contactEffect, defaultEffect, scaleDownEffect } from 'hooks/useMouseEffect';
+import { contactEffect, defaultEffect, footerEffect, scaleDownEffect } from 'hooks/useMouseEffect';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { WorkSectionEffectContext } from 'context/WorkSectionEffectContext';
 import TransitionLabel from './TransitionLabel';
@@ -97,6 +97,8 @@ const Footer = () => {
           duration: 0.4,
           delay: 1.6,
         }}
+        onMouseEnter={() => setMouseEffect(footerEffect())}
+        onMouseLeave={() => setMouseEffect(defaultEffect())}
         className="bottom-[0.5vw] lg:fixed lg:px-[1vw]"
       >
         &copy;/ {new Date().getFullYear()}
