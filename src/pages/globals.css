@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 8rem;
 }
 
 ::-webkit-scrollbar {
@@ -43,4 +42,16 @@ html {
 
 .h-screen-fixed {
   height: calc(100vh - calc(100vh - 100%));
+}
+
+@media only screen and (min-width: 1280px) {
+  html {
+    scroll-padding-top: 10rem;
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  html {
+    scroll-padding-top: 12rem;
+  }
 }

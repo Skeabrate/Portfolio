@@ -37,7 +37,7 @@ const ListNav = () => {
           key={label}
           className="flex"
         >
-          <a className="group rounded px-[1vw]" href={'#' + label}>
+          <a href={'#' + label} className="group rounded px-[1vw]">
             <TransitionLabel label={label} />
           </a>
         </motion.li>
@@ -82,13 +82,13 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
           className="flex w-full"
         >
           <a
+            href={'#' + label}
             className={cx(
               'relative w-full px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)]',
               label === activeSection.label
                 ? 'text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
-            href={'#' + label}
           >
             <TransitionLabel label={label} />
           </a>
