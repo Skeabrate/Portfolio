@@ -14,7 +14,7 @@ const TextLoopMouseEffect = ({ text }: { text: string }) => {
         opacity: 1,
         width: 'auto',
         height: 'auto',
-        marginBlock: '0.4vw',
+        marginBlock: 'clamp(0.6rem,0.4vw,0.4vw)',
       }}
       exit={{
         opacity: 0,
@@ -25,7 +25,7 @@ const TextLoopMouseEffect = ({ text }: { text: string }) => {
       transition={{
         duration: 0.2,
       }}
-      className="relative block overflow-hidden text-[1vw] font-medium uppercase text-white"
+      className="relative block overflow-hidden text-[clamp(1rem,1vw,1vw)] font-medium uppercase text-white"
     >
       <motion.span
         initial={{

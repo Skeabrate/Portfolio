@@ -17,8 +17,8 @@ const FooterMouseEffect = () => {
       }}
       animate={{
         opacity: 1,
-        width: 'clamp(100px,5vw,320px)',
-        height: '2.4vw',
+        width: 'clamp(6rem,5vw,5vw)',
+        height: 'clamp(2rem,2.2vw,8rem)',
       }}
       exit={{
         opacity: 0,

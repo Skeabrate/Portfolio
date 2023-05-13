@@ -11,8 +11,8 @@ const ContactMouseEffect = () => {
       }}
       animate={{
         opacity: 1,
-        width: '2.8vw',
-        height: '2.8vw',
+        width: 'clamp(2.6rem,3vw,3vw)',
+        height: 'clamp(2.6rem,3vw,3vw)',
       }}
       exit={{
         opacity: 0,

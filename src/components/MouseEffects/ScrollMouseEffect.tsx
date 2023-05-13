@@ -11,8 +11,8 @@ const ScrollMouseEffect = () => {
       }}
       animate={{
         opacity: 1,
-        width: '4vw',
-        height: '4vw',
+        width: 'clamp(4rem,4vw,4vw)',
+        height: 'clamp(4rem,4vw,4vw)',
       }}
       exit={{
         opacity: 0,
