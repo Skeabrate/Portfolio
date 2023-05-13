@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import cx from 'classnames';
 import {
   motion,
@@ -15,13 +15,15 @@ import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
 import { SkillsQuery } from '../../../../graphql/generated';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
+  const [speedVelocity, setSpeedVelocity] = useState(0);
+
   const sliderRef = useRef<HTMLDivElement>(null);
   const childrenRef = useRef<HTMLUListElement>(null);
 
   const { isInView } = useAnimateWhenInView(sliderRef);
-  const baseX = useMotionValue(0);
-  const baseVelocity = 100;
+
   const { scrollY } = useScroll();
+  const baseX = useMotionValue(0);
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 100,
@@ -30,7 +32,6 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
-
   const x = useTransform(
     baseX,
     (v) => `${wrap(0, -1 * (childrenRef?.current ? childrenRef?.current?.getBoundingClientRect().width : 100), v)}px`
@@ -38,7 +39,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    let moveBy = directionFactor.current * speedVelocity * (delta / 1000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -69,6 +70,10 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
       )),
     [skills, isInView]
   );
+
+  useEffect(() => {
+    setSpeedVelocity(window.innerWidth * 0.07 < 100 ? 100 : window.innerWidth * 0.07);
+  }, []);
 
   return (
     <>
