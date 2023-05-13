@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import ContactMouseEffect from 'components/MouseEffects/ContactMouseEffect';
+import DifferenceMouseEffect from 'components/MouseEffects/DifferenceMouseEffect';
 import FooterMouseEffect from 'components/MouseEffects/FooterMouseEffect';
 import ScrollMouseEffect from 'components/MouseEffects/ScrollMouseEffect';
 import TextLoopMouseEffect from 'components/MouseEffects/TextLoopMouseEffect';
 
-export type TEffectTypes = 'default' | 'difference' | 'scaleDown' | 'disappear';
+export type TEffectTypes = 'default' | 'difference' | 'disappear' | 'scaleDown';
 export type TMouseEffect = {
   key: string;
   type: TEffectTypes;
@@ -26,18 +27,18 @@ export const scaleDownEffect = (): TMouseEffect => ({
   Component: <></>,
 });
 
-export const differenceEffect = (): TMouseEffect => ({
-  key: 'difference',
-  type: 'difference',
-  bgColor: 'white',
-  Component: <></>,
-});
-
 export const disappearEffect = (): TMouseEffect => ({
   key: 'disappear',
   type: 'disappear',
   bgColor: 'default',
   Component: <></>,
+});
+
+export const differenceEffect = (): TMouseEffect => ({
+  key: 'difference',
+  type: 'difference',
+  bgColor: 'white',
+  Component: <DifferenceMouseEffect />,
 });
 
 export const loopedTextEffect = ({

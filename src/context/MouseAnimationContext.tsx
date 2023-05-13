@@ -20,69 +20,51 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
     left: mousePosition.x,
   };
 
+  const defaultTransitions = {
+    width: {
+      duration: 0.2,
+    },
+    height: {
+      duration: 0.2,
+    },
+    top: {
+      duration: 0.05,
+    },
+    left: {
+      duration: 0.05,
+    },
+  };
+
   const variants: { [key in TEffectTypes]: object } = {
     default: {
       ...defaultOptions,
       transform: 'translate(-50%,-75%)',
       transition: {
-        width: {
-          duration: 0.2,
-        },
-        height: {
-          duration: 0.2,
-        },
-        top: {
-          duration: 0.05,
-        },
-        left: {
-          duration: 0.05,
-        },
+        ...defaultTransitions,
       },
     },
     difference: {
       ...defaultOptions,
-      transform: 'translate(-50%,-75%) scale(4)',
+      transform: 'translate(-50%,-75%)',
       mixBlendMode: 'difference',
       transition: {
-        scale: {
-          duration: 0.2,
-        },
-        top: {
-          duration: 0.05,
-        },
-        left: {
-          duration: 0.05,
-        },
-      },
-    },
-    disappear: {
-      ...defaultOptions,
-      transform: 'translate(-50%,-75%) scale(0)',
-      transition: {
-        scale: {
-          duration: 0.2,
-        },
-        top: {
-          duration: 0.05,
-        },
-        left: {
-          duration: 0.05,
-        },
+        ...defaultTransitions,
       },
     },
     scaleDown: {
       ...defaultOptions,
       transform: 'translate(-50%,-75%) scale(0.4)',
       transition: {
-        scale: {
-          duration: 0.2,
-        },
-        top: {
-          duration: 0.05,
-        },
-        left: {
-          duration: 0.05,
-        },
+        ...defaultTransitions,
+        scale: 0.2,
+      },
+    },
+    disappear: {
+      ...defaultOptions,
+      transform: 'translate(-50%,-75%) scale(0)',
+      transition: {
+        ...defaultTransitions,
+        scale: 0.2,
       },
     },
   };
