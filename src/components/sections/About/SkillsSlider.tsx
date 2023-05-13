@@ -16,10 +16,11 @@ import { SkillsQuery } from '../../../../graphql/generated';
 
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const { isInView } = useAnimateWhenInView(sliderRef);
+  const childrenRef = useRef<HTMLUListElement>(null);
 
+  const { isInView } = useAnimateWhenInView(sliderRef);
   const baseX = useMotionValue(0);
-  const baseVelocity = 10;
+  const baseVelocity = 100;
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -30,7 +31,10 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
     clamp: false,
   });
 
-  const x = useTransform(baseX, (v) => `${wrap(0, -194.5, v)}%`);
+  const x = useTransform(
+    baseX,
+    (v) => `${wrap(0, -1 * (childrenRef?.current ? childrenRef?.current?.getBoundingClientRect().width : 100), v)}px`
+  );
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
@@ -97,7 +101,9 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         />
 
         <motion.div className="flex flex-nowrap" style={{ x }}>
-          <ul className="flex">{children}</ul>
+          <ul ref={childrenRef} className="flex">
+            {children}
+          </ul>
           <ul className="flex">{children}</ul>
         </motion.div>
 
