@@ -11,12 +11,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #bec6d1;
+  background-color: #475569;
   border-radius: 100px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to top, #cbd5e1, white);
+  background: linear-gradient(to top, #020617, #1e293b);
 }
 
 ::selection {

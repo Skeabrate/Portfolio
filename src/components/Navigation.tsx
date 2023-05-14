@@ -148,6 +148,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
     >
       <a
         href="/"
+        aria-label="skeabrate"
         className={cx('w-fit origin-left transition-transform duration-300', scrollY > 10 ? 'scale-75' : 'scale-100')}
         onMouseEnter={differenceMouseAnimationEnter}
         onMouseLeave={differenceMouseAnimationLeave}
