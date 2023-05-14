@@ -45,10 +45,13 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
     },
     difference: {
       ...defaultOptions,
-      transform: 'translate(-50%,-75%)',
+      transform: 'translate(-50%,-55%)',
       mixBlendMode: 'difference',
       transition: {
         ...defaultTransitions,
+        transform: {
+          duration: 0,
+        },
       },
     },
     scaleDown: {
@@ -56,7 +59,6 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
       transform: 'translate(-50%,-75%) scale(0.4)',
       transition: {
         ...defaultTransitions,
-        scale: 0.2,
       },
     },
     disappear: {
@@ -64,7 +66,6 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
       transform: 'translate(-50%,-75%) scale(0)',
       transition: {
         ...defaultTransitions,
-        scale: 0.2,
       },
     },
   };

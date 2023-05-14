@@ -125,7 +125,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
         />
 
         <motion.div
-          onMouseOver={() => setMouseEffect(skillsSliderEffect(currentSkill))}
+          onMouseOver={() => isInView && setMouseEffect(skillsSliderEffect(currentSkill))}
           onMouseLeave={() => setMouseEffect(defaultEffect())}
           className="flex flex-nowrap"
           style={{ x }}
