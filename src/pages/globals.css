@@ -6,17 +6,22 @@ html {
   scroll-padding-top: 8rem;
 }
 
+body {
+  overflow: overlay;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: clamp(0.4rem, 0.6vw, 0.6vw);
+  height: clamp(0.4rem, 0.6vw, 0.6vw);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #475569;
+  background: #475569;
   border-radius: 100px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to top, #020617, #1e293b);
+  background: rgba(0, 0, 0, 0);
 }
 
 ::selection {
