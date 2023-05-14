@@ -11,7 +11,6 @@ const GREETINGS = [
   'Bonjour',
   'Hei',
   '¡Hola!',
-  'Привіт',
   'Cześć!',
 ];
 export const defaultGreering = GREETINGS[GREETINGS.length - 1];
