@@ -1,7 +1,7 @@
 export const ROUTES = {
-  skeabrate: {
+  hero: {
     id: 0,
-    label: 'skeabrate',
+    label: 'Sebastian',
   },
   about: {
     id: 1,

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ROUTES } from 'utils/routes';
 import ScrollButton from 'components/ScrollButton';
 
-const Skeabrate = () => {
+const Hero = () => {
   const elRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: elRef,
@@ -71,4 +71,4 @@ const Skeabrate = () => {
   );
 };
 
-export default Skeabrate;
+export default Hero;

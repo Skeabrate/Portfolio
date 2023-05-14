@@ -18,8 +18,8 @@ export const ActiveSectionContext = React.createContext({} as TActiveSectionCont
 
 function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<TActiveSection>({
-    id: ROUTES.skeabrate.id,
-    label: ROUTES.skeabrate.label,
+    id: ROUTES.hero.id,
+    label: ROUTES.hero.label,
   });
 
   const value = useMemo(

@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="description" content="Skeabrate, Sebastian Świeczkowski portoflio" />
+        <meta name="description" content="Sebastian Świeczkowski portoflio" />
       </Head>
 
       <body className="bg-slate-950">

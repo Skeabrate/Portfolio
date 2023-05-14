@@ -7,7 +7,7 @@ const Error = () => {
   return (
     <>
       <Head>
-        <title>Skeabrate</title>
+        <title>Sebastian Świeczkowski</title>
       </Head>
 
       <motion.nav
