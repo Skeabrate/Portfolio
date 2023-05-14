@@ -150,7 +150,7 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         href="/"
         aria-label="home"
         className={cx(
-          'flex w-fit origin-left items-center justify-center transition-transform duration-300',
+          'ml-[clamp(-0.8rem,-1vw,-1vw)] flex w-fit origin-left items-center justify-center transition-transform duration-300',
           scrollY > 10 ? 'md:scale-75' : 'scale-100'
         )}
         onMouseEnter={differenceMouseAnimationEnter}
