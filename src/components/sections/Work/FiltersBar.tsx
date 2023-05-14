@@ -20,7 +20,7 @@ const FiltersBar = ({
   const { setMouseEffect } = useContext(MouseAnimationContext);
 
   return (
-    <ul className="mb-[clamp(2.4rem,6vw,6vw)] flex flex-wrap gap-[clamp(0.6rem,1.4vw,1.4vw)]">
+    <ul className="mb-[clamp(2.4rem,6vw,6vw)] flex flex-wrap gap-[clamp(0.7rem,1.4vw,1.4vw)]">
       {FILTERS.map((filter, index) => (
         <motion.li
           key={filter}
@@ -38,7 +38,7 @@ const FiltersBar = ({
         >
           <button
             className={cx(
-              'flex h-10 items-center justify-center rounded-full border-[0.1vw] px-3 text-sm transition-all duration-500 sm:h-[clamp(3rem,4vw,4vw)] sm:px-[clamp(2rem,2vw,2vw)] sm:text-default',
+              'flex h-12 items-center justify-center rounded-full border-[0.1vw] px-4 text-sm transition-all duration-500 sm:h-[clamp(3rem,4vw,4vw)] sm:px-[clamp(2rem,2vw,2vw)] sm:text-default',
               isWorkSectionEffectActive ? 'border-teal-400' : 'border-slate-700',
               isWorkSectionEffectActive
                 ? filter === currentFilter
