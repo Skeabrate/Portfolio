@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import {
   motion,
@@ -12,13 +12,51 @@ import {
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
 import { useAnimateWhenInView } from 'hooks/useAnimateWhenInView';
+import { defaultEffect, skillsSliderEffect } from 'hooks/useMouseEffect';
+import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { SkillsQuery } from '../../../../graphql/generated';
 
+const SliderItems = ({
+  skills,
+  setCurrentSkill,
+  isInView,
+}: {
+  skills: SkillsQuery['allSkills'];
+  setCurrentSkill: React.Dispatch<React.SetStateAction<string>>;
+  isInView: boolean;
+}) => {
+  return (
+    <ul className="flex">
+      {skills.map(({ id, title, icon }) => (
+        <li
+          key={id}
+          onMouseEnter={() => setCurrentSkill(title)}
+          className="flex w-14 items-center justify-center p-3 sm:w-[9vw] sm:p-[2vw]"
+        >
+          <Image
+            src={icon.url}
+            height={64}
+            width={64}
+            alt={title}
+            className={cx(
+              'h-full w-full object-contain transition-all duration-1000',
+              isInView ? 'filter-none' : 'grayscale'
+            )}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
+  const [currentSkill, setCurrentSkill] = useState('');
   const [speedVelocity, setSpeedVelocity] = useState(0);
 
+  const { setMouseEffect } = useContext(MouseAnimationContext);
+
   const sliderRef = useRef<HTMLDivElement>(null);
-  const childrenRef = useRef<HTMLUListElement>(null);
+  const childrenRef = useRef<HTMLDivElement>(null);
 
   const { isInView } = useAnimateWhenInView(sliderRef);
 
@@ -51,25 +89,6 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
 
     baseX.set(baseX.get() + moveBy);
   });
-
-  const children = useMemo(
-    () =>
-      skills.map(({ id, title, icon }) => (
-        <li key={id} className="flex w-14 items-center justify-center p-3 sm:w-[9vw] sm:p-[2vw]">
-          <Image
-            src={icon.url}
-            height={64}
-            width={64}
-            alt={title}
-            className={cx(
-              'h-full w-full object-contain transition-all duration-1000',
-              isInView ? 'filter-none' : 'grayscale'
-            )}
-          />
-        </li>
-      )),
-    [skills, isInView]
-  );
 
   useEffect(() => {
     setSpeedVelocity(window.innerWidth * 0.07 < 100 ? 100 : window.innerWidth * 0.07);
@@ -105,11 +124,16 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
           )}
         />
 
-        <motion.div className="flex flex-nowrap" style={{ x }}>
-          <ul ref={childrenRef} className="flex">
-            {children}
-          </ul>
-          <ul className="flex">{children}</ul>
+        <motion.div
+          onMouseOver={() => setMouseEffect(skillsSliderEffect(currentSkill))}
+          onMouseLeave={() => setMouseEffect(defaultEffect())}
+          className="flex flex-nowrap"
+          style={{ x }}
+        >
+          <div ref={childrenRef}>
+            <SliderItems isInView={isInView} skills={skills} setCurrentSkill={setCurrentSkill} />
+          </div>
+          <SliderItems isInView={isInView} skills={skills} setCurrentSkill={setCurrentSkill} />
         </motion.div>
 
         <span className="absolute bottom-0 right-0 h-[0.1vw] w-full bg-slate-700" />

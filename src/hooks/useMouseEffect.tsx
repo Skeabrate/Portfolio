@@ -3,6 +3,7 @@ import ContactMouseEffect from 'components/MouseEffects/ContactMouseEffect';
 import DifferenceMouseEffect from 'components/MouseEffects/DifferenceMouseEffect';
 import FooterMouseEffect from 'components/MouseEffects/FooterMouseEffect';
 import ScrollMouseEffect from 'components/MouseEffects/ScrollMouseEffect';
+import SkillsSliderMouseEffect from 'components/MouseEffects/SkillsSliderMouseEffect';
 import TextLoopMouseEffect from 'components/MouseEffects/TextLoopMouseEffect';
 
 export type TEffectTypes = 'default' | 'difference' | 'disappear' | 'scaleDown';
@@ -75,6 +76,13 @@ export const footerEffect = (): TMouseEffect => ({
   type: 'default',
   bgColor: 'default',
   Component: <FooterMouseEffect />,
+});
+
+export const skillsSliderEffect = (text: string): TMouseEffect => ({
+  key: 'skillsSlider',
+  type: 'default',
+  bgColor: 'default',
+  Component: <SkillsSliderMouseEffect innerTextAnimation={text} />,
 });
 
 export const useMouseEffect = () => {
