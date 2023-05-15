@@ -81,7 +81,7 @@ export const footerEffect = (): TMouseEffect => ({
 export const skillsSliderEffect = (text: string): TMouseEffect => ({
   key: 'skillsSlider',
   type: 'default',
-  bgColor: 'default',
+  bgColor: 'rgb(45,212,191,0.6)',
   Component: <SkillsSliderMouseEffect innerTextAnimation={text} />,
 });
 

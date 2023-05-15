@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { LogoSVG } from 'assets/SVGs';
 import { NAV_ITEMS } from 'utils/routes';
-import { defaultEffect, differenceEffect, scaleDownEffect } from 'hooks/useMouseEffect';
+import { defaultEffect, differenceEffect, loopedTextEffect, scaleDownEffect } from 'hooks/useMouseEffect';
 import { ActiveSectionContext } from 'context/ActiveSectionContext';
 import { MouseAnimationContext } from 'context/MouseAnimationContext';
 import { ScrollContext } from 'context/ScrollContext';
@@ -95,7 +95,11 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
         </li>
       ))}
 
-      <li className="flex w-full">
+      <li
+        className="flex w-full"
+        onMouseEnter={() => setMouseEffect(loopedTextEffect({ text: 'resume' }))}
+        onMouseLeave={() => setMouseEffect(defaultEffect())}
+      >
         <a
           href={resumeSrc}
           target="_blank"

@@ -36,11 +36,11 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             }}
             className="mb-[clamp(0.8rem,2vw,2vw)] lg:mt-[clamp(0.8rem,4vw,4vw)]"
           >
-            Hi, my name is <DecorationText>Sebastian Świeczkowski</DecorationText> and I am a frontend developer. Lorem
-            ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, delectus officiis. Odio quisquam omnis
-            animi, quis repellendus delectus rerum culpa expedita. My main stack is{' '}
-            <DecorationText>React</DecorationText> and <DecorationText>Typescript.</DecorationText> tempore ipsum
-            impedit sint atque nisi, maiores, explicabo et.
+            Hi, my name is <DecorationText>Sebastian Świeczkowski.</DecorationText> I am a final-year Computer Science
+            student and currently I am getting ready to present my engineering thesis. The focus of my thesis is
+            developing a web application using Next.js. Right now I dedicate all my time to programming, specifically
+            building websites and applications within the React ecosystem. I have completed multiple freelance projects
+            for various business clients and I am currently seeking employment as a junior frontend developer.
           </motion.p>
 
           <motion.p
@@ -54,8 +54,9 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             }}
             className="mb-[clamp(0.8rem,2vw,2vw)]"
           >
-            <DecorationText>Besides proggramming</DecorationText> I love sports and guitar! amet consectetur adipisicing
-            elit. Nemo repudiandae voluptates soluta minima eligendi tenetur at voluptas temporibus itaque. Suscipit.
+            <DecorationText>Apart from programming, </DecorationText> {"I'm"} interested in martial arts. I started
+            training when I was 5 years old and since then I got my first DAN in Aikido (black belt) and my first kyu in
+            Karate. In 2023, I will be applying for my karate black belt exam.
           </motion.p>
 
           <motion.div
