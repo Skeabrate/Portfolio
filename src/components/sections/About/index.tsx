@@ -54,9 +54,10 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             }}
             className="mb-[clamp(0.8rem,2vw,2vw)]"
           >
-            <DecorationText>Apart from programming, </DecorationText> {"I'm"} interested in martial arts. I started
-            training when I was 5 years old and since then I got my first DAN in Aikido (black belt) and my first kyu in
-            Karate. In 2023, I will be applying for my karate black belt exam.
+            <DecorationText>Apart from programming, </DecorationText> I have a strong passion for martial arts. I
+            started training when I was 5 years old and since then I achieved first DAN in Aikido, which is equivalent
+            to a black belt, as well as in Karate. Besides martial arts, I love playing the acoustic guitar and
+            maintaining my fitness by regularly working out at the gym.
           </motion.p>
 
           <motion.div
