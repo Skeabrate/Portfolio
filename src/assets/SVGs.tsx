@@ -8,7 +8,7 @@ export const LogoSVG = () => {
     <svg
       width="clamp(3rem,5vw,5vw)"
       height="clamp(2.6rem,4vw,4vw)"
-      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
+      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-1000')}
       viewBox="0 0 80 80"
     >
       <g transform="matrix(1.1705685618729098,0,0,1.1705685618729098,0,32)">
@@ -37,7 +37,7 @@ export const FacebookSVG = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
-      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
+      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-1000')}
       xmlns="http://www.w3.org/2000/svg"
       width="clamp(1.4rem, 1vw, 1vw)"
       height="clamp(1.4rem, 1vw, 1vw)"
@@ -52,7 +52,7 @@ export const InstagramSVG = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
-      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
+      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-1000')}
       xmlns="http://www.w3.org/2000/svg"
       width="clamp(1.4rem, 1vw, 1vw)"
       height="clamp(1.4rem, 1vw, 1vw)"
@@ -67,7 +67,7 @@ export const GmailSVG = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
-      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
+      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-1000')}
       width="clamp(1.4rem, 1vw, 1vw)"
       height="clamp(1.4rem, 1vw, 1vw)"
       xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ export const GithubSVG = ({ isBig }: { isBig?: boolean }) => {
     <svg
       className={cx(
         isWorkSectionEffectActive && !isBig ? 'fill-teal-500' : 'fill-slate-200',
-        'transition-colors duration-700'
+        'transition-colors duration-1000'
       )}
       xmlns="http://www.w3.org/2000/svg"
       width={isBig ? 'clamp(1.4rem, 2vw, 2vw)' : 'clamp(1.4rem, 1vw, 1vw)'}
@@ -102,7 +102,7 @@ export const TwitterSVG = () => {
   const { isWorkSectionEffectActive } = useContext(WorkSectionEffectContext);
   return (
     <svg
-      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-700')}
+      className={cx(isWorkSectionEffectActive ? 'fill-teal-500' : 'fill-slate-300', 'transition-colors duration-1000')}
       xmlns="http://www.w3.org/2000/svg"
       width="clamp(1.4rem, 1vw, 1vw)"
       height="clamp(1.4rem, 1vw, 1vw)"

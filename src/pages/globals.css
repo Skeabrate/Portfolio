@@ -38,7 +38,7 @@ body {
 }
 
 .transition-hamburger {
-  transition: background-color 700ms ease-in-out, transform 300ms ease-in-out;
+  transition: background-color 1000ms ease-in-out, transform 300ms ease-in-out;
 }
 
 .transition-cursor-background {

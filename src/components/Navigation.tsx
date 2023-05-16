@@ -177,19 +177,19 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
           )}
         ></span>
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
           )}
         ></span>
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-700'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
           )}
         ></span>
       </button>

@@ -39,7 +39,7 @@ const FiltersBar = ({
           <button
             className={cx(
               'flex h-12 items-center justify-center rounded-full border-[0.1vw] px-4 text-sm transition-all duration-500 sm:h-[clamp(3rem,4vw,4vw)] sm:px-[clamp(2rem,2vw,2vw)] sm:text-default',
-              isWorkSectionEffectActive ? 'border-teal-400' : 'border-slate-700',
+              isWorkSectionEffectActive ? 'border-teal-400' : 'border-slate-1000',
               isWorkSectionEffectActive
                 ? filter === currentFilter
                   ? 'bg-teal-500 text-slate-950'

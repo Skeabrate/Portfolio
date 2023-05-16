@@ -38,7 +38,7 @@ const Footer = () => {
     <footer
       className={cx(
         isWorkSectionEffectActive ? 'text-teal-400' : 'text-slate-400',
-        'flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest transition-colors duration-700 lg:p-0'
+        'flex flex-col items-center gap-4 pb-6 pt-12 text-center text-footer tracking-widest transition-colors duration-1000 lg:p-0'
       )}
     >
       <div className="static bottom-0 left-0 flex w-[5vw] flex-col items-center gap-[3vw] lg:fixed">
@@ -81,7 +81,7 @@ const Footer = () => {
           }}
           className={cx(
             isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
-            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-700 lg:block'
+            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-1000 lg:block'
           )}
         ></motion.p>
       </div>
@@ -105,13 +105,13 @@ const Footer = () => {
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
-            'absolute left-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-700 lg:block'
+            'absolute left-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-1000 lg:block'
           )}
         ></span>
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
-            'absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-700 lg:block'
+            'absolute right-full top-1/2 hidden h-[0.1vw] w-[3vw] translate-y-1/2 transition-colors duration-1000 lg:block'
           )}
         ></span>
       </motion.p>
@@ -149,7 +149,7 @@ const Footer = () => {
           }}
           className={cx(
             isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-700',
-            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-700 lg:block'
+            'hidden h-[6vw] w-[0.1vw] origin-bottom transition-colors duration-1000 lg:block'
           )}
         ></motion.p>
       </div>

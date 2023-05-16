@@ -36,7 +36,7 @@ const Work = ({ projects }: { projects: ProjectsQuery }) => {
     <>
       <div
         className={cx(
-          'fixed left-0 top-0 h-full w-full bg-gradient-to-b from-slate-950 to-black transition-all duration-700',
+          'fixed left-0 top-0 h-full w-full bg-gradient-to-b from-slate-950 to-black transition-all duration-1000',
           isWorkSectionEffectActive ? 'visible opacity-100' : 'invisible opacity-0'
         )}
       ></div>
