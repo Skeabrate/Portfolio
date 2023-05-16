@@ -70,6 +70,7 @@ const Project = ({
               onMouseLeave={onMouseEnterProject}
               href={githubUrl}
               target="_blank"
+              aria-label="check github"
               rel="noopener noreferrer"
               className="absolute left-[clamp(0.4rem,1vw,1vw)] top-[clamp(0.4rem,1vw,1vw)] z-30 rounded-xl bg-slate-800/60 p-[clamp(1rem,1.6vw,1.6vw)] md:bottom-[clamp(0.4rem,1vw,1vw)] md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-full md:rounded-full md:opacity-0 md:transition-all md:duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100"
             >
