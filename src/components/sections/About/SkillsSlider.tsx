@@ -31,7 +31,7 @@ const SliderItems = ({
         <li
           key={id}
           onMouseEnter={() => setCurrentSkill(title)}
-          className="flex w-14 items-center justify-center p-3 sm:w-[9vw] sm:p-[2vw]"
+          className="flex w-[clamp(3rem,9vw,18rem)] items-center justify-center p-[clamp(0.6rem,2vw,4.6rem)]"
         >
           <Image
             src={icon.url}
@@ -96,7 +96,7 @@ function SkillsSlider({ skills }: { skills: SkillsQuery['allSkills'] }) {
 
   return (
     <>
-      <h3 className="relative mb-[clamp(0.6rem,2vw,2vw)] overflow-hidden text-subHeader">
+      <h3 className="relative mb-[clamp(0.8rem,2vw,4rem)] overflow-hidden text-subHeader">
         <span
           className={cx(
             'absolute bottom-0 left-0 top-0 block text-teal-400 transition-all duration-500',

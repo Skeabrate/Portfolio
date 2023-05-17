@@ -22,13 +22,13 @@ const ResumeButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cx(
-        isNav ? 'h-[clamp(3rem,2.8vw,2.8vw)]' : 'h-[clamp(3rem,4vw,4vw)]',
+        isNav ? 'h-[clamp(3rem,2.8vw,8rem)]' : 'h-[clamp(3rem,4vw,10rem)]',
         'flex items-center justify-center rounded-full border-[0.1vw] border-teal-400 text-teal-400 transition-all duration-300',
         isNav
           ? scrollY > 10
-            ? 'invisible w-[clamp(3rem,2.8vw,2.8vw)]'
-            : 'visible w-[clamp(8rem,8vw,8vw)]'
-          : 'w-fit px-[clamp(2rem,2vw,2vw)]'
+            ? 'invisible w-[clamp(3rem,2.8vw,8rem)]'
+            : 'visible w-[clamp(8rem,8vw,22rem)]'
+          : 'w-fit px-[clamp(2rem,2vw,6rem)]'
       )}
     >
       <span className={cx('transition-opacity duration-[200ms]', scrollY > 10 ? 'opacity-0' : 'opacity-100 delay-75')}>

@@ -17,7 +17,7 @@ const ListNav = () => {
   const { setMouseEffect } = useContext(MouseAnimationContext);
 
   return (
-    <ul className="hidden justify-center gap-[1vw] md:flex">
+    <ul className="hidden justify-center gap-[clamp(1vw,1vw,1rem)] md:flex">
       {NAV_ITEMS.map(({ label }, index) => (
         <motion.li
           onMouseEnter={() => setMouseEffect(scaleDownEffect())}
@@ -37,7 +37,7 @@ const ListNav = () => {
           key={label}
           className="flex"
         >
-          <a href={'#' + label} className="group rounded px-[1vw]">
+          <a href={'#' + label} className="group rounded px-[clamp(1vw,1vw,1rem)]">
             <TransitionLabel label={label} />
           </a>
         </motion.li>
@@ -72,7 +72,7 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
       }}
       transition={{ duration: 0.1 }}
       animate={isNavOpen ? showNav : hideNav}
-      className="absolute right-4 top-full z-40 flex w-[clamp(9rem,10vw,10vw)] origin-top-right flex-col items-start gap-1 overflow-hidden rounded bg-slate-900/50 pt-2 shadow lg:right-[2vw]"
+      className="absolute right-4 top-full z-40 flex w-[clamp(9rem,10vw,34rem)] origin-top-right flex-col items-start gap-1 overflow-hidden rounded bg-slate-900/50 pt-2 shadow lg:right-[2vw]"
     >
       {NAV_ITEMS.map(({ label }) => (
         <li
@@ -84,9 +84,9 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
           <a
             href={'#' + label}
             className={cx(
-              'relative w-full px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)]',
+              'relative w-full px-[clamp(1rem,1vw,3.4rem)] py-[clamp(0.6rem,0.8vw,2.6rem)]',
               label === activeSection.label
-                ? 'text-slate-400/60 after:absolute after:right-3 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
+                ? 'text-slate-400/60 after:absolute after:right-[clamp(1rem,1vw,3.4rem)] after:top-1/2 after:h-[0.3vw] after:w-[0.3vw] after:-translate-y-1/2 after:rounded-full after:bg-slate-400/60'
                 : 'group'
             )}
           >
@@ -104,7 +104,7 @@ const DropdownNav = ({ isNavOpen, resumeSrc }: { isNavOpen: boolean; resumeSrc: 
           href={resumeSrc}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full bg-slate-950 px-[clamp(1rem,1vw,1vw)] py-[clamp(0.6rem,0.8vw,0.8vw)] font-bold text-slate-500"
+          className="w-full bg-slate-950 px-[clamp(1rem,1vw,3.4rem)] py-[clamp(0.6rem,0.8vw,2.6rem)] font-bold text-slate-500"
         >
           Resume
         </a>
@@ -171,25 +171,25 @@ const Navigation = ({ resume }: { resume: ResumeQuery['resume'] }) => {
         className={cx(
           isWorkSectionEffectActive ? 'bg-teal-500' : 'bg-slate-600',
           scrollY > 10 ? 'md:scale-1' : 'md:scale-0',
-          'transition-hamburger absolute right-4 z-10 flex h-[clamp(3rem,2.8vw,2.8vw)] w-[clamp(3rem,2.8vw,2.8vw)] flex-col justify-center gap-[clamp(0.3rem,0.25vw,0.25vw)] rounded-full px-[clamp(0.7rem,0.6vw,0.6vw)] lg:right-[2vw]'
+          'transition-hamburger absolute right-4 z-10 flex h-[clamp(3rem,2.8vw,8rem)] w-[clamp(3rem,2.8vw,8rem)] flex-col justify-center gap-[clamp(0.3rem,0.25vw,0.7rem)] rounded-full px-[clamp(0.7rem,0.6vw,2rem)] lg:right-[2vw]'
         )}
       >
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.4rem)] w-full rounded-full duration-1000'
           )}
         ></span>
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.4rem)] w-full rounded-full duration-1000'
           )}
         ></span>
         <span
           className={cx(
             isWorkSectionEffectActive ? 'bg-black' : 'bg-slate-300',
-            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.1vw)] w-full rounded-full duration-1000'
+            'transition-color pointer-events-none h-[clamp(0.2rem,0.1vw,0.4rem)] w-full rounded-full duration-1000'
           )}
         ></span>
       </button>

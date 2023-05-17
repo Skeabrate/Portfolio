@@ -9,10 +9,10 @@ module.exports = {
         sectionDesktop: 'clamp(10rem, 28vh, 28vh)',
       },
       fontSize: {
-        default: 'clamp(1rem, 1.2vw, 1.2vw)',
-        header: 'clamp(2.5rem, 7.6vw, 7.6vw)',
-        subHeader: 'clamp(1.3rem, 2.6vw, 2.6vw)',
-        footer: 'clamp(0.7rem, 0.7vw, 0.7vw)',
+        default: 'clamp(1rem, 1.2vw, 3rem)',
+        header: 'clamp(2.5rem, 7.6vw, 18rem)',
+        subHeader: 'clamp(1.3rem, 2.6vw, 6rem)',
+        footer: 'clamp(0.7rem, 0.7vw, 1.6rem)',
         error: 'clamp(6rem, 16vw, 16vw)',
       },
       keyframes: {

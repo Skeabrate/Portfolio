@@ -20,7 +20,7 @@ const Header = ({ label, animationState }: { label: React.ReactNode; animationSt
     <header ref={elRef}>
       <h2
         className={cx(
-          'relative mb-[clamp(1.2rem,4vw,4vw)] overflow-hidden border-b-[0.1vw] pb-[clamp(0.6rem,2vw,2vw)] text-header font-medium leading-none tracking-tight transition-all duration-1000',
+          'relative mb-[clamp(1.2rem,4vw,8rem)] overflow-hidden border-b-[0.1vw] pb-[clamp(0.8rem,2vw,5rem)] text-header font-medium leading-none tracking-tight transition-all duration-1000',
           isWorkSectionEffectActive ? 'border-b-teal-500 text-teal-500' : 'border-b-slate-700'
         )}
       >

@@ -16,13 +16,13 @@ const Hero = () => {
   return (
     <>
       <header>
-        <div className="relative mb-[clamp(1.2rem,2vw,2vw)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.6rem,2vw,2vw)]">
+        <div className="relative mb-[clamp(1.2rem,2vw,5rem)] overflow-hidden border-b-[0.1vw] border-b-slate-700 pb-[clamp(0.8rem,2vw,5rem)]">
           <motion.div ref={elRef} style={{ y, opacity }}>
             <motion.p
               initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
               animate={{ opacity: 1, transform: 'translateY(0)' }}
               transition={{ duration: 0.6, delay: 1.1 }}
-              className="mb-[clamp(0.6rem,1.2vw,1.2vw)] font-bold text-teal-400"
+              className="mb-[clamp(0.6rem,1.2vw,3rem)] font-bold text-teal-400"
             >
               Hello, my name is
             </motion.p>
@@ -48,7 +48,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <h2 className="relative mb-[clamp(0.8rem,1.2vw,1.2vw)] text-subHeader leading-tight text-slate-400">
+        <h2 className="relative mb-[clamp(0.8rem,1.2vw,3rem)] text-subHeader leading-tight text-slate-400">
           <motion.span
             initial={{ opacity: 0, transform: 'translateY(-1vw)' }}
             animate={{ opacity: 1, transform: 'translateY(0)' }}

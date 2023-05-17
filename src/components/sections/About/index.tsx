@@ -23,7 +23,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
     <>
       <Header animationState={animationState} label="About me." />
 
-      <div className="mb-[clamp(2rem,8vw,8vw)] grid gap-[clamp(2rem,4vw,4vw)] text-slate-400 md:grid-cols-2">
+      <div className="mb-[clamp(2rem,8vw,12rem)] grid gap-[clamp(2rem,4vw,8rem)] text-slate-400 md:grid-cols-2">
         <article>
           <motion.p
             animate={{
@@ -34,7 +34,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               duration: duration(animationState),
               delay: delay(animationState),
             }}
-            className="mb-[clamp(0.8rem,2vw,2vw)] lg:mt-[clamp(0.8rem,4vw,4vw)]"
+            className="mb-[clamp(0.8rem,2vw,4rem)] lg:mt-[clamp(0.8rem,4vw,4rem)]"
           >
             Hi, my name is <DecorationText>Sebastian Świeczkowski.</DecorationText> I am a final-year Computer Science
             student and currently I am getting ready to present my engineering thesis. The focus of my thesis is
@@ -52,7 +52,7 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
               duration: duration(animationState),
               delay: delay(animationState, 0.1),
             }}
-            className="mb-[clamp(0.8rem,2vw,2vw)]"
+            className="mb-[clamp(0.8rem,2vw,4rem)]"
           >
             <DecorationText>Apart from programming, </DecorationText> I have a strong passion for martial arts. I
             started training when I was 5 years old and since then I achieved first DAN (which is equivalent to a black

@@ -56,7 +56,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={heroRef}
           id={ROUTES.hero.label}
-          className="mx-auto flex h-screen min-h-[50vw] flex-col justify-center py-sectionMobile sm:py-sectionTablet md:py-sectionDesktop"
+          className="mx-auto flex h-screen min-h-[50vw] max-w-[3000px] flex-col justify-center py-sectionMobile sm:py-sectionTablet md:py-sectionDesktop"
         >
           <Hero />
         </section>
@@ -64,7 +64,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={aboutRef}
           id={ROUTES.about.label}
-          className="mx-auto pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
+          className="mx-auto max-w-[3000px] pb-sectionMobile sm:pb-sectionTablet md:pb-sectionDesktop"
         >
           <About skills={skills} />
         </section>
@@ -80,7 +80,7 @@ const Home: NextPage<Props> = ({ projects, skills, resume, contact }) => {
         <section
           ref={contactRef}
           id={ROUTES.contact.label}
-          className="mx-auto pb-sectionMobile sm:max-w-[70vw] sm:pb-sectionTablet md:pb-sectionDesktop lg:max-w-[50vw]"
+          className="mx-auto max-w-[3000px] pb-sectionMobile sm:w-[70vw] sm:pb-sectionTablet md:pb-sectionDesktop lg:w-[50vw]"
         >
           <Contact contact={contact.contact} resume={resume.resume} />
         </section>

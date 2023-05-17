@@ -11,7 +11,7 @@ const ScrollButton = ({ label, href }: { label: string; href: TActiveSection['la
   return (
     <a
       href={'#' + href}
-      className="group relative flex w-fit items-end gap-[clamp(0.4rem,0.8vw,1.2rem)] pb-[0.4vw] font-bold text-teal-400"
+      className="group relative flex w-fit items-end gap-[clamp(0.4rem,0.8vw,1.6rem)] pb-[0.4vw] font-bold text-teal-400"
       onMouseEnter={() => setMouseEffect(scrollEffect())}
       onMouseLeave={() => setMouseEffect(defaultEffect())}
     >

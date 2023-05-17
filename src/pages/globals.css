@@ -11,8 +11,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: clamp(0.6rem, 0.6vw, 0.6vw);
-  height: clamp(0.6rem, 0.6vw, 0.6vw);
+  width: clamp(0.6rem, 0.6vw, 2rem);
+  height: clamp(0.6rem, 0.6vw, 2rem);
 }
 
 ::-webkit-scrollbar-thumb {
