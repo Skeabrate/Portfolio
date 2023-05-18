@@ -36,11 +36,11 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             }}
             className="mb-[clamp(0.8rem,2vw,4rem)] lg:mt-[clamp(0.8rem,4vw,4rem)]"
           >
-            Hi, my name is <DecorationText>Sebastian Świeczkowski.</DecorationText> I am a final-year Computer Science
-            student and currently I am getting ready to present my engineering thesis. The focus of my thesis is
-            developing a web application using Next.js. Right now I dedicate all my time to programming, specifically
+            Hi! My name is <DecorationText> Sebastian Świeczkowski.</DecorationText> I am a final-year Computer Science
+            student and right now I am finishing my engineering thesis, which is focused on the process of web
+            application development with use of Next.js. All my time is dedicated to programming, specifically to
             building websites and applications within the React ecosystem. I have completed multiple freelance projects
-            for various business clients and I am currently seeking employment as a junior frontend developer.
+            for various business clients and currently I am seeking employment as a frontend developer.
           </motion.p>
 
           <motion.p
@@ -54,10 +54,9 @@ const About = ({ skills: { allSkills } }: { skills: SkillsQuery }) => {
             }}
             className="mb-[clamp(0.8rem,2vw,4rem)]"
           >
-            <DecorationText>Apart from programming, </DecorationText> I have a strong passion for martial arts. I
-            started training when I was 5 years old and since then I achieved first DAN (which is equivalent to a black
-            belt) in Aikido as well as in Karate. Besides martial arts, I love playing the acoustic guitar and
-            maintaining my fitness by regularly working out at the gym.
+            <DecorationText>Apart from programming,</DecorationText> my big passion is martial arts. I started training
+            when I was 5 years old and since then I have reached first DAN (which is equivalent to a black belt) in
+            Aikido, as well as in Karate. I also love playing fingerstyle guitar and strength training at the gym.
           </motion.p>
 
           <motion.div
