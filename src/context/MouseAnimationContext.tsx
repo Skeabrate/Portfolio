@@ -76,7 +76,7 @@ const MouseAnimationProvider = ({ children }: { children: React.ReactNode }) => 
         <motion.div
           variants={variants}
           animate={mouseEffect.type}
-          className="transition-cursor-background pointer-events-none fixed z-40 flex h-fit min-h-[1vw] w-fit min-w-[1vw] origin-center -translate-x-1/2 -translate-y-3/4 items-center justify-center rounded-full"
+          className="transition-cursor-background pointer-events-none fixed z-40 flex h-fit min-h-[0.8vw] w-fit min-w-[0.8vw] origin-center -translate-x-1/2 -translate-y-3/4 items-center justify-center rounded-full"
           style={{
             background: mouseEffect.bgColor === 'default' ? '#2dd4bf' : mouseEffect.bgColor,
           }}
